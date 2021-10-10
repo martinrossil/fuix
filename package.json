@@ -1,0 +1,39 @@
+{
+  "name": "fuix",
+  "version": "0.0.1",
+  "description": "Typescript web component framework for building high performant web applications.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinrossil/fuix.git"
+  },
+  "keywords": [
+    "Typescript",
+    "Webcomponents",
+    "RIA",
+    "SPA",
+    "PWA"
+  ],
+  "author": "Martin Rossil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/martinrossil/fuix/issues"
+  },
+  "homepage": "https://github.com/martinrossil/fuix#readme",
+  "devDependencies": {
+    "rollup": "^2.58.0",
+    "rollup-plugin-summary": "^1.3.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.4.3"
+  }
+}
