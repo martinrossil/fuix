@@ -2,3 +2,4 @@ development/
 dist/
 node_modules/
 public/
+coverage/

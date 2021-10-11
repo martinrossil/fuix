@@ -10,7 +10,7 @@
     "src"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start",
     "build": "rollup -c"
   },
   "repository": {
@@ -31,9 +31,37 @@
   },
   "homepage": "https://github.com/martinrossil/fuix#readme",
   "devDependencies": {
-    "rollup": "^2.58.0",
+    "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-strip": "^2.0.0",
+    "@types/chai": "4.2.14",
+    "@types/mocha": "8.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "chai": "4.2.0",
+    "eslint": "^7.21.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "karma": "^6.3.4",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "3.1.0",
+    "karma-coverage": "2.0.3",
+    "karma-coverage-istanbul-reporter": "3.0.3",
+    "karma-mocha": "2.0.1",
+    "karma-spec-reporter": "0.0.32",
+    "karma-typescript": "^5.5.1",
+    "live-server": "^1.1.0",
+    "mocha": "^6.2.3",
+    "rollup": "^2.41.1",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-summary": "^1.3.0",
     "rollup-plugin-typescript2": "^0.30.0",
-    "typescript": "^4.4.3"
+    "typescript": "4.0.3"
   }
 }
