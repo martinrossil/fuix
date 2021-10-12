@@ -1,6 +1,7 @@
+import BaseElement from './BaseElement';
 import PositionElementInterface from './PositionElementInterface';
 
-export default class PositionElement extends HTMLElement implements PositionElementInterface {
+export default class PositionElement extends BaseElement implements PositionElementInterface {
     public constructor() {
         super();
     }
