@@ -1,7 +1,22 @@
+import { Position } from '../consts/Position';
+import { PositionType } from '../types/PositionType';
 import BaseElement from './BaseElement';
-import PositionElementInterface from './PositionElementInterface';
+import IPositionElement from './IPositionElement';
 
-export default class PositionElement extends BaseElement implements PositionElementInterface {
+export default class PositionElement extends BaseElement implements IPositionElement {
+    private _position: PositionType = Position.DEFAULT;
+    set position(value: PositionType) {
+        if (this._position === value) {
+            return;
+        }
+        this._position = value;
+        this.style.position = value;
+    }
+
+    get position(): PositionType {
+        return this._position;
+    }
+
     private _left = NaN;
     set left(value: number) {
         if (isNaN(this._left) && isNaN(value)) {
