@@ -1,5 +1,5 @@
 development/
-dist/
+lib/
 node_modules/
 public/
 coverage/

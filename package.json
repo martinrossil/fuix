@@ -2,11 +2,11 @@
   "name": "fuix",
   "version": "0.0.1",
   "description": "Typescript web component framework for building high performant web applications.",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "dist",
+    "lib",
     "src"
   ],
   "scripts": {
