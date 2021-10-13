@@ -12,6 +12,7 @@
   "scripts": {
     "lint": "eslint src/**/*",
     "test": "karma start",
+    "test:watch": "karma start --no-single-run",
     "build": "rollup -c"
   },
   "repository": {
