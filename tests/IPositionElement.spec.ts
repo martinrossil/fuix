@@ -1,15 +1,13 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import PositionElement from '../src/core/PositionElement';
-import IPositionElement from '../src/core/IPositionElement';
-import { Position } from '../src/consts/Position';
+import { PositionElement, IPositionElement, Position } from '../src/index';
 const random: number = Math.ceil(-100 + Math.random() * 200);
 
 describe('IPositionElement interface', () => {
     describe('default values', () => {
-        it('position should be Position.DEFAULT', () => {
+        it('position should be Position.STATIC', () => {
             const positionElement: IPositionElement = new PositionElement();
-            assert.strictEqual(positionElement.position, Position.DEFAULT);
+            assert.strictEqual(positionElement.position, Position.STATIC);
         });
         it('left should be NaN', () => {
             const positionElement: IPositionElement = new PositionElement();
@@ -29,9 +27,9 @@ describe('IPositionElement interface', () => {
         });
     });
     describe('default styles', () => {
-        it('style.position should be Position.DEFAULT', () => {
+        it('style.position should be ""', () => {
             const positionElement: PositionElement = new PositionElement();
-            assert.strictEqual(positionElement.style.position, Position.DEFAULT);
+            assert.strictEqual(positionElement.style.position, '');
         });
         it('style.left should be ""', () => {
             const positionElement: PositionElement = new PositionElement();
@@ -51,17 +49,17 @@ describe('IPositionElement interface', () => {
         });
     });
     describe('position property', () => {
-        it('given position is Position.DEFAULT, when position = Position.DEFAULT, position should be Position.DEFAULT', () => {
+        it('given position is Position.STATIC, when position = Position.STATIC, position should be Position.STATIC', () => {
             const positionElement: IPositionElement = new PositionElement();
-            positionElement.position = Position.DEFAULT;
-            assert.strictEqual(positionElement.position, Position.DEFAULT);
+            positionElement.position = Position.STATIC;
+            assert.strictEqual(positionElement.position, Position.STATIC);
         });
-        it('given position is Position.DEFAULT, when position = Position.ABSOLUTE, position should be Position.ABSOLUTE', () => {
+        it('given position is Position.STATIC, when position = Position.ABSOLUTE, position should be Position.ABSOLUTE', () => {
             const positionElement: IPositionElement = new PositionElement();
             positionElement.position = Position.ABSOLUTE;
             assert.strictEqual(positionElement.position, Position.ABSOLUTE);
         });
-        it('given position is Position.DEFAULT, when position = Position.ABSOLUTE, style.position should be Position.ABSOLUTE', () => {
+        it('given position is Position.STATIC, when position = Position.ABSOLUTE, style.position should be Position.ABSOLUTE', () => {
             const positionElement: PositionElement = new PositionElement();
             positionElement.position = Position.ABSOLUTE;
             assert.strictEqual(positionElement.style.position, Position.ABSOLUTE);
@@ -89,6 +87,12 @@ describe('IPositionElement interface', () => {
             positionElement.left = random;
             assert.strictEqual(positionElement.style.left, random + 'px');
         });
+        it('given left is ' + random + ', when left = NaN, positionElement.style.left should be ""', () => {
+            const positionElement: PositionElement = new PositionElement();
+            positionElement.left = random;
+            positionElement.left = NaN;
+            assert.strictEqual(positionElement.style.left, '');
+        });
     });
     describe('top property', () => {
         it('given top is NaN, when top = NaN, top should be NaN', () => {
@@ -111,6 +115,12 @@ describe('IPositionElement interface', () => {
             const positionElement: PositionElement = new PositionElement();
             positionElement.top = random;
             assert.strictEqual(positionElement.style.top, random + 'px');
+        });
+        it('given top is ' + random + ', when top = NaN, positionElement.style.top should be ""', () => {
+            const positionElement: PositionElement = new PositionElement();
+            positionElement.top = random;
+            positionElement.top = NaN;
+            assert.strictEqual(positionElement.style.top, '');
         });
     });
     describe('right property', () => {
@@ -135,6 +145,12 @@ describe('IPositionElement interface', () => {
             positionElement.right = random;
             assert.strictEqual(positionElement.style.right, random + 'px');
         });
+        it('given right is ' + random + ', when right = NaN, positionElement.style.right should be ""', () => {
+            const positionElement: PositionElement = new PositionElement();
+            positionElement.right = random;
+            positionElement.right = NaN;
+            assert.strictEqual(positionElement.style.right, '');
+        });
     });
     describe('bottom property', () => {
         it('given bottom is NaN, when bottom = NaN, bottom should be NaN', () => {
@@ -157,6 +173,12 @@ describe('IPositionElement interface', () => {
             const positionElement: PositionElement = new PositionElement();
             positionElement.bottom = random;
             assert.strictEqual(positionElement.style.bottom, random + 'px');
+        });
+        it('given bottom is ' + random + ', when bottom = NaN, positionElement.style.bottom should be ""', () => {
+            const positionElement: PositionElement = new PositionElement();
+            positionElement.bottom = random;
+            positionElement.bottom = NaN;
+            assert.strictEqual(positionElement.style.bottom, '');
         });
     });
 });

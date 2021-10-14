@@ -1,10 +1,9 @@
 import { Position } from '../consts/Position';
 import { PositionType } from '../types/PositionType';
-import BaseElement from './BaseElement';
 import IPositionElement from './IPositionElement';
 
-export default class PositionElement extends BaseElement implements IPositionElement {
-    private _position: PositionType = Position.DEFAULT;
+export default class PositionElement extends HTMLElement implements IPositionElement {
+    private _position: PositionType = Position.STATIC;
     set position(value: PositionType) {
         if (this._position === value) {
             return;
@@ -26,7 +25,11 @@ export default class PositionElement extends BaseElement implements IPositionEle
             return;
         }
         this._left = value;
-        this.style.left = value + 'px';
+        if (!isNaN(value)) {
+            this.style.left = value + 'px';
+            return;
+        }
+        this.style.left = '';
     }
 
     get left(): number {
@@ -42,7 +45,11 @@ export default class PositionElement extends BaseElement implements IPositionEle
             return;
         }
         this._top = value;
-        this.style.top = value + 'px';
+        if (!isNaN(value)) {
+            this.style.top = value + 'px';
+            return;
+        }
+        this.style.top = '';
     }
 
     get top(): number {
@@ -58,7 +65,11 @@ export default class PositionElement extends BaseElement implements IPositionEle
             return;
         }
         this._right = value;
-        this.style.right = value + 'px';
+        if (!isNaN(value)) {
+            this.style.right = value + 'px';
+            return;
+        }
+        this.style.right = '';
     }
 
     get right(): number {
@@ -74,7 +85,11 @@ export default class PositionElement extends BaseElement implements IPositionEle
             return;
         }
         this._bottom = value;
-        this.style.bottom = value + 'px';
+        if (!isNaN(value)) {
+            this.style.bottom = value + 'px';
+            return;
+        }
+        this.style.bottom = '';
     }
 
     get bottom(): number {
