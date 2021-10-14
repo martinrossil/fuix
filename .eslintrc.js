@@ -8,7 +8,10 @@ module.exports = {
     env: {
         browser: true // makes HTMLElement and customElements NOT no-undef
     },
-    plugins: ['@typescript-eslint'],
+    plugins: [
+        '@typescript-eslint',
+        'eslint-plugin-tsdoc'
+    ],
     extends: [
         'plugin:@typescript-eslint/recommended',
         'standard'
@@ -21,6 +24,7 @@ module.exports = {
         'prefer-spread': 'off',
         'no-useless-call': 'off',
         'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': 'off'
+        '@typescript-eslint/no-unused-vars': 'off',
+        'tsdoc/syntax': 'warn'
     }
 }
