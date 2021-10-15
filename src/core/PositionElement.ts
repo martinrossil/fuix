@@ -12,18 +12,17 @@ export default class PositionElement extends HTMLElement implements IPositionEle
         this.style.position = value;
     }
 
+    /**
+     * The position CSS property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
+     */
     get position(): PositionType {
         return this._position;
     }
 
     private _left = NaN;
     set left(value: number) {
-        if (isNaN(this._left) && isNaN(value)) {
-            return;
-        }
-        if (this._left === value) {
-            return;
-        }
         this._left = value;
         if (!isNaN(value)) {
             this.style.left = value + 'px';
@@ -32,18 +31,17 @@ export default class PositionElement extends HTMLElement implements IPositionEle
         this.style.left = '';
     }
 
+    /**
+     * The left CSS property participates in specifying the horizontal position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/left} for syntax
+     */
     get left(): number {
         return this._left;
     }
 
     private _top = NaN;
     set top(value: number) {
-        if (isNaN(this._top) && isNaN(value)) {
-            return;
-        }
-        if (this._top === value) {
-            return;
-        }
         this._top = value;
         if (!isNaN(value)) {
             this.style.top = value + 'px';
@@ -52,18 +50,17 @@ export default class PositionElement extends HTMLElement implements IPositionEle
         this.style.top = '';
     }
 
+    /**
+     * The top CSS property participates in specifying the vertical position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/top} for syntax
+     */
     get top(): number {
         return this._top;
     }
 
     private _right = NaN;
     set right(value: number) {
-        if (isNaN(this._right) && isNaN(value)) {
-            return;
-        }
-        if (this._right === value) {
-            return;
-        }
         this._right = value;
         if (!isNaN(value)) {
             this.style.right = value + 'px';
@@ -72,18 +69,17 @@ export default class PositionElement extends HTMLElement implements IPositionEle
         this.style.right = '';
     }
 
+    /**
+     * The right CSS property participates in specifying the horizontal position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/right} for syntax
+     */
     get right(): number {
         return this._right;
     }
 
     private _bottom = NaN;
     set bottom(value: number) {
-        if (isNaN(this._bottom) && isNaN(value)) {
-            return;
-        }
-        if (this._bottom === value) {
-            return;
-        }
         this._bottom = value;
         if (!isNaN(value)) {
             this.style.bottom = value + 'px';
@@ -92,6 +88,11 @@ export default class PositionElement extends HTMLElement implements IPositionEle
         this.style.bottom = '';
     }
 
+    /**
+     * The bottom CSS property participates in setting the vertical position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/bottom} for syntax
+     */
     get bottom(): number {
         return this._bottom;
     }
