@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import { PositionElement, IPositionElement, Position } from '../src/index';
+import { PositionElement, IPositionElement, Position } from '../src';
 const random: number = Math.ceil(-100 + Math.random() * 200);
 
 describe('IPositionElement interface', () => {
