@@ -30,7 +30,7 @@ export default class SizeElement extends PositionElement implements ISizeElement
      * Sets the width.
      * @param width - width in pixels from 0 to Infinity or NaN
      */
-     setWidth(width: number): ISizeElement {
+     public setWidth(width: number): ISizeElement {
          this.width = width;
          return this;
      }
@@ -39,7 +39,7 @@ export default class SizeElement extends PositionElement implements ISizeElement
       * Sets the height.
       * @param height - height in pixels from 0 to Infinity or NaN
       */
-      setHeight(height: number): ISizeElement {
+      public setHeight(height: number): ISizeElement {
           this.height = height;
           return this;
       }
@@ -48,7 +48,7 @@ export default class SizeElement extends PositionElement implements ISizeElement
        * Sets the widthPercent.
        * @param widthPercent - widthPercent from 0 to Infinity or NaN
        */
-      setWidthPercent(widthPercent: number): ISizeElement {
+      public setWidthPercent(widthPercent: number): ISizeElement {
           this.widthPercent = widthPercent;
           return this;
       }
@@ -57,7 +57,7 @@ export default class SizeElement extends PositionElement implements ISizeElement
        * Sets the heightPercent.
        * @param heightPercent - heightPercent from 0 to Infinity or NaN
        */
-      setHeightPercent(heightPercent: number): ISizeElement {
+      public setHeightPercent(heightPercent: number): ISizeElement {
           this.heightPercent = heightPercent;
           return this;
       }
@@ -67,6 +67,7 @@ export default class SizeElement extends PositionElement implements ISizeElement
     set width(value: number) {
         if (value < 0) {
             this._width = 0;
+            this.style.width = '0px';
             return;
         }
         this._width = value;
@@ -91,6 +92,7 @@ export default class SizeElement extends PositionElement implements ISizeElement
     set height(value: number) {
         if (value < 0) {
             this._height = 0;
+            this.style.height = '0px';
             return;
         }
         this._height = value;
@@ -156,6 +158,110 @@ export default class SizeElement extends PositionElement implements ISizeElement
      */
     get heightPercent(): number {
         return this._heightPercent;
+    }
+
+    private _minWidth = NaN;
+
+    public set minWidth(value: number) {
+        if (value < 0) {
+            this._minWidth = 0;
+            this.style.minWidth = '0px';
+            return;
+        }
+        if (!isNaN(value)) {
+            this._minWidth = value;
+            this.style.minWidth = value + 'px';
+            return;
+        }
+        this.style.minWidth = '';
+    }
+
+    /**
+     * The min-width CSS property sets the minimum width of an element. It prevents the used value of the width property from becoming smaller than the value specified for min-width.
+     * The element's width is set to the value of min-width whenever min-width is larger than max-width or width.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/min-width} for syntax
+     */
+    public get minWidth(): number {
+        return this._minWidth;
+    }
+
+    private _maxWidth = NaN;
+
+    public set maxWidth(value: number) {
+        if (value < 0) {
+            this._maxWidth = 0;
+            this.style.maxWidth = '0px';
+            return;
+        }
+        if (!isNaN(value)) {
+            this._maxWidth = value;
+            this.style.maxWidth = value + 'px';
+            return;
+        }
+        this.style.maxWidth = '';
+    }
+
+    /**
+     * The max-width CSS property sets the maximum width of an element. It prevents the used value of the width property from becoming larger than the value specified by max-width.
+     * max-width overrides width, but min-width overrides max-width.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/max-width} for syntax
+     */
+    public get maxWidth(): number {
+        return this._maxWidth;
+    }
+
+    private _minHeight = NaN;
+
+    public set minHeight(value: number) {
+        if (value < 0) {
+            this._minHeight = 0;
+            this.style.minHeight = '0px';
+            return;
+        }
+        if (!isNaN(value)) {
+            this._minHeight = value;
+            this.style.minHeight = value + 'px';
+            return;
+        }
+        this.style.minHeight = '';
+    }
+
+    /**
+     * The min-height CSS property sets the minimum height of an element. It prevents the used value of the height property from becoming smaller than the value specified for min-height.
+     * The element's height is set to the value of min-height whenever min-height is larger than max-height or height.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/min-height} for syntax
+     */
+    public get minHeight(): number {
+        return this._minHeight;
+    }
+
+    private _maxHeight = NaN;
+
+    public set maxHeight(value: number) {
+        if (value < 0) {
+            this._maxHeight = 0;
+            this.style.maxHeight = '0px';
+            return;
+        }
+        if (!isNaN(value)) {
+            this._maxHeight = value;
+            this.style.maxHeight = value + 'px';
+            return;
+        }
+        this.style.maxHeight = '';
+    }
+
+    /**
+     * The max-height CSS property sets the maximum height of an element. It prevents the used value of the height property from becoming larger than the value specified for max-height.
+     * max-height overrides height, but min-height overrides max-height.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/max-height} for syntax
+     */
+    public get maxHeight(): number {
+        return this._maxHeight;
     }
 }
 customElements.define('size-element', SizeElement);
