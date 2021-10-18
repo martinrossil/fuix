@@ -3,7 +3,6 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
  */
-
 export const enum Position {
     /**
      * The element is positioned according to the normal flow of the document. The top, right, bottom, left, and z-index properties have no effect. This is the default value.
