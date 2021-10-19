@@ -1,4 +1,5 @@
 export { Display } from './consts/Display';
+export { Overflow } from './consts/Overflow';
 export { Position } from './consts/Position';
 
 export { default as DisplayElement } from './core/DisplayElement';
@@ -9,4 +10,5 @@ export { default as PositionElement } from './core/PositionElement';
 export { default as SizeElement } from './core/SizeElement';
 
 export { DisplayType } from './types/DisplayType';
+export { OverflowType } from './types/OverflowType';
 export { PositionType } from './types/PositionType';
