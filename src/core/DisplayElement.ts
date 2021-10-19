@@ -1,5 +1,7 @@
 import { Display } from '..';
+import { Overflow } from '../consts/Overflow';
 import { DisplayType } from '../types/DisplayType';
+import { OverflowType } from '../types/OverflowType';
 import IDisplayElement from './IDisplayElement';
 import SizeElement from './SizeElement';
 
@@ -21,6 +23,24 @@ export default class DisplayElement extends SizeElement implements IDisplayEleme
      */
     public get display(): DisplayType {
         return this._display;
+    }
+
+    private _overflow: OverflowType = Overflow.VISIBLE;
+    public set overflow(value: OverflowType) {
+        if (this._overflow === value) {
+            return;
+        }
+        this._overflow = value;
+        this.style.overflow = value;
+    }
+
+    /**
+     * The overflow CSS shorthand property sets the desired behavior for an element's overflow — i.e. when an element's content is too big to fit in its block formatting context — in both directions.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
+     */
+    public get overflow(): OverflowType {
+        return this._overflow;
     }
 }
 customElements.define('display-element', DisplayElement);
