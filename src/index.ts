@@ -2,7 +2,9 @@ export { Display } from './consts/Display';
 export { Overflow } from './consts/Overflow';
 export { Position } from './consts/Position';
 
+export { default as DisplayContainer } from './core/DisplayContainer';
 export { default as DisplayElement } from './core/DisplayElement';
+export { default as IDisplayContainer } from './core/IDisplayContainer';
 export { default as IDisplayElement } from './core/IDisplayElement';
 export { default as IPositionElement } from './core/IPositionElement';
 export { default as ISizeElement } from './core/ISizeElement';
