@@ -17,4 +17,11 @@ export default interface IDisplayElement extends ISizeElement {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
      */
     overflow: OverflowType;
+
+    /**
+     * The border-radius CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius} for syntax
+     */
+    borderRadius: number;
 }

@@ -42,5 +42,25 @@ export default class DisplayElement extends SizeElement implements IDisplayEleme
     public get overflow(): OverflowType {
         return this._overflow;
     }
+
+    private _borderRadius = 0;
+    public set borderRadius(value: number) {
+        if (isNaN(value) || value < 0) {
+            this._borderRadius = 0;
+            this.style.borderRadius = '0px';
+            return;
+        }
+        this._borderRadius = value;
+        this.style.borderRadius = value + 'px';
+    }
+
+    /**
+     * The border-radius CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius} for syntax
+     */
+    public get borderRadius(): number {
+        return this._borderRadius;
+    }
 }
 customElements.define('display-element', DisplayElement);
