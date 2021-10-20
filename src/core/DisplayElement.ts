@@ -1,4 +1,4 @@
-import { Display } from '..';
+import { Display } from '../consts/Display';
 import { Overflow } from '../consts/Overflow';
 import { DisplayType } from '../types/DisplayType';
 import { OverflowType } from '../types/OverflowType';
@@ -45,9 +45,9 @@ export default class DisplayElement extends SizeElement implements IDisplayEleme
 
     private _borderRadius = 0;
     public set borderRadius(value: number) {
-        if (isNaN(value) || value < 0) {
+        if (isNaN(value) || value <= 0) {
             this._borderRadius = 0;
-            this.style.borderRadius = '0px';
+            this.style.borderRadius = '';
             return;
         }
         this._borderRadius = value;
