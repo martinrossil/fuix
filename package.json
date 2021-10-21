@@ -10,6 +10,7 @@
     "src"
   ],
   "scripts": {
+    "dev": "rollup -c rollup.development.js --watch",
     "lint": "eslint src/**/*",
     "test": "karma start",
     "test:watch": "karma start --no-single-run",
