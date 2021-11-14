@@ -1,6 +1,7 @@
 import DisplayContainer from './DisplayContainer';
+import IApplicationElement from './IApplicationElement';
 
-export default class ApplicationElement extends DisplayContainer {
+export default class ApplicationElement extends DisplayContainer implements IApplicationElement {
     public constructor() {
         super();
         this.injectGlobalStyles();
@@ -21,6 +22,30 @@ export default class ApplicationElement extends DisplayContainer {
         const style: HTMLStyleElement = document.createElement('style');
         style.innerHTML = innerHTMLString;
         document.head.appendChild(style);
+    }
+
+    public set bodyBackgroundColor(value: string) {
+        document.body.style.backgroundColor = value;
+    }
+
+    public get bodyBackgroundColor(): string {
+        return document.body.style.backgroundColor;
+    }
+
+    public set bodyColor(value: string) {
+        document.body.style.color = value;
+    }
+
+    public get bodyColor(): string {
+        return document.body.style.color;
+    }
+
+    public set bodyFontFamily(value: string) {
+        document.body.style.fontFamily = value;
+    }
+
+    public get bodyFontFamily(): string {
+        return document.body.style.fontFamily;
     }
 }
 customElements.define('application-element', ApplicationElement);
