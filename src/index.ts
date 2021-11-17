@@ -2,7 +2,7 @@ export { Display } from './consts/Display';
 export { Overflow } from './consts/Overflow';
 export { Position } from './consts/Position';
 
-export { default as AppliationElement } from './core/ApplicationElement';
+export { default as ApplicationElement } from './core/ApplicationElement';
 export { default as DisplayContainer } from './core/DisplayContainer';
 export { default as DisplayElement } from './core/DisplayElement';
 export { default as IAppliationElement } from './core/IApplicationElement';
