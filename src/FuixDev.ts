@@ -1,6 +1,6 @@
-import ApplicationElement from './core/ApplicationElement';
+import Application from './core/Application';
 
-export default class FuixDev extends ApplicationElement {
+export default class FuixDev extends Application {
     public constructor() {
         super();
         console.log('FuixDev');

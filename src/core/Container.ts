@@ -1,7 +1,7 @@
-import DisplayElement from './DisplayElement';
-import IDisplayContainer from './IDisplayContainer';
+import Component from './Component';
+import IContainer from './IContainer';
 
-export default class DisplayContainer extends DisplayElement implements IDisplayContainer {
+export default class Container extends Component implements IContainer {
     private _padding = 0;
     public set padding(value: number) {
         if (isNaN(value) || value <= 0) {
@@ -22,4 +22,4 @@ export default class DisplayContainer extends DisplayElement implements IDisplay
         return this._padding;
     }
 }
-customElements.define('display-container', DisplayContainer);
+customElements.define('fx-container', Container);

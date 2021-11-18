@@ -1,14 +1,19 @@
-import PositionElement from './PositionElement';
-import ISizeElement from './ISizeElement';
+import { PositionType } from '../types/PositionType';
+import { Position } from '../consts/Position';
+import { Display } from '../consts/Display';
+import { Overflow } from '../consts/Overflow';
+import { DisplayType } from '../types/DisplayType';
+import { OverflowType } from '../types/OverflowType';
+import IComponent from './IComponent';
 
-export default class SizeElement extends PositionElement implements ISizeElement {
+export default class Component extends HTMLElement implements IComponent {
     /**
      * Sets the width and height.
      * @param width - width in pixels or NaN
      * @param height - height in pixels or NaN
      * @returns the element
      */
-    public setSize(width: number, height: number): ISizeElement {
+     public setSize(width: number, height: number): IComponent {
         this.width = width;
         this.height = height;
         return this;
@@ -20,7 +25,7 @@ export default class SizeElement extends PositionElement implements ISizeElement
      * @param heightPercent - heightPercent from 0 to Infinity
      * @returns the element
      */
-    public setSizePercent(widthPercent: number, heightPercent: number): ISizeElement {
+    public setSizePercent(widthPercent: number, heightPercent: number): IComponent {
         this.widthPercent = widthPercent;
         this.heightPercent = heightPercent;
         return this;
@@ -30,37 +35,37 @@ export default class SizeElement extends PositionElement implements ISizeElement
      * Sets the width.
      * @param width - width in pixels from 0 to Infinity or NaN
      */
-     public setWidth(width: number): ISizeElement {
-         this.width = width;
-         return this;
-     }
+    public setWidth(width: number): IComponent {
+        this.width = width;
+        return this;
+    }
 
-     /**
-      * Sets the height.
-      * @param height - height in pixels from 0 to Infinity or NaN
-      */
-      public setHeight(height: number): ISizeElement {
-          this.height = height;
-          return this;
-      }
+    /**
+     * Sets the height.
+     * @param height - height in pixels from 0 to Infinity or NaN
+     */
+    public setHeight(height: number): IComponent {
+        this.height = height;
+        return this;
+    }
 
-      /**
-       * Sets the widthPercent.
-       * @param widthPercent - widthPercent from 0 to Infinity or NaN
-       */
-      public setWidthPercent(widthPercent: number): ISizeElement {
-          this.widthPercent = widthPercent;
-          return this;
-      }
+    /**
+     * Sets the widthPercent.
+     * @param widthPercent - widthPercent from 0 to Infinity or NaN
+     */
+    public setWidthPercent(widthPercent: number): IComponent {
+        this.widthPercent = widthPercent;
+        return this;
+    }
 
-      /**
-       * Sets the heightPercent.
-       * @param heightPercent - heightPercent from 0 to Infinity or NaN
-       */
-      public setHeightPercent(heightPercent: number): ISizeElement {
-          this.heightPercent = heightPercent;
-          return this;
-      }
+    /**
+     * Sets the heightPercent.
+     * @param heightPercent - heightPercent from 0 to Infinity or NaN
+     */
+    public setHeightPercent(heightPercent: number): IComponent {
+        this.heightPercent = heightPercent;
+        return this;
+    }
 
     private _width = NaN;
 
@@ -263,5 +268,156 @@ export default class SizeElement extends PositionElement implements ISizeElement
     public get maxHeight(): number {
         return this._maxHeight;
     }
+
+    private _display: DisplayType = Display.INLINE;
+    public set display(value: DisplayType) {
+        if (this._display === value) {
+            return;
+        }
+        this._display = value;
+        this.style.display = value;
+    }
+
+    /**
+     * The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.
+     * Formally, the display property sets an element's inner and outer display types. The outer type sets an element's participation in flow layout; the inner type sets the layout of children. Some values of display are fully defined in their own individual specifications; for example the detail of what happens when display: flex is declared is defined in the CSS Flexible Box Model specification.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} for syntax
+     */
+    public get display(): DisplayType {
+        return this._display;
+    }
+
+    private _overflow: OverflowType = Overflow.VISIBLE;
+    public set overflow(value: OverflowType) {
+        if (this._overflow === value) {
+            return;
+        }
+        this._overflow = value;
+        this.style.overflow = value;
+    }
+
+    /**
+     * The overflow CSS shorthand property sets the desired behavior for an element's overflow — i.e. when an element's content is too big to fit in its block formatting context — in both directions.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
+     */
+    public get overflow(): OverflowType {
+        return this._overflow;
+    }
+
+    private _borderRadius = 0;
+    public set borderRadius(value: number) {
+        if (isNaN(value) || value <= 0) {
+            this._borderRadius = 0;
+            this.style.borderRadius = '';
+            return;
+        }
+        this._borderRadius = value;
+        this.style.borderRadius = value + 'px';
+    }
+
+    /**
+     * The border-radius CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius} for syntax
+     */
+    public get borderRadius(): number {
+        return this._borderRadius;
+    }
+
+    private _position: PositionType = Position.STATIC;
+    set position(value: PositionType) {
+        if (this._position === value) {
+            return;
+        }
+        this._position = value;
+        this.style.position = value;
+    }
+
+    /**
+     * The position CSS property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
+     */
+    get position(): PositionType {
+        return this._position;
+    }
+
+    private _left = NaN;
+    set left(value: number) {
+        this._left = value;
+        if (!isNaN(value)) {
+            this.style.left = value + 'px';
+            return;
+        }
+        this.style.left = '';
+    }
+
+    /**
+     * The left CSS property participates in specifying the horizontal position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/left} for syntax
+     */
+    get left(): number {
+        return this._left;
+    }
+
+    private _top = NaN;
+    set top(value: number) {
+        this._top = value;
+        if (!isNaN(value)) {
+            this.style.top = value + 'px';
+            return;
+        }
+        this.style.top = '';
+    }
+
+    /**
+     * The top CSS property participates in specifying the vertical position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/top} for syntax
+     */
+    get top(): number {
+        return this._top;
+    }
+
+    private _right = NaN;
+    set right(value: number) {
+        this._right = value;
+        if (!isNaN(value)) {
+            this.style.right = value + 'px';
+            return;
+        }
+        this.style.right = '';
+    }
+
+    /**
+     * The right CSS property participates in specifying the horizontal position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/right} for syntax
+     */
+    get right(): number {
+        return this._right;
+    }
+
+    private _bottom = NaN;
+    set bottom(value: number) {
+        this._bottom = value;
+        if (!isNaN(value)) {
+            this.style.bottom = value + 'px';
+            return;
+        }
+        this.style.bottom = '';
+    }
+
+    /**
+     * The bottom CSS property participates in setting the vertical position of a positioned element. It has no effect on non-positioned elements.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/bottom} for syntax
+     */
+    get bottom(): number {
+        return this._bottom;
+    }
 }
-customElements.define('size-element', SizeElement);
+customElements.define('fx-component', Component);

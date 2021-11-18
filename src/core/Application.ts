@@ -1,7 +1,7 @@
-import DisplayContainer from './DisplayContainer';
-import IApplicationElement from './IApplicationElement';
+import Container from './Container';
+import IApplication from './IApplication';
 
-export default class ApplicationElement extends DisplayContainer implements IApplicationElement {
+export default class Application extends Container implements IApplication {
     public constructor() {
         super();
         this.injectGlobalStyles();
@@ -48,4 +48,4 @@ export default class ApplicationElement extends DisplayContainer implements IApp
         return document.body.style.fontFamily;
     }
 }
-customElements.define('application-element', ApplicationElement);
+customElements.define('fx-application', Application);
