@@ -11,7 +11,7 @@ export default class Component extends HTMLElement implements IComponent {
      * Sets the width and height.
      * @param width - width in pixels or NaN
      * @param height - height in pixels or NaN
-     * @returns the element
+     * @returns the calling component so we can chain.
      */
      public setSize(width: number, height: number): this {
         this.width = width;
@@ -23,7 +23,7 @@ export default class Component extends HTMLElement implements IComponent {
      * Sets the widthPercent and heightPercent.
      * @param widthPercent - widthPercent from 0 to Infinity
      * @param heightPercent - heightPercent from 0 to Infinity
-     * @returns the element
+     * @returns the calling component so we can chain.
      */
     public setSizePercent(widthPercent: number, heightPercent: number): this {
         this.widthPercent = widthPercent;
@@ -34,6 +34,7 @@ export default class Component extends HTMLElement implements IComponent {
     /**
      * Sets the width.
      * @param width - width in pixels from 0 to Infinity or NaN
+     * @returns the calling component so we can chain.
      */
     public setWidth(width: number): this {
         this.width = width;
@@ -43,6 +44,7 @@ export default class Component extends HTMLElement implements IComponent {
     /**
      * Sets the height.
      * @param height - height in pixels from 0 to Infinity or NaN
+     * @returns the calling component so we can chain.
      */
     public setHeight(height: number): this {
         this.height = height;
@@ -52,6 +54,7 @@ export default class Component extends HTMLElement implements IComponent {
     /**
      * Sets the widthPercent.
      * @param widthPercent - widthPercent from 0 to Infinity or NaN
+     * @returns the calling component so we can chain.
      */
     public setWidthPercent(widthPercent: number): this {
         this.widthPercent = widthPercent;
@@ -61,6 +64,7 @@ export default class Component extends HTMLElement implements IComponent {
     /**
      * Sets the heightPercent.
      * @param heightPercent - heightPercent from 0 to Infinity or NaN
+     * @returns the calling component so we can chain.
      */
     public setHeightPercent(heightPercent: number): this {
         this.heightPercent = heightPercent;
