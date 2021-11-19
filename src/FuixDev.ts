@@ -1,5 +1,6 @@
-import { Component, Display, IComponent } from '.';
 import Application from './core/Application';
+import IComponent from './core/IComponent';
+import Component from './core/Component';
 
 export default class FuixDev extends Application {
     public constructor() {
