@@ -9,7 +9,7 @@ export default interface IComponent {
      * @param height - height
      * @returns the element
      */
-    setSize(width: number, height: number): IComponent;
+    setSize(width: number, height: number): this;
 
     /**
      * Sets the widthPercent and heightPercent.
@@ -17,31 +17,31 @@ export default interface IComponent {
      * @param heightPercent - heightPercent
      * @returns the element
      */
-    setSizePercent(widthPercent: number, heightPercent: number): IComponent;
+    setSizePercent(widthPercent: number, heightPercent: number): this;
 
     /**
      * Sets the width.
      * @param width - width in pixels from 0 to Infinity or NaN
      */
-    setWidth(width: number): IComponent;
+    setWidth(width: number): this;
 
     /**
      * Sets the height.
      * @param height - height in pixels from 0 to Infinity or NaN
      */
-    setHeight(height: number): IComponent;
+    setHeight(height: number): this;
 
     /**
      * Sets the widthPercent.
      * @param widthPercent - widthPercent from 0 to Infinity or NaN
      */
-    setWidthPercent(widthPercent: number): IComponent;
+    setWidthPercent(widthPercent: number): this;
 
     /**
      * Sets the heightPercent.
      * @param heightPercent - heightPercent from 0 to Infinity or NaN
      */
-    setHeightPercent(heightPercent: number): IComponent;
+    setHeightPercent(heightPercent: number): this;
 
     /**
      * The width CSS property sets an element's width. By default, it sets the width of the content area, but if box-sizing is set to border-box, it sets the width of the border area.
