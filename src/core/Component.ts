@@ -423,5 +423,18 @@ export default class Component extends HTMLElement implements IComponent {
     get bottom(): number {
         return this._bottom;
     }
+
+    set backgroundColor(value: string) {
+        this.style.backgroundColor = value;
+    }
+
+    /**
+     * The background-color CSS property sets the background color of an element.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/background-color} for syntax
+     */
+    get backgroundColor(): string {
+        return this.style.backgroundColor;
+    }
 }
 customElements.define('fx-component', Component);

@@ -163,4 +163,11 @@ export default interface IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius} for syntax
      */
     borderRadius: number;
+
+    /**
+     * The background-color CSS property sets the background color of an element.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/background-color} for syntax
+     */
+    backgroundColor: string;
 }
