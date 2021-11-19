@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
 import { Container, IContainer } from '../../src';
-const positiveRandom = Math.round(Math.random() * 10);
+const positiveRandom = Math.round(Math.random() * 10) + 1;
 const minusRandom = Math.round(-10 + Math.random() * 5);
 
 describe('IContainer.padding property', () => {
