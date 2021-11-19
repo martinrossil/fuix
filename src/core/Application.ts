@@ -8,7 +8,6 @@ export default class Application extends Container implements IApplication {
     }
 
     private injectGlobalStyles(): void {
-        document.body.style.setProperty('overflow', 'hidden');
         document.body.style.setProperty('height', '100vh');
         let innerHTMLString = '*{';
         innerHTMLString += '-webkit-overflow-scrolling: touch;';
