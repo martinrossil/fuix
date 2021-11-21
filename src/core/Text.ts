@@ -2,11 +2,6 @@ import Component from './Component';
 import IText from './IText';
 
 export default class Text extends Component implements IText {
-    public constructor() {
-        super();
-        console.log('Text');
-    }
-
     public set text(value: string) {
         this.innerText = value;
     }
