@@ -1,3 +1,5 @@
+import { FontWeight } from '../consts/FontWeight';
+import { FontWeightType } from '../types/FontWeightType';
 import Component from './Component';
 import IText from './IText';
 
@@ -14,6 +16,42 @@ export default class Text extends Component implements IText {
      */
     public get text(): string {
         return this.innerText;
+    }
+
+    private _fontSize = 16;
+    public set fontSize(value: number) {
+        if (isNaN(value) || value < 0) {
+            if (this._fontSize !== 16) {
+                this._fontSize = 16;
+            }
+        } else {
+            this._fontSize = value;
+        }
+        this.style.fontSize = this._fontSize + 'px';
+    }
+
+    /**
+     * The font-size CSS property sets the size of the font in pixels.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-size}
+     */
+    public get fontSize(): number {
+        return this._fontSize;
+    }
+
+    private _fontWeight: FontWeightType = FontWeight.NORMAL_400;
+    public set fontWeight(value: FontWeightType) {
+        this._fontWeight = value;
+        this.style.fontWeight = this._fontWeight.toString();
+    }
+
+    /**
+     * The font-weight CSS property sets the weight (or boldness) of the font. The weights available depend on the font-family that is currently set.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight}
+     */
+    public get fontWeight(): FontWeightType {
+        return this._fontWeight;
     }
 }
 customElements.define('fx-text', Text);
