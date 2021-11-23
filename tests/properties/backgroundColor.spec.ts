@@ -1,7 +1,6 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import Component from '../../src/core/Component';
-import IComponent from '../../src/core/IComponent';
+import { Component, IComponent } from '../../src/';
 
 describe('IComponent.backgroundColor property', () => {
     describe('default value', () => {

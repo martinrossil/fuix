@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import IText from '../../src/core/IText';
-import Text from '../../src/core/Text';
+import { IText, Text } from '../../src/';
+
 const positiveRandom = Math.round(Math.random() * 5) + 10;
 const minusRandom = Math.round(-10 + Math.random() * 5);
 

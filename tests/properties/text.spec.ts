@@ -1,7 +1,6 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import Text from '../../src/core/Text';
-import IText from '../../src/core/IText';
+import { Text, IText } from '../../src/';
 
 describe('IText.text property', () => {
     describe('default value', () => {
