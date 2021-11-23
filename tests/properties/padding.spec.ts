@@ -1,6 +1,8 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import { Container, IContainer } from '../../src';
+import Container from '../../src/core/Container';
+import IContainer from '../../src/core/IContainer';
+
 const positiveRandom = Math.round(Math.random() * 10) + 1;
 const minusRandom = Math.round(-10 + Math.random() * 5);
 
