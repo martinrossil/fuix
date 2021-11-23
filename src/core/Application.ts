@@ -8,7 +8,7 @@ export default class Application extends Container implements IApplication {
     }
 
     private injectGlobalStyles(): void {
-        document.body.style.setProperty('height', '100vh');
+        document.body.style.setProperty('min-height', '100vh');
         let innerHTMLString = '*{';
         innerHTMLString += '-webkit-overflow-scrolling: touch;';
         innerHTMLString += '-webkit-tap-highlight-color: transparent;';
