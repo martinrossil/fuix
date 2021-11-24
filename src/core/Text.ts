@@ -88,5 +88,25 @@ export default class Text extends Component implements IText {
     public get letterSpacing(): number {
         return this._letterSpacing;
     }
+
+    private _lineHeight = NaN;
+    public set lineHeight(value: number) {
+        if (isNaN(value) || value < 0) {
+            this._lineHeight = NaN;
+            this.style.lineHeight = '';
+            return;
+        }
+        this._lineHeight = value;
+        this.style.lineHeight = value.toString();
+    }
+
+    /**
+     * The line-height CSS property sets the height of a line box. It's commonly used to set the distance between lines of text. On block-level elements, it specifies the minimum height of line boxes within the element. On non-replaced inline elements, it specifies the height that is used to calculate line box height.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/line-height}
+     */
+    public get lineHeight(): number {
+        return this._lineHeight;
+    }
 }
 customElements.define('fx-text', Text);
