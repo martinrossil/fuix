@@ -14,7 +14,7 @@ export default class Application extends Container implements IApplication {
         innerHTMLString += '-webkit-tap-highlight-color: transparent;';
         innerHTMLString += '-webkit-font-smoothing: antialiased;';
         innerHTMLString += '-moz-osx-font-smoothing: grayscale;';
-        innerHTMLString += 'margin: 0;';
+        innerHTMLString += 'margin: 0; line-height: 1.2;';
         innerHTMLString += 'position: relative; box-sizing:border-box;';
         innerHTMLString += 'border:none; outline:none;';
         innerHTMLString += 'font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";';
