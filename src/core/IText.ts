@@ -30,4 +30,11 @@ export default interface IText extends IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-family}
      */
     fontFamily: string;
+
+    /**
+     * The letter-spacing CSS property sets the horizontal spacing behavior between text characters. This value is added to the natural spacing between characters while rendering the text. Positive values of letter-spacing causes characters to spread farther apart, while negative values of letter-spacing bring characters closer together.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing}
+     */
+    letterSpacing: number;
 }

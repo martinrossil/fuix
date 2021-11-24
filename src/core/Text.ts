@@ -66,5 +66,27 @@ export default class Text extends Component implements IText {
     public get fontFamily(): string {
         return this.style.fontFamily;
     }
+
+    private _letterSpacing = 0;
+    public set letterSpacing(value: number) {
+        if (isNaN(value)) {
+            if (this._letterSpacing !== 0) {
+                this._letterSpacing = 0;
+                this.style.letterSpacing = '';
+            }
+            return;
+        }
+        this._letterSpacing = value;
+        this.style.letterSpacing = value + 'px';
+    }
+
+    /**
+     * The letter-spacing CSS property sets the horizontal spacing behavior between text characters. This value is added to the natural spacing between characters while rendering the text. Positive values of letter-spacing causes characters to spread farther apart, while negative values of letter-spacing bring characters closer together.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing}
+     */
+    public get letterSpacing(): number {
+        return this._letterSpacing;
+    }
 }
 customElements.define('fx-text', Text);
