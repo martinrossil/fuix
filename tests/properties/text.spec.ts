@@ -18,6 +18,6 @@ describe('IText.text property', () => {
         const text: IText = new Text();
         text.text = 'Lorem ipsum';
         text.text = '';
-        assert.strictEqual(text.text, '');
+        assert.strictEqual(text.text, '_');
     });
 });
