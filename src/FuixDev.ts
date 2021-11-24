@@ -9,7 +9,7 @@ export default class FuixDev extends Application {
         console.log('FuixDev');
         this.bodyBackgroundColor = '#000d1a';
         this.bodyColor = '#a3b8cc';
-        this.bodyFontFamily = 'Eurostile';
+        // this.bodyFontFamily = 'Eurostile';
         this.padding = 32;
         this.heightPercent = 100;
 
@@ -20,6 +20,7 @@ export default class FuixDev extends Application {
         // this.addComponent(component);
 
         const text: Text = new Text();
+        text.fontSize = 48;
         text.text = 'The quick brown fox jumps over the lazy dog.';
         this.addComponent(text);
     }
