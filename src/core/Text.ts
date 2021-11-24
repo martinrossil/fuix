@@ -53,5 +53,18 @@ export default class Text extends Component implements IText {
     public get fontWeight(): FontWeightType {
         return this._fontWeight;
     }
+
+    public set fontFamily(value: string) {
+        this.style.fontFamily = value;
+    }
+
+    /**
+     * The font-family CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-family}
+    */
+    public get fontFamily(): string {
+        return this.style.fontFamily;
+    }
 }
 customElements.define('fx-text', Text);

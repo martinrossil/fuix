@@ -23,4 +23,11 @@ export default interface IText extends IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight}
      */
     fontWeight: FontWeightType;
+
+    /**
+     * The font-family CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-family}
+     */
+    fontFamily: string;
 }
