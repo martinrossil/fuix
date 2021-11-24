@@ -5,7 +5,7 @@ import IText from './IText';
 
 export default class Text extends Component implements IText {
     public set text(value: string) {
-        // this.innerText = value;
+        this.innerText = value;
     }
 
     /**
