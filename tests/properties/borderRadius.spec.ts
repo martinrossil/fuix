@@ -1,8 +1,8 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
 import { Component, IComponent } from '../../src';
-const positiveRandom = Math.round(Math.random() * 10);
-const minusRandom = Math.round(-10 + Math.random() * 5);
+const positiveRandom = Math.ceil(Math.random() * 10);
+const minusRandom = Math.floor(-10 + Math.random() * 5);
 
 describe('IComponent.borderRadius property', () => {
     describe('default value', () => {
