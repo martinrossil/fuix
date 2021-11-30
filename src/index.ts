@@ -1,6 +1,3 @@
-export { default as IList } from './components/IList';
-export { default as List } from './components/List';
-
 export { Display } from './consts/Display';
 export { FontWeight } from './consts/FontWeight';
 export { Overflow } from './consts/Overflow';
