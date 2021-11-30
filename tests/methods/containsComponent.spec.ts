@@ -1,9 +1,6 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import IContainer from '../../src/core/IContainer';
-import Component from '../../src/core/Component';
-import IComponent from '../../src/core/IComponent';
-import Container from '../../src/core/Container';
+import { Component, Container, IComponent, IContainer } from '../../src';
 
 describe('IContainer.containsComponent(component: IComponent)', () => {
     it('given an empty container, containsElement(component), should return false.', () => {
