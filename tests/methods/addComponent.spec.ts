@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import { Component, Container, IComponent, IContainer } from '../../src';
+import { Component, Container, IComponent } from '../../src';
 
 describe('IContainer.addComponent(component: IComponent)', () => {
     it('given an empty container, when addComponent is called with a component, Node.contains(node), should return true.', () => {
