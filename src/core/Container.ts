@@ -35,6 +35,24 @@ export default class Container extends Component implements IContainer {
     }
 
     /**
+     * The addComponentAt() method of the IContainer interface adds a IComponent at the specified index. If the index out of bounce, the IComponent will be inserted as the last child ICompoment.
+     *
+     * @param component - the component to add as child node.
+     * @param index - the index the component will be inserted at.
+     * @returns the calling component so we can chain.
+     */
+     addComponentAt(component: IComponent, index: number): this {
+        const componentNode: Node = component as unknown as Node;
+        if (this.children[index]) {
+            const beforeNode: Node = this.children[index];
+            this.insertBefore(componentNode, beforeNode);
+            return this;
+        }
+        this.appendChild(componentNode);
+        return this;
+     }
+
+    /**
      * The removeComponent() method of the IContainer interface removes a Component from the DOM.
      *
      * @param component - the component to remove as child node.
@@ -53,6 +71,18 @@ export default class Container extends Component implements IContainer {
      */
     public containsComponent(component: IComponent): boolean {
         return this.contains(component as unknown as Node);
+    }
+
+    /**
+     * The componentIndex() method, returns the index of the IComponent, so the first child IComponent will return 0 and so on. If the IComponent is not a child of the IContainer, NaN will be returned.
+     *
+     * @param component - The IComponent to get the index of.
+     * @returns - returns the index of the IComponent, NaN if the IComponent is not a child of the IContainer
+     */
+    public componentIndex(component: IComponent): number {
+        const componentNode: HTMLElement = component as unknown as HTMLElement;
+        const index: number = Array.from(this.children).indexOf(componentNode);
+        return index !== -1 ? index : NaN;
     }
 }
 customElements.define('fx-container', Container);
