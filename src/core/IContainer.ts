@@ -17,6 +17,14 @@ export default interface IContainer extends IComponent {
     addComponent(component: IComponent): this;
 
     /**
+     * The addComponents method, adds multiple IComponent instances as children of the IContainer
+     *
+     * @param components - an array of IComponent instances
+     * @returns the calling component so we can chain.
+     */
+    addComponents(components: Array<IComponent>): this;
+
+    /**
      * The addComponentAt() method of the IContainer interface adds a IComponent at the specified index.
      *
      * @param component - the component to add as child node.
@@ -32,6 +40,13 @@ export default interface IContainer extends IComponent {
      * @returns the calling component so we can chain.
      */
     removeComponent(component: IComponent): this;
+
+    /**
+     * The removeAllComponents(), removes all the IContainer children.
+     *
+     * @returns the calling component so we can chain.
+     */
+    removeAllComponents(): this;
 
     /**
      * The containsComponent() method of the IContainer interface returns a boolean value indicating whether a IComponent is a descendant of a given IContainer, that is the IContainer itself, one of its direct children (IComponents), one of the children's direct children, and so on.

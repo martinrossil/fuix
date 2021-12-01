@@ -64,6 +64,18 @@ export default class Container extends Component implements IContainer {
     }
 
     /**
+     * The removeAllComponents(), removes all the IContainer children.
+     *
+     * @returns the calling component so we can chain.
+     */
+     public removeAllComponents(): this {
+        while (this.firstChild) {
+            this.removeChild(this.firstChild);
+        }
+         return this;
+     }
+
+    /**
      * The containsComponent() method of the IContainer interface returns a boolean value indicating whether a IComponent is a descendant of a given IContainer, that is the IContainer itself, one of its direct children (IComponents), one of the children's direct children, and so on.
      *
      * @param component - The IComponent to test with.
@@ -84,5 +96,20 @@ export default class Container extends Component implements IContainer {
         const index: number = Array.from(this.children).indexOf(componentNode);
         return index !== -1 ? index : NaN;
     }
+
+    /**
+     * The addComponents method, adds multiple IComponent instances as children of the IContainer
+     *
+     * @param components - an array of IComponent instances
+     * @returns the calling component so we can chain.
+     */
+     public addComponents(components: Array<IComponent>): this {
+        const frag: DocumentFragment = document.createDocumentFragment();
+        for (const component of components) {
+            frag.appendChild(component as unknown as Node);
+        }
+        this.appendChild(frag);
+        return this;
+     }
 }
 customElements.define('fx-container', Container);
