@@ -12,6 +12,10 @@ export { default as IContainer } from './core/IContainer';
 export { default as IText } from './core/IText';
 export { default as Text } from './core/Text';
 
+export { default as EventDispatcher } from './event/EventDispatcher';
+export { default as IEventDispatcher } from './event/IEventDispatcher';
+export { default as EventListener } from './event/IEventListener';
+
 export { DisplayType } from './types/DisplayType';
 export { FontWeightType } from './types/FontWeightType';
 export { OverflowType } from './types/OverflowType';
