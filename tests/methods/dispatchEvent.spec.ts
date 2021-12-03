@@ -35,4 +35,48 @@ describe('IEventDispatcher.dispatchEvent(event: Event)', () => {
         assert.isTrue(hasListener1BeenInvoked);
         assert.isTrue(hasListener2BeenInvoked);
     });
+    it('given one eventListener, when IEventDispatcher.removeEventListener() and dispatchEvent(new Event("test")), listener should not be invoked.', () => {
+        let hasListenerBeenInvoked = false;
+        const eventDispatcher: IEventDispatcher = new EventDispatcher();
+        eventDispatcher.addEventListener('test', listener);
+        function listener(): void {
+            hasListenerBeenInvoked = true;
+        }
+        eventDispatcher.removeEventListener('test', listener);
+        eventDispatcher.dispatchEvent(new Event('test'));
+        assert.isFalse(hasListenerBeenInvoked);
+    });
+    it('given three eventListener, when IEventDispatcher.removeEventListener() and dispatchEvent(new Event("test")), only one listener should be invoked.', () => {
+        let hasListener1BeenInvoked = false;
+        let hasListener2BeenInvoked = false;
+        let hasListener3BeenInvoked = false;
+        const eventDispatcher: IEventDispatcher = new EventDispatcher();
+        eventDispatcher.addEventListener('test', testListener);
+        eventDispatcher.addEventListener('test', test2Listener);
+        eventDispatcher.addEventListener('notTest', notTestListener);
+        function testListener(): void {
+            hasListener1BeenInvoked = true;
+        }
+        function test2Listener(): void {
+            hasListener2BeenInvoked = true;
+        }
+        function notTestListener(): void {
+            hasListener3BeenInvoked = true;
+        }
+        eventDispatcher.removeEventListener('test', testListener);
+        eventDispatcher.removeEventListener('notTest', testListener);
+        eventDispatcher.dispatchEvent(new Event('test'));
+        assert.isFalse(hasListener1BeenInvoked);
+        assert.isTrue(hasListener2BeenInvoked);
+        assert.isFalse(hasListener3BeenInvoked);
+    });
+    it('given no eventListener, when IEventDispatcher.removeEventListener(), we cover else statement.', () => {
+        let hasListener1BeenInvoked = false;
+        const eventDispatcher: IEventDispatcher = new EventDispatcher();
+        function testListener(): void {
+            hasListener1BeenInvoked = true;
+        }
+        eventDispatcher.removeEventListener('test', testListener);
+        assert.isFalse(hasListener1BeenInvoked);
+    });
 });
