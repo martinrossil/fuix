@@ -5,8 +5,69 @@ import IDataContainer from './IDataContainer';
 import IDataRenderer from './IDataRenderer';
 
 export default class DataContainer<Item> extends Container implements IDataContainer<Item> {
-    private reset(): void {
-        // implement
+    private dataRendererCache: Array<IDataRenderer<Item>> = [];
+    private listDataRendererLookup: Map<Item, IDataRenderer<Item> | undefined> = new Map();
+    public constructor() {
+        super();
+        this.itemAdded = this.itemAdded.bind(this);
+        this.itemsAdded = this.itemsAdded.bind(this);
+        this.itemRemoved = this.itemRemoved.bind(this);
+        this.reset = this.reset.bind(this);
+    }
+
+    protected itemAdded(e: CustomEvent<Item>): void {
+        let dataRenderer: IDataRenderer<Item>
+        if (this.dataRendererCache.length) {
+            dataRenderer = this.dataRendererCache.splice(0, 1)[0];
+        } else {
+            dataRenderer = new this.DataRendererClass();
+        }
+        dataRenderer.data = e.detail;
+        this.listDataRendererLookup.set(e.detail, dataRenderer);
+        this.addComponent(dataRenderer);
+    }
+
+    protected itemsAdded(e: CustomEvent<Item[]>): void {
+        this.addDataRenderers(e.detail);
+    }
+
+    protected addDataRenderers(items: Item[]): void {
+        const listDataRenderers: IDataRenderer<Item>[] = [];
+        for (const item of items) {
+            let listDataRenderer: IDataRenderer<Item>;
+            if (this.dataRendererCache.length) {
+                listDataRenderer = this.dataRendererCache.splice(0, 1)[0];
+            } else {
+                listDataRenderer = new this.DataRendererClass();
+            }
+            listDataRenderer.data = item;
+            this.listDataRendererLookup.set(item, listDataRenderer);
+            listDataRenderers.push(listDataRenderer);
+        }
+        this.addComponents(listDataRenderers);
+    }
+
+    protected itemRemoved(e: CustomEvent<Item>): void {
+        const dataRenderer: IDataRenderer<Item> | undefined = this.listDataRendererLookup.get(e.detail);
+        if (dataRenderer) {
+            dataRenderer.data = null;
+            this.dataRendererCache.push(dataRenderer);
+            this.removeComponent(dataRenderer);
+        }
+    }
+
+    protected reset(): void {
+        this.listDataRendererLookup.forEach((dataRenderer) => {
+            if (dataRenderer) {
+                dataRenderer.data = null;
+                this.dataRendererCache.push(dataRenderer);
+            }
+        });
+        this.removeAllComponents();
+        this.listDataRendererLookup.clear();
+        if (this.dataProvider) {
+            this.addDataRenderers(this.dataProvider.source);
+        }
     }
 
     private _DataRendererClass!: new () => IDataRenderer<Item>;
@@ -36,3 +97,4 @@ export default class DataContainer<Item> extends Container implements IDataConta
         return this._dataProvider;
     }
 }
+customElements.define('fx-data-container', DataContainer);
