@@ -3,26 +3,6 @@ import Component from './Component';
 import IContainer from './IContainer';
 
 export default class Container extends Component implements IContainer {
-    private _padding = 0;
-    public set padding(value: number) {
-        if (isNaN(value) || value <= 0) {
-            this._padding = 0;
-            this.style.padding = '';
-            return;
-        }
-        this._padding = value;
-        this.style.padding = value + 'px';
-    }
-
-    /**
-     * The padding CSS shorthand property sets the padding area on all four sides of an element at once.
-     *
-     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/padding} for syntax
-     */
-    public get padding(): number {
-        return this._padding;
-    }
-
     /**
      * The addComponent() method of the IContainer interface adds a IComponent to the end of the list of children of a specified parent IContainer. If the given IComponent is a reference to an existing IComponent in the document, addComponent() moves it from its current position to the new position (there is no requirement to remove the IComponent from its parent IContainer before appending it to some other IContainer).
      *
@@ -111,5 +91,44 @@ export default class Container extends Component implements IContainer {
         this.appendChild(frag);
         return this;
      }
+
+    private _padding = 0;
+
+    /**
+     * The padding CSS shorthand property sets the padding area on all four sides of an element at once.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/padding} for syntax
+     */
+    public get padding(): number {
+        return this._padding;
+    }
+
+    public set padding(value: number) {
+        if (isNaN(value) || value <= 0) {
+            this._padding = 0;
+            this.style.padding = '';
+            return;
+        }
+        this._padding = value;
+        this.style.padding = value + 'px';
+    }
+
+    private _gap = 0;
+
+    /**
+     * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
+     */
+    public get gap(): number {
+        return this._gap;
+    }
+
+    public set gap(value: number) {
+        if (isNaN(value) || value <= 0) {
+            this._gap = 0;
+            this.style.gap = '';
+            return;
+        }
+        this.style.gap = value + 'px';
+    }
 }
 customElements.define('fx-container', Container);

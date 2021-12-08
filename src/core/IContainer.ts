@@ -2,13 +2,6 @@ import IComponent from './IComponent';
 
 export default interface IContainer extends IComponent {
     /**
-     * The padding CSS shorthand property sets the padding area on all four sides of an element at once.
-     *
-     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/padding} for syntax
-     */
-    padding: number;
-
-    /**
      * The addComponent() method of the IContainer interface adds a IComponent to the end of the list of children of a specified parent IContainer. If the given IComponent is a reference to an existing IComponent in the document, addComponent() moves it from its current position to the new position (there is no requirement to remove the IComponent from its parent IContainer before appending it to some other IContainer).
      *
      * @param component - the component to add as child node.
@@ -62,5 +55,17 @@ export default interface IContainer extends IComponent {
      * @param component - The IComponent to get the index of.
      * @returns - returns the index of the IComponent, NaN if the IComponent is not a child of the IContainer
      */
-     componentIndex(component: IComponent): number;
+    componentIndex(component: IComponent): number;
+
+    /**
+     * The padding CSS shorthand property sets the padding area on all four sides of an element at once.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/padding} for syntax
+     */
+    padding: number;
+
+    /**
+     * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
+     */
+    gap: number;
 }
