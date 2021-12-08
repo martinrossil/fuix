@@ -5,6 +5,8 @@ import { Overflow } from '../consts/Overflow';
 import { DisplayType } from '../types/DisplayType';
 import { OverflowType } from '../types/OverflowType';
 import IComponent from './IComponent';
+import { FlexWrapType } from '../types/FlexWrapType';
+import { FlexWrap } from '../consts/FlexWrap';
 
 export default class Component extends HTMLElement implements IComponent {
     /**
@@ -435,6 +437,41 @@ export default class Component extends HTMLElement implements IComponent {
      */
     get backgroundColor(): string {
         return this.style.backgroundColor;
+    }
+
+    private _flexGrow = 0;
+
+    /**
+     * The flex-grow CSS property sets the flex grow factor of a flex item's main size.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow} for syntax
+     */
+    get flexGrow(): number {
+        return this._flexGrow;
+    }
+
+    set flexGrow(value: number) {
+        if (isNaN(value) || value <= 0) {
+            this.style.flexGrow = '';
+            return;
+        }
+        this.style.flexGrow = value.toString();
+    }
+
+    private _flexWrap: FlexWrapType = FlexWrap.NOWRAP;
+
+    /**
+     * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
+     */
+    public get flexWrap(): FlexWrapType {
+        return this._flexWrap;
+    }
+
+    public set flexWrap(value: FlexWrapType) {
+        this._flexWrap = value;
+        this.style.flexWrap = value;
     }
 }
 customElements.define('fx-component', Component);

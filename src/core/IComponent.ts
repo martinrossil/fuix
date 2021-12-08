@@ -1,6 +1,7 @@
 import { PositionType } from '../types/PositionType';
 import { DisplayType } from '../types/DisplayType';
 import { OverflowType } from '../types/OverflowType';
+import { FlexWrapType } from '../types/FlexWrapType';
 
 export default interface IComponent {
     /**
@@ -170,4 +171,18 @@ export default interface IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/background-color} for syntax
      */
     backgroundColor: string;
+
+    /**
+     * The flex-grow CSS property sets the flex grow factor of a flex item's main size.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow} for syntax
+     */
+    flexGrow: number;
+
+    /**
+     * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
+     */
+    flexWrap: FlexWrapType;
 }
