@@ -1,5 +1,6 @@
 import Container from '../core/Container';
 import IArrayCollection from '../data/IArrayCollection';
+import IEventListener from '../event/IEventListener';
 import DataRenderer from './DataRenderer';
 import IDataContainer from './IDataContainer';
 import IDataRenderer from './IDataRenderer';
@@ -90,7 +91,23 @@ export default class DataContainer<Item> extends Container implements IDataConta
     private _dataProvider: IArrayCollection<Item> | null = null;
 
     public set dataProvider(value: IArrayCollection<Item> | null) {
-        // implement
+        if (this._dataProvider === value) {
+            return;
+        }
+        if (this._dataProvider) {
+            this._dataProvider.removeEventListener('itemAdded', this.itemAdded as IEventListener);
+            this._dataProvider.removeEventListener('itemsAdded', this.itemsAdded as IEventListener);
+            this._dataProvider.removeEventListener('itemRemoved', this.itemRemoved as IEventListener);
+            this._dataProvider.removeEventListener('reset', this.reset as IEventListener);
+        }
+        this._dataProvider = value;
+        if (this._dataProvider) {
+            this._dataProvider.addEventListener('itemAdded', this.itemAdded as IEventListener);
+            this._dataProvider.addEventListener('itemsAdded', this.itemsAdded as IEventListener);
+            this._dataProvider.addEventListener('itemRemoved', this.itemRemoved as IEventListener);
+            this._dataProvider.addEventListener('reset', this.reset as IEventListener);
+        }
+        this.reset();
     }
 
     public get dataProvider(): IArrayCollection<Item> | null {
