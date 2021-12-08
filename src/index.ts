@@ -1,4 +1,10 @@
+export { default as DataContainer } from './components/DataContainer';
+export { default as DataRenderer } from './components/DataRenderer';
+export { default as IDataContainer } from './components/IDataContainer';
+export { default as IDataRenderer } from './components/IDataRenderer';
+
 export { Display } from './consts/Display';
+export { FlexWrap } from './consts/FlexWrap';
 export { FontWeight } from './consts/FontWeight';
 export { Overflow } from './consts/Overflow';
 export { Position } from './consts/Position';
@@ -12,11 +18,15 @@ export { default as IContainer } from './core/IContainer';
 export { default as IText } from './core/IText';
 export { default as Text } from './core/Text';
 
+export { default as ArrayCollection } from './data/ArrayCollection';
+export { default as IArrayCollection } from './data/IArrayCollection';
+
 export { default as EventDispatcher } from './event/EventDispatcher';
 export { default as IEventDispatcher } from './event/IEventDispatcher';
 export { default as EventListener } from './event/IEventListener';
 
 export { DisplayType } from './types/DisplayType';
+export { FlexWrapType } from './types/FlexWrapType';
 export { FontWeightType } from './types/FontWeightType';
 export { OverflowType } from './types/OverflowType';
 export { PositionType } from './types/PositionType';
