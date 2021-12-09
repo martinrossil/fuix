@@ -68,4 +68,9 @@ export default interface IContainer extends IComponent {
      * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
      */
     gap: number;
+
+    /**
+     * The IContainer.childCount read-only property returns the number of child components of this Container.
+     */
+    readonly childCount: number;
 }

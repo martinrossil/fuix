@@ -130,5 +130,12 @@ export default class Container extends Component implements IContainer {
         }
         this.style.gap = value + 'px';
     }
+
+    /**
+     * The IContainer.childCount read-only property returns the number of child components of this Container.
+     */
+    get childCount(): number {
+        return this.childElementCount;
+    }
 }
 customElements.define('fx-container', Container);
