@@ -1,33 +1,34 @@
 import Application from './core/Application';
-import IComponent from './core/IComponent';
-import Component from './core/Component';
-import Text from './core/Text';
-import { FontWeight } from '.';
+import DataContainer from './components/DataContainer';
+import TestVo from './app/TestVo';
+import { Display } from './consts/Display';
+import TestRenderer from './app/TestRenderer';
+import IArrayCollection from './data/IArrayCollection';
+import ArrayCollection from './data/ArrayCollection';
+import { FlexWrap } from './consts/FlexWrap';
 
 export default class FuixDev extends Application {
     public constructor() {
         super();
-        console.log('FuixDev');
         this.bodyBackgroundColor = '#000d1a';
         this.bodyColor = '#a3b8cc';
         this.bodyFontFamily = 'Eurostile';
-        this.padding = 32;
-        this.heightPercent = 100;
-
-        const component: IComponent = new Component();
-        component.minWidth = 300;
-        component.minHeight = 500;
-        component.backgroundColor = 'red';
-        // this.addComponent(component);
-
-        const text: Text = new Text();
-        text.fontSize = 48;
-        text.text = 'SPACE INVADERS';
-        // text.letterSpacing = NaN;
-        text.fontWeight = FontWeight.BOLD_700;
-        // text.fontFamily = 'Source Sans Pro';
-        text.lineHeight = 0.7;
-        this.addComponent(text);
+        this.backgroundColor = 'blue';
+        this.display = Display.FLEX;
+        this.padding = 24;
+        const dataContainer: DataContainer<TestVo> = new DataContainer();
+        dataContainer.display = Display.FLEX;
+        dataContainer.flexGrow = 1;
+        dataContainer.flexWrap = FlexWrap.WRAP;
+        dataContainer.gap = 24;
+        dataContainer.DataRendererClass = TestRenderer;
+        const testCollection: IArrayCollection<TestVo> = new ArrayCollection();
+        for (let i = 0; i < 10; i++) {
+            const testVo: TestVo = new TestVo(Math.random().toString(), Math.round(Math.random() * 100));
+            testCollection.addItem(testVo);
+        }
+        dataContainer.dataProvider = testCollection;
+        this.addComponent(dataContainer);
     }
 }
 customElements.define('fuix-dev', FuixDev);
