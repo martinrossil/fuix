@@ -4,3 +4,5 @@ node_modules/
 public/
 coverage/
 docs/
+src/app/TestRenderer.ts
+src/app/TestVo.ts
