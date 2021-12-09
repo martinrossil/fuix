@@ -20,3 +20,4 @@ export default class DataRenderer<Item> extends Container implements IDataRender
         return this._data;
     }
 }
+customElements.define('fx-data-renderer', DataRenderer);
