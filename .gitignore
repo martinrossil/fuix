@@ -2,4 +2,5 @@ development/
 lib/
 node_modules/
 coverage/
+public/
 docs/
