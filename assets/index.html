@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Description" content="Fuix framework website">
+    <meta name="theme-color" content="#394960">
+    <link rel="icon" href="icon32x32.ico">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon180x180.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <title>Fuix framework website</title>
+    <script>var VERSION = "{{version}}";</script>
+  </head>
+  <body>
+    <fuix-dev></fuix-dev>
+    <script>function e(){if(window.fetch)f();else{var b=document.createElement("script");b.src="./fetchPoly.js";b.onload=f;document.body.appendChild(b)}}
+      function f(){var b=VERSION,a=!0,c=document.createElement("script");if("function"===typeof Object.fromEntries)var d=2019;else void 0!==window.Promise&&"function"===typeof window.Promise.prototype["finally"]?d=2018:"function"===typeof String.prototype.padStart?d=2017:"function"===typeof Array.prototype.includes?d=2016:void 0!==window.Promise?d=2015:(d=5,a=!1);a&&(c.type="module");c.src="FuixDev."+b+".es"+d+".js";c.defer=!0;document.body.appendChild(c)}if("function"!==typeof window.CustomEvent){var CustomEvent=function(b,a){a=a||{bubbles:!1,cancelable:!1,detail:void 0};var c=document.createEvent("CustomEvent");c.initCustomEvent(b,a.bubbles,a.cancelable,a.detail);return c};CustomEvent.prototype=window.Event.prototype;window.CustomEvent=CustomEvent}if(window.customElements)e();else{var g=document.createElement("script");g.src="./customElements.js";g.onload=e;document.body.appendChild(g)};</script>
+  </body>
+</html>
