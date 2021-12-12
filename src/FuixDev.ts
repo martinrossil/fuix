@@ -16,6 +16,7 @@ export default class FuixDev extends Application {
         this.backgroundColor = 'blue';
         this.display = Display.FLEX;
         this.padding = 24;
+        this.style.minHeight = '100vh';
         const dataContainer: DataContainer<TestVo> = new DataContainer();
         dataContainer.display = Display.FLEX;
         dataContainer.flexGrow = 1;
