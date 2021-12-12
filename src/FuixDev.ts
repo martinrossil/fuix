@@ -24,7 +24,7 @@ export default class FuixDev extends Application {
         dataContainer.gap = 24;
         dataContainer.DataRendererClass = TestRenderer;
         const testCollection: IArrayCollection<TestVo> = new ArrayCollection();
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 1000; i++) {
             const testVo: TestVo = new TestVo(Math.random().toString(), Math.round(Math.random() * 100));
             testCollection.addItem(testVo);
         }
