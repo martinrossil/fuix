@@ -123,7 +123,6 @@ export default class Container extends Component implements IContainer {
     }
 
     public set gap(value: number) {
-        console.log('gap', value);
         if (isNaN(value) || value <= 0) {
             this._gap = 0;
             // we use bracket syntax, since the closure compiler renames style.gap in advanced mode?
