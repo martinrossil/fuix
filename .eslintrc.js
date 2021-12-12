@@ -25,6 +25,7 @@ module.exports = {
         'no-useless-call': 'off',
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
-        'tsdoc/syntax': 'warn'
+        'tsdoc/syntax': 'warn',
+        'dot-notation': 'off'
     }
 }
