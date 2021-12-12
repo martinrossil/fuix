@@ -7,8 +7,7 @@
         "strictNullChecks": true,
         "noImplicitAny": true,
         "sourceMap": false,
-        "removeComments": true,
-        "allowSyntheticDefaultImports": true,
+        "removeComments": true
     },
     "include": [
         "src/**/*"
