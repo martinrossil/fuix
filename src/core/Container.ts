@@ -128,6 +128,7 @@ export default class Container extends Component implements IContainer {
             this.style.gap = '';
             return;
         }
+        this._gap = value;
         this.style.gap = value + 'px';
     }
 
