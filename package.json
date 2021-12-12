@@ -15,7 +15,8 @@
     "test": "karma start",
     "test:watch": "karma start --no-single-run",
     "build": "rollup -c",
-    "docs": "typedoc --out docs src/index.ts"
+    "docs": "typedoc --out docs src/index.ts",
+    "build:website": "exit 0"
   },
   "repository": {
     "type": "git",
