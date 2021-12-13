@@ -25,6 +25,11 @@ export { default as EventDispatcher } from './event/EventDispatcher';
 export { default as IEventDispatcher } from './event/IEventDispatcher';
 export { default as EventListener } from './event/IEventListener';
 
+export { default as IMachine } from './fsm/IMachine';
+export { default as IState } from './fsm/IState';
+export { default as Machine } from './fsm/Machine';
+export { default as State } from './fsm/State';
+
 export { DisplayType } from './types/DisplayType';
 export { FlexWrapType } from './types/FlexWrapType';
 export { FontWeightType } from './types/FontWeightType';
