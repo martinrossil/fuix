@@ -2,7 +2,7 @@ import EventDispatcher from '../event/EventDispatcher';
 import IArrayCollection from './IArrayCollection';
 
 export default class ArrayCollection<Item> extends EventDispatcher implements IArrayCollection<Item> {
-    public constructor(source: Item[] | null = null) {
+    public constructor(source: Array<Item> | null = null) {
         super();
         if (source) {
             this._source = source;
@@ -16,7 +16,7 @@ export default class ArrayCollection<Item> extends EventDispatcher implements IA
         this.dispatchEvent(new CustomEvent('itemAdded', { detail: item }));
     }
 
-    public addItems(items: Item[]): void {
+    public addItems(items: Array<Item>): void {
         this._source = this.source.concat(items);
         this.dispatchEvent(new CustomEvent('itemsAdded', { detail: items }));
     }
@@ -66,9 +66,9 @@ export default class ArrayCollection<Item> extends EventDispatcher implements IA
         return this.source.length;
     }
 
-    private _source: Item[];
+    private _source: Array<Item>;
 
-    public get source(): Item[] {
+    public get source(): Array<Item> {
         return this._source;
     }
 }
