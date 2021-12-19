@@ -1,6 +1,5 @@
 import Container from '../core/Container';
 import IArrayCollection from '../data/IArrayCollection';
-import IEventListener from '../event/IEventListener';
 import DataRenderer from './DataRenderer';
 import IDataContainer from './IDataContainer';
 import IDataRenderer from './IDataRenderer';
@@ -95,17 +94,17 @@ export default class DataContainer<Item> extends Container implements IDataConta
             return;
         }
         if (this._dataProvider) {
-            this._dataProvider.removeEventListener('itemAdded', this.itemAdded as IEventListener);
-            this._dataProvider.removeEventListener('itemsAdded', this.itemsAdded as IEventListener);
-            this._dataProvider.removeEventListener('itemRemoved', this.itemRemoved as IEventListener);
-            this._dataProvider.removeEventListener('reset', this.reset as IEventListener);
+            this._dataProvider.removeCustomEventListener('itemAdded', this.itemAdded);
+            this._dataProvider.removeCustomEventListener('itemsAdded', this.itemsAdded);
+            this._dataProvider.removeCustomEventListener('itemRemoved', this.itemRemoved);
+            this._dataProvider.removeCustomEventListener('reset', this.reset);
         }
         this._dataProvider = value;
         if (this._dataProvider) {
-            this._dataProvider.addEventListener('itemAdded', this.itemAdded as IEventListener);
-            this._dataProvider.addEventListener('itemsAdded', this.itemsAdded as IEventListener);
-            this._dataProvider.addEventListener('itemRemoved', this.itemRemoved as IEventListener);
-            this._dataProvider.addEventListener('reset', this.reset as IEventListener);
+            this._dataProvider.addCustomEventListener('itemAdded', this.itemAdded);
+            this._dataProvider.addCustomEventListener('itemsAdded', this.itemsAdded);
+            this._dataProvider.addCustomEventListener('itemRemoved', this.itemRemoved);
+            this._dataProvider.addCustomEventListener('reset', this.reset);
         }
         this.reset();
     }

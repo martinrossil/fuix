@@ -1,3 +1,3 @@
-export default interface IEventListener<Item> {
-    (event: CustomEvent<Item>): void;
+export default interface ICustomEventListener {
+    (event: CustomEvent): void;
 }
