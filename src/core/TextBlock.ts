@@ -1,9 +1,9 @@
 import { FontWeight } from '../consts/FontWeight';
 import { FontWeightType } from '../types/FontWeightType';
 import Component from './Component';
-import IText from './IText';
+import ITextBlock from './ITextBlock';
 
-export default class Text extends Component implements IText {
+export default class TextBlock extends Component implements ITextBlock {
     public set text(value: string) {
         this.innerText = value;
     }
@@ -109,4 +109,4 @@ export default class Text extends Component implements IText {
         return this._lineHeight;
     }
 }
-customElements.define('fx-text', Text);
+customElements.define('fx-text-block', TextBlock);

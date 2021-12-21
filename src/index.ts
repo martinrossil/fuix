@@ -20,8 +20,8 @@ export { default as Container } from './core/Container';
 export { default as IApplication } from './core/IApplication';
 export { default as IComponent } from './core/IComponent';
 export { default as IContainer } from './core/IContainer';
-export { default as IText } from './core/IText';
-export { default as Text } from './core/Text';
+export { default as ITextBlock } from './core/ITextBlock';
+export { default as TextBlock } from './core/TextBlock';
 
 export { default as ArrayCollection } from './data/ArrayCollection';
 export { default as IArrayCollection } from './data/IArrayCollection';
