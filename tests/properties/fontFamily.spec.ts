@@ -1,33 +1,33 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
-import { IText, Text } from '../../src/';
+import { ITextBlock, TextBlock } from '../../src/';
 
-describe('IText.fontFamily property', () => {
+describe('ITextBlock.fontFamily property', () => {
     describe('default value', () => {
         it('fontFamily should be ""', () => {
-            const text: IText = new Text();
+            const text: ITextBlock = new TextBlock();
             assert.strictEqual(text.fontFamily, '');
         });
     });
     describe('default style', () => {
         it('style.fontFamily should be ""', () => {
-            const text: Text = new Text();
+            const text: TextBlock = new TextBlock();
             assert.strictEqual(text.style.fontFamily, '');
         });
     });
     describe('fontFamily property', () => {
         it('given fontFamily is "", when fontFamily = "", fontFamily should be ""', () => {
-            const text: IText = new Text();
+            const text: ITextBlock = new TextBlock();
             text.fontFamily = '';
             assert.strictEqual(text.fontFamily, '');
         });
         it('given fontFamily is "", when fontFamily = "Arial", fontFamily should be "Arial"', () => {
-            const text: IText = new Text();
+            const text: ITextBlock = new TextBlock();
             text.fontFamily = 'Arial';
             assert.strictEqual(text.fontFamily, 'Arial');
         });
         it('given fontFamily is "Arial", when fontFamily = "", fontFamily should be ""', () => {
-            const text: IText = new Text();
+            const text: ITextBlock = new TextBlock();
             text.fontFamily = 'Arial';
             text.fontFamily = '';
             assert.strictEqual(text.fontFamily, '');
