@@ -276,6 +276,7 @@ export default class Component extends HTMLElement implements IComponent {
     }
 
     private _display: DisplayType = Display.INLINE;
+
     public set display(value: DisplayType) {
         if (this._display === value) {
             return;
