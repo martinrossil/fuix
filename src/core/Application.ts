@@ -1,3 +1,4 @@
+import { Display } from '..';
 import Container from './Container';
 import IApplication from './IApplication';
 
@@ -5,6 +6,8 @@ export default class Application extends Container implements IApplication {
     public constructor() {
         super();
         this.injectGlobalStyles();
+        this.display = Display.BLOCK;
+        this.style.minHeight = '100vh';
     }
 
     private injectGlobalStyles(): void {
@@ -17,7 +20,8 @@ export default class Application extends Container implements IApplication {
         innerHTMLString += 'margin: 0; line-height: 1.2;';
         innerHTMLString += 'position: relative; box-sizing:border-box;';
         innerHTMLString += 'border:none; outline:none;';
-        innerHTMLString += '}';
+        innerHTMLString += '-ms-overflow-style: none;scrollbar-width: none;}';
+        innerHTMLString += '*::-webkit-scrollbar{display: none;}';
         const style: HTMLStyleElement = document.createElement('style');
         style.innerHTML = innerHTMLString;
         document.head.appendChild(style);
