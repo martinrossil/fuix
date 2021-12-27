@@ -1,3 +1,4 @@
+import { AlignItemsType } from '../types/AlignItemsType';
 import IComponent from './IComponent';
 
 export default interface IContainer extends IComponent {
@@ -73,4 +74,12 @@ export default interface IContainer extends IComponent {
      * The IContainer.childCount read-only property returns the number of child components of this Container.
      */
     readonly childCount: number;
+
+    /**
+     * The CSS align-items property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/align-items} for syntax
+     */
+
+    alignItems: AlignItemsType;
 }

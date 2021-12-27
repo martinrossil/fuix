@@ -1,6 +1,8 @@
 import IComponent from './IComponent';
 import Component from './Component';
 import IContainer from './IContainer';
+import { AlignItemsType } from '../types/AlignItemsType';
+import { AlignItems } from '../consts/AlignItems';
 
 export default class Container extends Component implements IContainer {
     /**
@@ -139,6 +141,25 @@ export default class Container extends Component implements IContainer {
      */
     get childCount(): number {
         return this.childElementCount;
+    }
+
+    private _alignItems: AlignItemsType = AlignItems.NORMAL;
+
+    public set alignItems(value: AlignItemsType) {
+        if (this._alignItems === value) {
+            return;
+        }
+        this._alignItems = value;
+        this.style.alignItems = value;
+    }
+
+    /**
+     * The CSS align-items property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/align-items} for syntax
+     */
+    public get alignItems(): AlignItemsType {
+        return this._alignItems;
     }
 }
 customElements.define('fx-container', Container);
