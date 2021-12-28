@@ -3,6 +3,8 @@ import Component from './Component';
 import IContainer from './IContainer';
 import { AlignItemsType } from '../types/AlignItemsType';
 import { AlignItems } from '../consts/AlignItems';
+import { JustifyContentType } from '../types/JustifyContentType';
+import { JustifyContent } from '../consts/JustifyContent';
 
 export default class Container extends Component implements IContainer {
     /**
@@ -160,6 +162,25 @@ export default class Container extends Component implements IContainer {
      */
     public get alignItems(): AlignItemsType {
         return this._alignItems;
+    }
+
+    private _justifyContent: JustifyContentType = JustifyContent.NORMAL;
+
+    public set justifyContent(value: JustifyContentType) {
+        if (this._justifyContent === value) {
+            return;
+        }
+        this._justifyContent = value;
+        this.style.justifyContent = value;
+    }
+
+    /**
+     * The CSS justify-content property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
+     */
+    public get justifyContent(): JustifyContentType {
+        return this._justifyContent;
     }
 }
 customElements.define('fx-container', Container);

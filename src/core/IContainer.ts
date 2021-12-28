@@ -1,4 +1,5 @@
 import { AlignItemsType } from '../types/AlignItemsType';
+import { JustifyContentType } from '../types/JustifyContentType';
 import IComponent from './IComponent';
 
 export default interface IContainer extends IComponent {
@@ -82,4 +83,11 @@ export default interface IContainer extends IComponent {
      */
 
     alignItems: AlignItemsType;
+
+    /**
+     * The CSS justify-content property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
+     */
+    justifyContent: JustifyContentType;
 }
