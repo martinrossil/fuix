@@ -7,7 +7,9 @@
         "strictNullChecks": true,
         "noImplicitAny": true,
         "sourceMap": true,
-        "inlineSourceMap": true
+        "inlineSourceMap": true,
+        "suppressImplicitAnyIndexErrors": true
+
     },
     "include": [
         "src/**/*"
