@@ -18,7 +18,7 @@ export default class FuixDev extends Application {
     private get dataContainer(): IDataContainer<TestVo> {
         if (!this._dataContainer) {
             this._dataContainer = new DataContainer();
-            this._dataContainer.justifyContent = JustifyContent.SPACE_EVENLY;
+            // this._dataContainer.justifyContent = JustifyContent.SPACE_BETWEEN;
             this._dataContainer.gap = 16;
             this._dataContainer.heightPercent = 100;
             this._dataContainer.display = Display.FLEX;

@@ -5,10 +5,11 @@ import TestVo from './TestVo';
 export default class TestRenderer extends Container implements IDataRenderer<TestVo | null> {
     public constructor() {
         super();
-        this.width = 120;
-        // this.minWidth = 100;
-        this.height = 180;
-        // this.flexGrow = 1;
+        // this.width = 120;
+        this.minWidth = 160;
+        // this.minHeight = 100;
+        this.aspectRatio = 1.5;
+        this.flexGrow = 1;
         this.backgroundColor = 'lightblue';
     }
 

@@ -185,4 +185,11 @@ export default interface IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
      */
     flexWrap: FlexWrapType;
+
+    /**
+     * The aspect-ratio  CSS property sets a preferred aspect ratio for the box, which will be used in the calculation of auto sizes and some other layout functions.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio} for syntax
+     */
+    aspectRatio: number;
 }

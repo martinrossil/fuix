@@ -474,5 +474,28 @@ export default class Component extends HTMLElement implements IComponent {
         this._flexWrap = value;
         this.style.flexWrap = value;
     }
+
+    private _aspectRatio = NaN;
+
+    public set aspectRatio(value: number) {
+        if (isNaN(value)) {
+            this._aspectRatio = value;
+            // while the typescript version can't be upgraded, we use bracket syntax
+            this.style['aspectRatio'] = '';
+            return;
+        }
+        this._aspectRatio = value;
+        // while the typescript version can't be upgraded, we use bracket syntax
+        this.style['aspectRatio'] = value.toString();
+    }
+
+    /**
+     * The aspect-ratio  CSS property sets a preferred aspect ratio for the box, which will be used in the calculation of auto sizes and some other layout functions.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio} for syntax
+     */
+    public get aspectRatio(): number {
+        return this._aspectRatio;
+    }
 }
 customElements.define('fx-component', Component);
