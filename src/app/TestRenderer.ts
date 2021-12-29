@@ -6,11 +6,11 @@ export default class TestRenderer extends Container implements IDataRenderer<Tes
     public constructor() {
         super();
         // this.width = 120;
-        this.minWidth = 160;
-        // this.minHeight = 100;
-        this.maxWidth = 200;
+        this.minWidth = 100;
+        this.minHeight = 100;
+        // this.maxWidth = 200;
         this.aspectRatio = 1.5;
-        this.flexGrow = 1;
+        // this.flexGrow = 1;
         this.backgroundColor = '#003366';
     }
 

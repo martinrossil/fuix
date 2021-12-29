@@ -14,15 +14,16 @@ export default class FuixDev extends Application {
         this.addComponent(this.dataContainer);
     }
 
-    private _dataContainer!: IDataContainer<TestVo>;
-    private get dataContainer(): IDataContainer<TestVo> {
+    private _dataContainer!: DataContainer<TestVo>;
+    private get dataContainer(): DataContainer<TestVo> {
         if (!this._dataContainer) {
             this._dataContainer = new DataContainer();
             // this._dataContainer.justifyContent = JustifyContent.SPACE_BETWEEN;
             this._dataContainer.gap = 16;
             this._dataContainer.heightPercent = 100;
-            this._dataContainer.display = Display.FLEX;
-            this._dataContainer.flexWrap = FlexWrap.WRAP;
+            this._dataContainer.display = Display.GRID;
+            this._dataContainer.gridTemplateColumns = 'repeat(4, 1fr)'; // 'repeat(auto-fill, minmax(200px, 1fr))';
+            // this._dataContainer.flexWrap = FlexWrap.WRAP;
             // this._dataContainer.alignItems = AlignItems.STRETCH;
             this._dataContainer.DataRendererClass = TestRenderer;
             this._dataContainer.dataProvider = this.testCollection;
@@ -34,7 +35,7 @@ export default class FuixDev extends Application {
     private get testCollection(): IArrayCollection<TestVo> {
         if (!this._testCollection) {
             const items: Array<TestVo> = [];
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 70; i++) {
                 items.push(new TestVo('name', i + 1));
             }
             this._testCollection = new ArrayCollection(items);
