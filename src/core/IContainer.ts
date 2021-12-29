@@ -97,5 +97,12 @@ export default interface IContainer extends IComponent {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
      */
-     flexWrap: FlexWrapType;
+    flexWrap: FlexWrapType;
+
+    /**
+     * The grid-template-columns CSS property defines the line names and track sizing functions of the grid columns.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns} for syntax
+     */
+    gridTemplateColumns: string;
 }

@@ -200,5 +200,21 @@ export default class Container extends Component implements IContainer {
         this._flexWrap = value;
         this.style.flexWrap = value;
     }
+
+    private _gridTemplateColumns = 'none';
+
+    public set gridTemplateColumns(value: string) {
+        this._gridTemplateColumns = value;
+        this.style['grid-template-columns'] = value;
+    }
+
+    /**
+     * The grid-template-columns CSS property defines the line names and track sizing functions of the grid columns.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns} for syntax
+     */
+    public get gridTemplateColumns(): string {
+        return this._gridTemplateColumns;
+    }
 }
 customElements.define('fx-container', Container);
