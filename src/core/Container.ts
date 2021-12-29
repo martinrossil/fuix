@@ -5,6 +5,8 @@ import { AlignItemsType } from '../types/AlignItemsType';
 import { AlignItems } from '../consts/AlignItems';
 import { JustifyContentType } from '../types/JustifyContentType';
 import { JustifyContent } from '../consts/JustifyContent';
+import { FlexWrap } from '../consts/FlexWrap';
+import { FlexWrapType } from '../types/FlexWrapType';
 
 export default class Container extends Component implements IContainer {
     /**
@@ -181,6 +183,22 @@ export default class Container extends Component implements IContainer {
      */
     public get justifyContent(): JustifyContentType {
         return this._justifyContent;
+    }
+
+    private _flexWrap: FlexWrapType = FlexWrap.NOWRAP;
+
+    /**
+     * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
+     */
+    public get flexWrap(): FlexWrapType {
+        return this._flexWrap;
+    }
+
+    public set flexWrap(value: FlexWrapType) {
+        this._flexWrap = value;
+        this.style.flexWrap = value;
     }
 }
 customElements.define('fx-container', Container);

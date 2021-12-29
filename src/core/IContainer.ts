@@ -1,3 +1,4 @@
+import { FlexWrapType } from '../types/FlexWrapType';
 import { AlignItemsType } from '../types/AlignItemsType';
 import { JustifyContentType } from '../types/JustifyContentType';
 import IComponent from './IComponent';
@@ -90,4 +91,11 @@ export default interface IContainer extends IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
      */
     justifyContent: JustifyContentType;
+
+    /**
+     * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
+     */
+     flexWrap: FlexWrapType;
 }
