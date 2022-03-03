@@ -35,6 +35,9 @@ export { default as IState } from './fsm/IState';
 export { default as Machine } from './fsm/Machine';
 export { default as State } from './fsm/State';
 
+export { default as IMouseTouch } from './machines/IMouseTouch';
+export { default as MouseTouchMachine } from './machines/MouseTouchMachine';
+
 export { DisplayType } from './types/DisplayType';
 export { FlexWrapType } from './types/FlexWrapType';
 export { FontWeightType } from './types/FontWeightType';
