@@ -12,7 +12,7 @@ export default [{
                 contentBase: 'development',
                 open: true,
                 historyApiFallback: true,
-                port: 10003
+                port: 10004
             }),
             livereload()
         ],
