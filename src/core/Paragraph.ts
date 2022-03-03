@@ -1,9 +1,15 @@
+import { Display } from '..';
 import { FontWeight } from '../consts/FontWeight';
 import { FontWeightType } from '../types/FontWeightType';
 import Component from './Component';
-import ITextBlock from './ITextBlock';
+import IParagraph from './IParagraph';
 
-export default class TextBlock extends Component implements ITextBlock {
+export default class Paragraph extends Component implements IParagraph {
+    public constructor() {
+        super();
+        this.display = Display.BLOCK;
+    }
+
     public set text(value: string) {
         this.innerText = value;
     }
@@ -109,4 +115,4 @@ export default class TextBlock extends Component implements ITextBlock {
         return this._lineHeight;
     }
 }
-customElements.define('fx-text-block', TextBlock);
+customElements.define('fx-paragraph', Paragraph);
