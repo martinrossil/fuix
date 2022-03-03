@@ -1,8 +1,9 @@
-import { ArrayCollection, DataContainer, Display, FlexWrap, IArrayCollection, Position, TestRenderer, TestVo } from '.';
+import { ArrayCollection, DataContainer, Display, FlexWrap, IArrayCollection, IParagraph, Position, TestRenderer, TestVo } from '.';
 import IDataContainer from './components/IDataContainer';
 import { AlignItems } from './consts/AlignItems';
 import { JustifyContent } from './consts/JustifyContent';
 import Application from './core/Application';
+import Paragraph from './core/Paragraph';
 
 export default class FuixDev extends Application {
     public constructor() {
@@ -11,7 +12,15 @@ export default class FuixDev extends Application {
         this.bodyColor = '#a3b8cc';
         this.bodyFontFamily = 'Eurostile';
         this.padding = 16;
-        this.addComponent(this.dataContainer);
+        // this.addComponent(this.dataContainer);
+        const paragraph: IParagraph = new Paragraph();
+        paragraph.text = 'Heljlo Worqld 123 gÅ ØÆj';
+        paragraph.fontSize = 96;
+        const paragraph2: IParagraph = new Paragraph();
+        paragraph2.text = 'Heljlo Worqld 123 gÅ ØÆj';
+        paragraph2.fontSize = 96;
+        paragraph2.fontWeight = 700;
+        this.addComponents([paragraph, paragraph2]);
     }
 
     private _dataContainer!: DataContainer<TestVo>;
@@ -22,7 +31,7 @@ export default class FuixDev extends Application {
             this._dataContainer.gap = 16;
             this._dataContainer.heightPercent = 100;
             this._dataContainer.display = Display.GRID;
-            this._dataContainer.gridTemplateColumns = 'repeat(4, 1fr)'; // 'repeat(auto-fill, minmax(200px, 1fr))';
+            this._dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(200px, 1fr))';
             // this._dataContainer.flexWrap = FlexWrap.WRAP;
             // this._dataContainer.alignItems = AlignItems.STRETCH;
             this._dataContainer.DataRendererClass = TestRenderer;
