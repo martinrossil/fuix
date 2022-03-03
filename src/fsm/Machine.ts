@@ -19,14 +19,14 @@ export default class Machine<Host> implements IMachine {
     private changeState(state: IState, e: Event) {
         if (this.currentState !== state) {
             if (this.currentState.exit) {
-                this.currentState.exit.call(this.host, e);
+                this.currentState.exit.call(this, e);
             }
             this.currentState = state;
             if (this.currentState.entry) {
-                this.currentState.entry.call(this.host, e);
+                this.currentState.entry.call(this, e);
             }
             if (this.currentState.on) {
-                this.currentState.on.call(this.host, e);
+                this.currentState.on.call(this, e);
             }
             if (this.currentState.next) {
                 this.changeState(this.currentState.next, e);
