@@ -3,5 +3,4 @@ lib/
 node_modules/
 public/
 docs/
-coverage/Ch*/**
-coverage/lcov-report
+coverage/
