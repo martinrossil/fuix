@@ -4,50 +4,6 @@ import { OverflowType } from '../types/OverflowType';
 
 export default interface IComponent {
     /**
-     * Sets the width and height.
-     * @param width - width in pixels from 0 to Infinity or NaN
-     * @param height - height in pixels from 0 to Infinity or NaN
-     * @returns the calling component so we can chain.
-     */
-    setSize(width: number, height: number): this;
-
-    /**
-     * Sets the widthPercent and heightPercent.
-     * @param widthPercent - widthPercent from 0 to Infinity or NaN
-     * @param heightPercent - heightPercent from 0 to Infinity or NaN
-     * @returns the calling component so we can chain.
-     */
-    setSizePercent(widthPercent: number, heightPercent: number): this;
-
-    /**
-     * Sets the width.
-     * @param width - width in pixels from 0 to Infinity or NaN
-     * @returns the calling component so we can chain.
-     */
-    setWidth(width: number): this;
-
-    /**
-     * Sets the height.
-     * @param height - height in pixels from 0 to Infinity or NaN
-     * @returns the calling component so we can chain.
-     */
-    setHeight(height: number): this;
-
-    /**
-     * Sets the widthPercent.
-     * @param widthPercent - widthPercent from 0 to Infinity or NaN
-     * @returns the calling component so we can chain.
-     */
-    setWidthPercent(widthPercent: number): this;
-
-    /**
-     * Sets the heightPercent.
-     * @param heightPercent - heightPercent from 0 to Infinity or NaN
-     * @returns the calling component so we can chain.
-     */
-    setHeightPercent(heightPercent: number): this;
-
-    /**
      * The width CSS property sets an element's width. By default, it sets the width of the content area, but if box-sizing is set to border-box, it sets the width of the border area.
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/width} for syntax
