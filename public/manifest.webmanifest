@@ -1,0 +1,27 @@
+{
+    "name": "Fuix",
+    "short_name": "Fuix",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "icon192x192.png", 
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icon512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "display": "standalone"
+}
