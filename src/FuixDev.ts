@@ -12,15 +12,15 @@ export default class FuixDev extends Application {
         this.bodyColor = '#a3b8cc';
         this.bodyFontFamily = 'Eurostile';
         this.padding = 16;
-        // this.addComponent(this.dataContainer);
-        const paragraph: IParagraph = new Paragraph();
+        this.addComponent(this.dataContainer);
+        /* const paragraph: IParagraph = new Paragraph();
         paragraph.text = 'Heljlo Worqld 123 gÅ ØÆj';
         paragraph.fontSize = 96;
         const paragraph2: IParagraph = new Paragraph();
         paragraph2.text = 'Heljlo Worqld 123 gÅ ØÆj';
         paragraph2.fontSize = 96;
         paragraph2.fontWeight = 700;
-        this.addComponents([paragraph, paragraph2]);
+        this.addComponents([paragraph, paragraph2]); */
     }
 
     private _dataContainer!: DataContainer<TestVo>;
