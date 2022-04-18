@@ -13,15 +13,15 @@ export default {
         //
     },
     plugins: [
-        clear({ targets: ['public'] }),
+        clear({ targets: ['docs'] }),
         resolve(),
         copy({
             targets: [
-                { src: 'assets/icons/**.*', dest: 'public' },
-                { src: 'assets/production/**.*', dest: 'public' },
+                { src: 'assets/icons/**.*', dest: 'docs' },
+                { src: 'assets/production/**.*', dest: 'docs' },
                 {
                     src: 'assets/index.html',
-                    dest: 'public',
+                    dest: 'docs',
                     transform: (contents) => contents.toString().replace('{{version}}', version).replace('{{version}}', version)
                 }
             ]
@@ -36,7 +36,7 @@ export default {
 function getOutput(year) {
     return {
         entryFileNames: '[name].' + version + '.es' + year + '.js',
-        dir: './public/',
+        dir: './docs/',
         format: 'esm',
         plugins: [getCompiler(year)]
     }
