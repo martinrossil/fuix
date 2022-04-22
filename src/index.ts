@@ -8,9 +8,11 @@ export { default as IDataRenderer } from './components/IDataRenderer';
 export { default as IList } from './components/IList';
 export { default as List } from './components/List';
 
+export { AlignItems } from './consts/AlignItems';
 export { Display } from './consts/Display';
 export { FlexWrap } from './consts/FlexWrap';
 export { FontWeight } from './consts/FontWeight';
+export { JustifyContent } from './consts/JustifyContent';
 export { Overflow } from './consts/Overflow';
 export { Position } from './consts/Position';
 
@@ -38,8 +40,10 @@ export { default as State } from './fsm/State';
 export { default as IMouseTouch } from './machines/IMouseTouch';
 export { default as MouseTouchMachine } from './machines/MouseTouchMachine';
 
+export { AlignItemsType } from './types/AlignItemsType';
 export { DisplayType } from './types/DisplayType';
 export { FlexWrapType } from './types/FlexWrapType';
 export { FontWeightType } from './types/FontWeightType';
+export { JustifyContentType } from './types/JustifyContentType';
 export { OverflowType } from './types/OverflowType';
 export { PositionType } from './types/PositionType';
