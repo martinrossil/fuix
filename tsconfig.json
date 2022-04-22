@@ -9,7 +9,8 @@
         "declaration": true,
         "declarationDir": "./lib",
         "outDir": "./lib",
-        "suppressImplicitAnyIndexErrors": true
+        "suppressImplicitAnyIndexErrors": true,
+        "preserveConstEnums": true
     },
     "include": [
         "src/**/*"
