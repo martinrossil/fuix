@@ -1,4 +1,4 @@
-import { Display } from '..';
+import { Display } from '../consts/Display';
 import Container from './Container';
 import IApplication from './IApplication';
 
