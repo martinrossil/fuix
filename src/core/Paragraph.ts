@@ -1,4 +1,4 @@
-import { Display } from '..';
+import { Display } from '../consts/Display';
 import { FontWeight } from '../consts/FontWeight';
 import { FontWeightType } from '../types/FontWeightType';
 import Component from './Component';
