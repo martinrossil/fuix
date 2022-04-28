@@ -67,7 +67,7 @@ export default class MouseTouchMachine extends Machine<IMouseTouch> {
 
     private delay(): void {
         setTimeout(() => {
-            this.host.dispatchCustomEvent(new CustomEvent('DELAY_COMPLETE'));
+            this.host.dispatchEvent(new CustomEvent('DELAY_COMPLETE'));
         }, 0);
     }
 
