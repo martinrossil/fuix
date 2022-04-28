@@ -1,6 +1,4 @@
-import IEventDispatcher from '../event/IEventDispatcher';
-
-export default interface IArrayCollection<Item> extends IEventDispatcher {
+export default interface IArrayCollection<Item> extends EventTarget {
     addItem(item: Item): void;
     addItems(items: Array<Item>): void;
     getItemIndex(item: Item): number;
