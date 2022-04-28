@@ -1,12 +1,11 @@
-import IEventListener from '../event/IEventListener';
 import IState from './IState';
 
 export default class State implements IState {
     public name: string;
-    public entry: IEventListener | null = null;
-    public on: IEventListener | null = null;
+    public entry: EventListener | null = null;
+    public on: EventListener | null = null;
     public next: IState | null = null;
-    public exit: IEventListener | null = null;
+    public exit: EventListener | null = null;
     protected targets: Map<string, IState> = new Map();
     public constructor(name: string) {
         this.name = name;

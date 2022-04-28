@@ -1,11 +1,9 @@
-import IEventListener from '../event/IEventListener';
-
 export default interface IState {
     name: string;
-    entry: IEventListener | null;
-    on: IEventListener | null;
+    entry: EventListener | null;
+    on: EventListener | null;
     next: IState | null;
-    exit: IEventListener | null;
+    exit: EventListener | null;
     addTransition(type: string, target: IState): void;
     getState(type: string): IState;
 }
