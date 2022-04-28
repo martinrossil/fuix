@@ -26,12 +26,10 @@ export { default as IParagraph } from './core/IParagraph';
 export { default as Paragraph } from './core/Paragraph';
 
 export { default as ArrayCollection } from './data/ArrayCollection';
+export { default as ArrayCollectionEvent } from './data/ArrayCollectionEvent';
 export { default as IArrayCollection } from './data/IArrayCollection';
 
 export { default as EventDispatcher } from './event/EventDispatcher';
-export { default as ICustomEventListener } from './event/ICustomEventListener';
-export { default as IEventDispatcher } from './event/IEventDispatcher';
-export { default as EventListener } from './event/IEventListener';
 
 export { default as IMachine } from './fsm/IMachine';
 export { default as IState } from './fsm/IState';
