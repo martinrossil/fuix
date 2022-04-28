@@ -1,4 +1,5 @@
 import Container from '../core/Container';
+import ArrayCollectionEvent from '../data/ArrayCollectionEvent';
 import IArrayCollection from '../data/IArrayCollection';
 import DataRenderer from './DataRenderer';
 import IDataContainer from './IDataContainer';
@@ -15,24 +16,26 @@ export default class DataContainer<Item> extends Container implements IDataConta
         this.reset = this.reset.bind(this);
     }
 
-    protected itemAdded(e: CustomEvent<Item>): void {
+    protected itemAdded(e: ArrayCollectionEvent<Item>): void {
         let dataRenderer: IDataRenderer<Item>
         if (this.dataRendererCache.length) {
             dataRenderer = this.dataRendererCache.splice(0, 1)[0];
         } else {
             dataRenderer = new this.DataRendererClass();
         }
-        dataRenderer.data = e.detail;
-        this.listDataRendererLookup.set(e.detail, dataRenderer);
+        dataRenderer.data = e.item;
+        if (e.item) {
+            this.listDataRendererLookup.set(e.item, dataRenderer);
+        }
         this.addComponent(dataRenderer);
     }
 
-    protected itemsAdded(e: CustomEvent<Item[]>): void {
-        this.addDataRenderers(e.detail);
+    protected itemsAdded(e: ArrayCollectionEvent<Item>): void {
+        this.addDataRenderers(e.items);
     }
 
-    protected addDataRenderers(items: Item[]): void {
-        const listDataRenderers: IDataRenderer<Item>[] = [];
+    protected addDataRenderers(items: Array<Item>): void {
+        const listDataRenderers: Array<IDataRenderer<Item>> = [];
         for (const item of items) {
             let listDataRenderer: IDataRenderer<Item>;
             if (this.dataRendererCache.length) {
@@ -47,12 +50,14 @@ export default class DataContainer<Item> extends Container implements IDataConta
         this.addComponents(listDataRenderers);
     }
 
-    protected itemRemoved(e: CustomEvent<Item>): void {
-        const dataRenderer: IDataRenderer<Item> | undefined = this.listDataRendererLookup.get(e.detail);
-        if (dataRenderer) {
-            dataRenderer.data = null;
-            this.dataRendererCache.push(dataRenderer);
-            this.removeComponent(dataRenderer);
+    protected itemRemoved(e: ArrayCollectionEvent<Item>): void {
+        if (e.item) {
+            const dataRenderer: IDataRenderer<Item> | undefined = this.listDataRendererLookup.get(e.item);
+            if (dataRenderer) {
+                dataRenderer.data = null;
+                this.dataRendererCache.push(dataRenderer);
+                this.removeComponent(dataRenderer);
+            }
         }
     }
 
@@ -94,17 +99,17 @@ export default class DataContainer<Item> extends Container implements IDataConta
             return;
         }
         if (this._dataProvider) {
-            this._dataProvider.removeCustomEventListener('itemAdded', this.itemAdded);
-            this._dataProvider.removeCustomEventListener('itemsAdded', this.itemsAdded);
-            this._dataProvider.removeCustomEventListener('itemRemoved', this.itemRemoved);
-            this._dataProvider.removeCustomEventListener('reset', this.reset);
+            this._dataProvider.removeEventListener(ArrayCollectionEvent.ITEM_ADDED, this.itemAdded as EventListener);
+            this._dataProvider.removeEventListener(ArrayCollectionEvent.ITEMS_ADDED, this.itemsAdded as EventListener);
+            this._dataProvider.removeEventListener(ArrayCollectionEvent.ITEM_REMOVED, this.itemRemoved as EventListener);
+            this._dataProvider.removeEventListener(ArrayCollectionEvent.RESET, this.reset);
         }
         this._dataProvider = value;
         if (this._dataProvider) {
-            this._dataProvider.addCustomEventListener('itemAdded', this.itemAdded);
-            this._dataProvider.addCustomEventListener('itemsAdded', this.itemsAdded);
-            this._dataProvider.addCustomEventListener('itemRemoved', this.itemRemoved);
-            this._dataProvider.addCustomEventListener('reset', this.reset);
+            this._dataProvider.addEventListener(ArrayCollectionEvent.ITEM_ADDED, this.itemAdded as EventListener);
+            this._dataProvider.addEventListener(ArrayCollectionEvent.ITEMS_ADDED, this.itemsAdded as EventListener);
+            this._dataProvider.addEventListener(ArrayCollectionEvent.ITEM_REMOVED, this.itemRemoved as EventListener);
+            this._dataProvider.addEventListener(ArrayCollectionEvent.RESET, this.reset);
         }
         this.reset();
     }
