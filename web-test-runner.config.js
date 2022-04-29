@@ -6,8 +6,7 @@ export default {
     plugins: [esbuildPlugin({ ts: true })],
     browsers: [
         playwrightLauncher({ product: 'chromium' }),
-        playwrightLauncher({ product: 'firefox' }),
-        playwrightLauncher({ product: 'webkit' })
+        playwrightLauncher({ product: 'firefox' })
     ],
     coverageConfig: {
         report: true,
