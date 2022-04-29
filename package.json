@@ -16,8 +16,7 @@
     "build": "rollup -c",
     "docs": "typedoc --out docs src/index.ts",
     "build:website": "rollup -c rollup.production.js",
-    "test": "web-test-runner --node-resolve",
-    "test:coverage": "web-test-runner --node-resolve --coverage",
+    "test": "web-test-runner --node-resolve --coverage",
     "test:watch": "web-test-runner --node-resolve --watch"
   },
   "repository": {
