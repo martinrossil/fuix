@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
+  "type": "module",
   "files": [
     "lib",
     "src"
@@ -14,7 +15,10 @@
     "lint": "eslint src/**/*",
     "build": "rollup -c",
     "docs": "typedoc --out docs src/index.ts",
-    "build:website": "rollup -c rollup.production.js"
+    "build:website": "rollup -c rollup.production.js",
+    "test": "web-test-runner --node-resolve",
+    "test:coverage": "web-test-runner --node-resolve --coverage",
+    "test:watch": "web-test-runner --node-resolve --watch"
   },
   "repository": {
     "type": "git",
@@ -35,17 +39,23 @@
   "homepage": "https://github.com/martinrossil/fuix#readme",
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.27.0",
+    "@open-wc/testing": "^3.1.4",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@rollup/plugin-strip": "^2.0.0",
+    "@types/mocha": "^9.1.1",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
+    "@web/dev-server-esbuild": "^0.3.0",
+    "@web/test-runner": "^0.13.27",
+    "@web/test-runner-playwright": "^0.8.8",
+    "chai": "npm:@esm-bundle/chai@^4.3.4-fix.0",
     "eslint": "^7.21.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-tsdoc": "^0.2.14",
-    "rollup": "^2.41.1",
+    "rollup": "^2.29.0",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-filesize": "^9.1.1",
