@@ -12,10 +12,10 @@ export default {
         report: true,
         reportDir: 'coverage',
         threshold: {
-            statements: 70,
+            statements: 60,
             branches: 70,
-            functions: 70,
-            lines: 70
+            functions: 50,
+            lines: 60
         }
     }
 };
