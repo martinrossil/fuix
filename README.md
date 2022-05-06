@@ -11,3 +11,5 @@ Typescript web component framework for building high performant web applications
 
 ## extensions
 ts-standard vs code extension: https://marketplace.visualstudio.com/items?itemName=standard.vscode-standard
+
+set Enable Globally to true.
