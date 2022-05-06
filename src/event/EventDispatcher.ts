@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 export default class EventDispatcher implements EventTarget {
     private listeners: Map<string, Array<EventListener> | undefined> = new Map();
 
