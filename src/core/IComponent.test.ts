@@ -1,9 +1,14 @@
+/* eslint-disable no-undef */
 import { assert } from 'chai';
+import { Display } from '../consts/Display';
+import { Overflow } from '../consts/Overflow';
+import { Position } from '../consts/Position';
 import Component from './Component';
 import IComponent from './IComponent';
 
 const positiveRandom = Math.round(Math.random() * 1000);
 const minusRandom = Math.round(-1000 + Math.random() * 500);
+const random: number = Math.ceil(-100 + Math.random() * 200);
 
 describe('IComponent.width property', () => {
     describe('default value', () => {
@@ -377,6 +382,331 @@ describe('IComponent.maxHeight property', () => {
             sizeElement.maxHeight = positiveRandom;
             sizeElement.maxHeight = NaN;
             assert.strictEqual(sizeElement.style.maxHeight, '');
+        });
+    });
+});
+
+describe('IDisplayElement.display property', () => {
+    describe('default value', () => {
+        it('display should be Display.INLINE', () => {
+            const displayElement: IComponent = new Component();
+            assert.strictEqual(displayElement.display, Display.INLINE);
+        });
+    });
+    describe('display property', () => {
+        it('given display is Display.INLINE, when display = Display.INLINE, display should be Display.INLINE', () => {
+            const displayElement: IComponent = new Component();
+            displayElement.display = Display.INLINE;
+            assert.strictEqual(displayElement.display, Display.INLINE);
+        });
+        it('given display is Display.INLINE, when display = Display.BLOCK, display should be Display.BLOCK', () => {
+            const displayElement: IComponent = new Component();
+            displayElement.display = Display.BLOCK;
+            assert.strictEqual(displayElement.display, Display.BLOCK);
+        });
+        it('given display is Display.INLINE, when display = Display.BLOCK, style.display should be Display.BLOCK', () => {
+            const displayElement: Component = new Component();
+            displayElement.display = Display.BLOCK;
+            assert.strictEqual(displayElement.style.display, Display.BLOCK);
+        });
+    });
+});
+
+describe('IComponent.backgroundColor property', () => {
+    describe('default value', () => {
+        it('backgroundColor should be ""', () => {
+            const component: IComponent = new Component();
+            assert.strictEqual(component.backgroundColor, '');
+        });
+    });
+    describe('backgroundColor property', () => {
+        it('given backgroundColor is "", when backgroundColor = "rgb(18, 52, 86)", backgroundColor should be "rgb(18, 52, 86)"', () => {
+            const component: IComponent = new Component();
+            component.backgroundColor = 'rgb(18, 52, 86)';
+            assert.strictEqual(component.backgroundColor, 'rgb(18, 52, 86)');
+        });
+        it('given backgroundColor is "rgb(18, 52, 86)", when backgroundColor = "", backgroundColor should be ""', () => {
+            const component: IComponent = new Component();
+            component.backgroundColor = 'rgb(18, 52, 86)';
+            component.backgroundColor = '';
+            assert.strictEqual(component.backgroundColor, '');
+        });
+    });
+});
+
+describe('IComponent.overflow property', () => {
+    describe('default value', () => {
+        it('overflow should be Overflow.VISIBLE', () => {
+            const displayElement: IComponent = new Component();
+            assert.strictEqual(displayElement.overflow, Overflow.VISIBLE);
+        });
+    });
+    describe('overflow property', () => {
+        it('given overflow is Overflow.VISIBLE, when overflow = Overflow.VISIBLE, overflow should be Overflow.VISIBLE', () => {
+            const displayElement: IComponent = new Component();
+            displayElement.overflow = Overflow.VISIBLE;
+            assert.strictEqual(displayElement.overflow, Overflow.VISIBLE);
+        });
+        it('given overflow is Overflow.VISIBLE, when overflow = Overflow.HIDDEN, overflow should be Overflow.HIDDEN', () => {
+            const displayElement: IComponent = new Component();
+            displayElement.overflow = Overflow.HIDDEN;
+            assert.strictEqual(displayElement.overflow, Overflow.HIDDEN);
+        });
+        it('given overflow is Overflow.VISIBLE, when overflow = Overflow.HIDDEN, style.overflow should be Overflow.HIDDEN', () => {
+            const displayElement: Component = new Component();
+            displayElement.overflow = Overflow.HIDDEN;
+            assert.strictEqual(displayElement.style.overflow, Overflow.HIDDEN);
+        });
+    });
+});
+
+describe('IComponent.left property', () => {
+    describe('default value', () => {
+        it('left should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            assert.isNaN(positionElement.left);
+        });
+        it('style.left should be ""', () => {
+            const positionElement: Component = new Component();
+            assert.strictEqual(positionElement.style.left, '');
+        });
+    });
+    describe('left property', () => {
+        it('given left is NaN, when left = NaN, left should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            positionElement.left = NaN;
+            assert.isNaN(positionElement.left);
+        });
+        it('given left is NaN, when left = ' + random + ', left should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.left = random;
+            assert.strictEqual(positionElement.left, random);
+        });
+        it('given left is ' + random + ', when left = ' + random + ', left should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.left = random;
+            positionElement.left = random;
+            assert.strictEqual(positionElement.left, random);
+        });
+        it('given left is NaN, when left = ' + random + ', positionElement.style.left should be ' + random + 'px', () => {
+            const positionElement: Component = new Component();
+            positionElement.left = random;
+            assert.strictEqual(positionElement.style.left, random + 'px');
+        });
+        it('given left is ' + random + ', when left = NaN, positionElement.style.left should be ""', () => {
+            const positionElement: Component = new Component();
+            positionElement.left = random;
+            positionElement.left = NaN;
+            assert.strictEqual(positionElement.style.left, '');
+        });
+    });
+});
+
+describe('IComponent.right property', () => {
+    describe('default value', () => {
+        it('right should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            assert.isNaN(positionElement.right);
+        });
+        it('style.right should be ""', () => {
+            const positionElement: Component = new Component();
+            assert.strictEqual(positionElement.style.right, '');
+        });
+    });
+    describe('right property', () => {
+        it('given right is NaN, when right = NaN, right should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            positionElement.right = NaN;
+            assert.isNaN(positionElement.right);
+        });
+        it('given right is NaN, when right = ' + random + ', right should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.right = random;
+            assert.strictEqual(positionElement.right, random);
+        });
+        it('given right is ' + random + ', when right = ' + random + ', right should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.right = random;
+            positionElement.right = random;
+            assert.strictEqual(positionElement.right, random);
+        });
+        it('given right is NaN, when right = ' + random + ', positionElement.style.right should be ' + random + 'px', () => {
+            const positionElement: Component = new Component();
+            positionElement.right = random;
+            assert.strictEqual(positionElement.style.right, random + 'px');
+        });
+        it('given right is ' + random + ', when right = NaN, positionElement.style.right should be ""', () => {
+            const positionElement: Component = new Component();
+            positionElement.right = random;
+            positionElement.right = NaN;
+            assert.strictEqual(positionElement.style.right, '');
+        });
+    });
+});
+
+describe('IComponent.top property', () => {
+    describe('default value', () => {
+        it('top should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            assert.isNaN(positionElement.top);
+        });
+        it('style.top should be ""', () => {
+            const positionElement: Component = new Component();
+            assert.strictEqual(positionElement.style.top, '');
+        });
+    });
+    describe('top property', () => {
+        it('given top is NaN, when top = NaN, top should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            positionElement.top = NaN;
+            assert.isNaN(positionElement.top);
+        });
+        it('given top is NaN, when top = ' + random + ', top should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.top = random;
+            assert.strictEqual(positionElement.top, random);
+        });
+        it('given top is ' + random + ', when top = ' + random + ', top should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.top = random;
+            positionElement.top = random;
+            assert.strictEqual(positionElement.top, random);
+        });
+        it('given top is NaN, when top = ' + random + ', positionElement.style.top should be ' + random + 'px', () => {
+            const positionElement: Component = new Component();
+            positionElement.top = random;
+            assert.strictEqual(positionElement.style.top, random + 'px');
+        });
+        it('given top is ' + random + ', when top = NaN, positionElement.style.top should be ""', () => {
+            const positionElement: Component = new Component();
+            positionElement.top = random;
+            positionElement.top = NaN;
+            assert.strictEqual(positionElement.style.top, '');
+        });
+    });
+});
+
+describe('IComponent.bottom property', () => {
+    describe('default value', () => {
+        it('bottom should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            assert.isNaN(positionElement.bottom);
+        });
+        it('style.bottom should be ""', () => {
+            const positionElement: Component = new Component();
+            assert.strictEqual(positionElement.style.bottom, '');
+        });
+    });
+    describe('bottom property', () => {
+        it('given bottom is NaN, when bottom = NaN, bottom should be NaN', () => {
+            const positionElement: IComponent = new Component();
+            positionElement.bottom = NaN;
+            assert.isNaN(positionElement.bottom);
+        });
+        it('given bottom is NaN, when bottom = ' + random + ', bottom should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.bottom = random;
+            assert.strictEqual(positionElement.bottom, random);
+        });
+        it('given bottom is ' + random + ', when bottom = ' + random + ', bottom should be ' + random, () => {
+            const positionElement: IComponent = new Component();
+            positionElement.bottom = random;
+            positionElement.bottom = random;
+            assert.strictEqual(positionElement.bottom, random);
+        });
+        it('given bottom is NaN, when bottom = ' + random + ', positionElement.style.bottom should be ' + random + 'px', () => {
+            const positionElement: Component = new Component();
+            positionElement.bottom = random;
+            assert.strictEqual(positionElement.style.bottom, random + 'px');
+        });
+        it('given bottom is ' + random + ', when bottom = NaN, positionElement.style.bottom should be ""', () => {
+            const positionElement: Component = new Component();
+            positionElement.bottom = random;
+            positionElement.bottom = NaN;
+            assert.strictEqual(positionElement.style.bottom, '');
+        });
+    });
+});
+
+describe('IComponent.position property', () => {
+    describe('default value', () => {
+        it('position should be Position.STATIC', () => {
+            const positionElement: IComponent = new Component();
+            assert.strictEqual(positionElement.position, Position.STATIC);
+        });
+        it('style.position should be ""', () => {
+            const positionElement: Component = new Component();
+            assert.strictEqual(positionElement.style.position, '');
+        });
+    });
+    describe('position property', () => {
+        it('given position is Position.STATIC, when position = Position.STATIC, position should be Position.STATIC', () => {
+            const positionElement: IComponent = new Component();
+            positionElement.position = Position.STATIC;
+            assert.strictEqual(positionElement.position, Position.STATIC);
+        });
+        it('given position is Position.STATIC, when position = Position.ABSOLUTE, position should be Position.ABSOLUTE', () => {
+            const positionElement: IComponent = new Component();
+            positionElement.position = Position.ABSOLUTE;
+            assert.strictEqual(positionElement.position, Position.ABSOLUTE);
+        });
+        it('given position is Position.STATIC, when position = Position.ABSOLUTE, style.position should be Position.ABSOLUTE', () => {
+            const positionElement: Component = new Component();
+            positionElement.position = Position.ABSOLUTE;
+            assert.strictEqual(positionElement.style.position, Position.ABSOLUTE);
+        });
+    });
+});
+
+describe('IComponent.borderRadius property', () => {
+    describe('default value', () => {
+        it('borderRadius should be 0', () => {
+            const displayElement: IComponent = new Component();
+            assert.strictEqual(displayElement.borderRadius, 0);
+        });
+    });
+    describe('borderRadius property', () => {
+        it('given borderRadius is 0, when borderRadius = ' + positiveRandom + ', borderRadius should be ' + positiveRandom, () => {
+            const displayElement: IComponent = new Component();
+            displayElement.borderRadius = positiveRandom;
+            assert.strictEqual(displayElement.borderRadius, positiveRandom);
+        });
+        it('given borderRadius is 0, when borderRadius = 0, borderRadius should be 0', () => {
+            const displayElement: IComponent = new Component();
+            displayElement.borderRadius = 0;
+            assert.strictEqual(displayElement.borderRadius, 0);
+        });
+        it('given borderRadius is 10, when borderRadius = NaN, borderRadius should be 0', () => {
+            const displayElement: IComponent = new Component();
+            displayElement.borderRadius = 10;
+            displayElement.borderRadius = NaN;
+            assert.strictEqual(displayElement.borderRadius, 0);
+        });
+        it('given borderRadius is 0, when borderRadius = ' + minusRandom + ', borderRadius should be 0', () => {
+            const displayElement: IComponent = new Component();
+            displayElement.borderRadius = minusRandom;
+            assert.strictEqual(displayElement.borderRadius, 0);
+        });
+        it('given borderRadius is 0, when borderRadius = ' + positiveRandom + ', style.borderRadius should be ' + positiveRandom + 'px', () => {
+            const displayElement: Component = new Component();
+            displayElement.borderRadius = positiveRandom;
+            assert.strictEqual(displayElement.style.borderRadius, positiveRandom + 'px');
+        });
+        it('given borderRadius is 0, when borderRadius = 0, style.borderRadius should be ""', () => {
+            const displayElement: Component = new Component();
+            displayElement.borderRadius = 0;
+            assert.strictEqual(displayElement.style.borderRadius, '');
+        });
+        it('given borderRadius is 10, when borderRadius = NaN, style.borderRadius should be ""', () => {
+            const displayElement: Component = new Component();
+            displayElement.borderRadius = 10;
+            displayElement.borderRadius = NaN;
+            assert.strictEqual(displayElement.style.borderRadius, '');
+        });
+        it('given borderRadius is 0, when borderRadius = ' + minusRandom + ', style.borderRadius should be ""', () => {
+            const displayElement: Component = new Component();
+            displayElement.borderRadius = minusRandom;
+            assert.strictEqual(displayElement.style.borderRadius, '');
         });
     });
 });
