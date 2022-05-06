@@ -399,12 +399,12 @@ export default class Component extends HTMLElement implements IComponent {
         if (isNaN(value)) {
             this._aspectRatio = value;
             // while the typescript version can't be upgraded, we use bracket syntax
-            this.style['aspectRatio'] = '';
+            this.style.aspectRatio = '';
             return;
         }
         this._aspectRatio = value;
         // while the typescript version can't be upgraded, we use bracket syntax
-        this.style['aspectRatio'] = value.toString();
+        this.style.aspectRatio = value.toString();
     }
 
     /**

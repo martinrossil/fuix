@@ -132,12 +132,12 @@ export default class Container extends Component implements IContainer {
         if (isNaN(value) || value <= 0) {
             this._gap = 0;
             // we use bracket syntax, since the closure compiler renames style.gap in advanced mode?
-            this.style['gap'] = '';
+            this.style.gap = '';
             return;
         }
         this._gap = value;
         // we use bracket syntax, since the closure compiler renames style.gap in advanced mode?
-        this.style['gap'] = value + 'px';
+        this.style.gap = value + 'px';
     }
 
     /**
