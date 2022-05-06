@@ -1,0 +1,13 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "extends": ["standard"],
+    "rules": {
+      "indent": "off",
+      "semi": "off",
+      "space-before-function-paren": "off"
+    },
+    "env": {
+        "browser": true // makes HTMLElement and customElements NOT no-undef
+    }
+}
