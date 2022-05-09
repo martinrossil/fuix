@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { assert } from 'chai';
 import DataRenderer from './DataRenderer';
 import IDataRenderer from './IDataRenderer';
