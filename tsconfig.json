@@ -10,7 +10,6 @@
         "declarationDir": "./lib",
         "outDir": "./lib",
         "suppressImplicitAnyIndexErrors": true,
-        "preserveConstEnums": true,
         "allowSyntheticDefaultImports": true
     },
     "include": [
