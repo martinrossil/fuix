@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { assert } from 'chai';
 import Application from './Application';
 import IApplication from './IApplication';
