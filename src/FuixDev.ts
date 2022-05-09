@@ -1,5 +1,7 @@
+import BottomBar from './app/BottomBar';
 import TestRenderer from './app/TestRenderer';
 import TestVo from './app/TestVo';
+import TopBar from './app/TopBar';
 import DataContainer from './components/DataContainer';
 import IDataContainer from './components/IDataContainer';
 import { Display } from './consts/Display';
@@ -12,13 +14,16 @@ export default class FuixDev extends Application {
         super();
         this.bodyBackgroundColor = '#000d1a';
         this.addComponent(this.dataContainer);
+        this.addComponent(new TopBar());
+        this.addComponent(new BottomBar());
     }
 
-    private _dataContainer!: IDataContainer<TestVo>;
+    private _dataContainer!: DataContainer<TestVo>;
     get dataContainer(): IDataContainer<TestVo> {
         if (!this._dataContainer) {
             this._dataContainer = new DataContainer();
             this._dataContainer.display = Display.GRID;
+            this._dataContainer.style.minHeight = '100vh';
             this._dataContainer.gap = 16;
             this._dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';
             this._dataContainer.DataRendererClass = TestRenderer;
