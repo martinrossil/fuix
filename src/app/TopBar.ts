@@ -5,7 +5,7 @@ export default class TopBar extends Container {
     public constructor() {
         super();
         this.position = Position.FIXED;
-        this.backgroundColor = '#333366';
+        this.backgroundColor = 'red';
         this.height = 64;
         this.widthPercent = 100;
         this.top = 0;
