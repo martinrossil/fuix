@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { assert } from 'chai';
 import { Display } from '../consts/Display';
 import { Overflow } from '../consts/Overflow';
