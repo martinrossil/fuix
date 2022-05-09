@@ -5,7 +5,7 @@ import { Position } from '../consts/Position';
 import Component from './Component';
 import IComponent from './IComponent';
 
-const positiveRandom = Math.round(Math.random() * 1000);
+const positiveRandom = Math.ceil(Math.random() * 1000);
 const minusRandom = Math.round(-1000 + Math.random() * 500);
 const random: number = Math.ceil(-100 + Math.random() * 200);
 
