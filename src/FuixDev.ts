@@ -25,6 +25,8 @@ export default class FuixDev extends Application {
             this._dataContainer.display = Display.GRID;
             this._dataContainer.style.minHeight = '100vh';
             this._dataContainer.gap = 16;
+            this._dataContainer.style.paddingTop = '72px';
+            this._dataContainer.style.paddingBottom = '8px';
             this._dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';
             this._dataContainer.DataRendererClass = TestRenderer;
             this._dataContainer.dataProvider = this.testVOs;
