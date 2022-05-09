@@ -6,8 +6,8 @@ export default {
     files: ['src/**/*.test.ts'],
     plugins: [esbuildPlugin({ ts: true })],
     browsers: [
-        playwrightLauncher({ product: 'chromium' })//,
-        // playwrightLauncher({ product: 'firefox' })
+        playwrightLauncher({ product: 'chromium' }),
+        playwrightLauncher({ product: 'firefox' })
     ],
     reporters: [
         summaryReporter(),
@@ -20,7 +20,7 @@ export default {
         report: true,
         reportDir: 'coverage',
         threshold: {
-            statements: 60,
+            statements: 70,
             branches: 70,
             functions: 50,
             lines: 60
