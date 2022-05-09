@@ -1,15 +1,18 @@
 import IDataRenderer from '../components/IDataRenderer';
+import { Display } from '../consts/Display';
 import Container from '../core/Container';
 import TestVo from './TestVo';
 
 export default class TestRenderer extends Container implements IDataRenderer<TestVo | null> {
     public constructor() {
         super();
+        this.style.display = 'inline-block';
+        this.display = Display.INLINE;
         // this.width = 120;
         this.minWidth = 100;
         this.minHeight = 100;
         // this.maxWidth = 200;
-        this.aspectRatio = 1.5;
+        this.aspectRatio = 1;
         // this.flexGrow = 1;
         this.backgroundColor = '#003366';
     }
