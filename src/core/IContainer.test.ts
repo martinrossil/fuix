@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { assert } from 'chai';
 import Component from './Component';
 import Container from './Container';
