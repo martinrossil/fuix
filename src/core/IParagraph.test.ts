@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { assert } from 'chai';
 import { FontWeight } from '../consts/FontWeight';
 import IParagraph from './IParagraph';
