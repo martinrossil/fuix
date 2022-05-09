@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { assert } from 'chai';
 import TestVo from '../app/TestVo';
 import ArrayCollection from './ArrayCollection';
