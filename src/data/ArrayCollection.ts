@@ -1,7 +1,6 @@
-import EventDispatcher from '../event/EventDispatcher';
 import IArrayCollection from './IArrayCollection';
 
-export default class ArrayCollection<Item> extends EventDispatcher implements IArrayCollection<Item> {
+export default class ArrayCollection<Item> extends EventTarget implements IArrayCollection<Item> {
     public constructor(source: Array<Item> | null = null) {
         super();
         if (source) {
