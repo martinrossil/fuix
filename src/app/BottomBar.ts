@@ -7,7 +7,7 @@ export default class BottomBar extends Container {
         super();
         this.display = Display.BLOCK;
         this.position = Position.STICKY;
-        this.backgroundColor = '#333366';
+        this.backgroundColor = 'blue';
         this.height = 64;
         this.bottom = 0;
     }
