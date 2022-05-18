@@ -26,7 +26,6 @@ export { default as IParagraph } from './core/IParagraph';
 export { default as Paragraph } from './core/Paragraph';
 
 export { default as ArrayCollection } from './data/ArrayCollection';
-export { default as ArrayCollectionEvent } from './data/ArrayCollectionEvent';
 export { default as IArrayCollection } from './data/IArrayCollection';
 
 export { default as EventDispatcher } from './event/EventDispatcher';
