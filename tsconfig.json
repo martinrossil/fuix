@@ -9,6 +9,7 @@
         "declaration": true,
         "declarationDir": "./lib",
         "outDir": "./lib",
+        "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true,
         "allowSyntheticDefaultImports": true
     },
