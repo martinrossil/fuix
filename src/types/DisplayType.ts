@@ -5,11 +5,11 @@ import { Display } from '../consts/Display';
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} for syntax
  */
 export type DisplayType =
-    typeof Display.BLOCK |
-    typeof Display.INLINE |
-    typeof Display.INLINE_BLOCK |
-    typeof Display.INLINE_FLEX |
-    typeof Display.FLEX |
-    typeof Display.INLINE_GRID |
-    typeof Display.GRID |
-    typeof Display.NONE;
+    Display.BLOCK |
+    Display.INLINE |
+    Display.INLINE_BLOCK |
+    Display.INLINE_FLEX |
+    Display.FLEX |
+    Display.INLINE_GRID |
+    Display.GRID |
+    Display.NONE;
