@@ -5,10 +5,10 @@ import { defaultReporter, summaryReporter } from '@web/test-runner';
 export default {
     files: ['src/**/*.test.ts'],
     plugins: [esbuildPlugin({ ts: true })],
-    browsers: [
+    /* browsers: [
         playwrightLauncher({ product: 'chromium' }),
         playwrightLauncher({ product: 'firefox' })
-    ],
+    ], */
     reporters: [
         summaryReporter(),
         defaultReporter({
