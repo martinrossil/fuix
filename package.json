@@ -15,7 +15,7 @@
     "lint": "eslint src/**/*",
     "build": "rollup -c",
     "docs": "typedoc --out docs src/index.ts",
-    "build:website": "npm run lint && npm t && rollup -c rollup.production.js",
+    "build:website": "rollup -c rollup.production.js",
     "test": "web-test-runner --node-resolve --coverage",
     "test:watch": "web-test-runner --node-resolve --watch"
   },
