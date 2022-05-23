@@ -5,7 +5,7 @@ import { AlignItemsType } from '../types/AlignItemsType';
 import { AlignItems } from '../consts/AlignItems';
 import { JustifyContentType } from '../types/JustifyContentType';
 import { JustifyContent } from '../consts/JustifyContent';
-import { FlexWrap } from '../consts/FlexWrap';
+import FlexWrap from '../consts/FlexWrap';
 import { FlexWrapType } from '../types/FlexWrapType';
 
 export default class Container extends Component implements IContainer {
