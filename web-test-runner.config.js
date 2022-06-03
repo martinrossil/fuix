@@ -6,8 +6,7 @@ export default {
     files: ['src/**/*.test.ts'],
     plugins: [esbuildPlugin({ ts: true })],
     browsers: [
-        playwrightLauncher({ product: 'chromium' }),
-        playwrightLauncher({ product: 'firefox' })
+        playwrightLauncher({ product: 'chromium' })
     ],
     reporters: [
         summaryReporter(),
