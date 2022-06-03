@@ -14,4 +14,4 @@ in package.json
 "pre-commit": [ "precommit-msg", "lint", "test" ],
 in scripts: "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
 
-devDependencies: "pre-commit": "^1.2.2",..
+devDependencies: "pre-commit": "^1.2.2",...
