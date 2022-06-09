@@ -18,13 +18,13 @@ export default class FuixDev extends Application {
     public constructor() {
         super();
         this.bodyBackgroundColor = '#000d1a';
-        this.display = Display.INLINE_FLEX;
-        this.flexWrap = FlexWrap.NOWRAP;
+        this.display = Display.BLOCK;
+        // this.flexWrap = FlexWrap.NOWRAP;
         this.addComponent(this.dataContainer);
         this.addComponent(new TopBar());
         this.addComponent(new BottomBar());
-        this.addComponent(this.paragraph);
-        this.addComponent(this.paragraph2);
+        // this.addComponent(this.paragraph);
+        // this.addComponent(this.paragraph2);
     }
 
     private _paragraph!: IParagraph;
@@ -53,8 +53,8 @@ export default class FuixDev extends Application {
     private get dataContainer(): IDataContainer<TestVo> {
         if (!this._dataContainer) {
             this._dataContainer = new DataContainer();
-            this._dataContainer.flexWrap = FlexWrap.WRAP_REVERSE;
-            this._dataContainer.display = Display.INLINE_FLEX;
+            // this._dataContainer.flexWrap = FlexWrap.WRAP_REVERSE;
+            this._dataContainer.display = Display.GRID;
             this._dataContainer.style.minHeight = '100vh';
             this._dataContainer.gap = 16;
             this._dataContainer.style.paddingTop = '72px';
