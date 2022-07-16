@@ -1,20 +1,9 @@
-export { default as TestRenderer } from './app/TestRenderer';
-export { default as TestVo } from './app/TestVo';
-
 export { default as DataContainer } from './components/DataContainer';
 export { default as DataRenderer } from './components/DataRenderer';
 export { default as IDataContainer } from './components/IDataContainer';
 export { default as IDataRenderer } from './components/IDataRenderer';
 export { default as IList } from './components/IList';
 export { default as List } from './components/List';
-
-export { AlignItems } from './consts/AlignItems';
-export { Display } from './consts/Display';
-export { default as FlexWrap } from './consts/FlexWrap';
-export { FontWeight } from './consts/FontWeight';
-export { JustifyContent } from './consts/JustifyContent';
-export { Overflow } from './consts/Overflow';
-export { Position } from './consts/Position';
 
 export { default as Application } from './core/Application';
 export { default as Component } from './core/Component';
@@ -27,8 +16,6 @@ export { default as Paragraph } from './core/Paragraph';
 
 export { default as ArrayCollection } from './data/ArrayCollection';
 export { default as IArrayCollection } from './data/IArrayCollection';
-
-export { default as EventDispatcher } from './event/EventDispatcher';
 
 export { default as IMachine } from './fsm/IMachine';
 export { default as IState } from './fsm/IState';
@@ -45,5 +32,3 @@ export { FontWeightType } from './types/FontWeightType';
 export { JustifyContentType } from './types/JustifyContentType';
 export { OverflowType } from './types/OverflowType';
 export { PositionType } from './types/PositionType';
-
-export { default as Icons } from './consts/Icons';
