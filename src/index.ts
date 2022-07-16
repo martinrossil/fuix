@@ -25,10 +25,10 @@ export { default as State } from './fsm/State';
 export { default as IMouseTouch } from './machines/IMouseTouch';
 export { default as MouseTouchMachine } from './machines/MouseTouchMachine';
 
-export { AlignItemsType } from './types/AlignItemsType';
-export { DisplayType } from './types/DisplayType';
-export { FlexWrapType } from './types/FlexWrapType';
-export { FontWeightType } from './types/FontWeightType';
-export { JustifyContentType } from './types/JustifyContentType';
-export { OverflowType } from './types/OverflowType';
-export { PositionType } from './types/PositionType';
+export { AlignItems } from './types/AlignItems';
+export { Display } from './types/Display';
+export { FlexWrap } from './types/FlexWrap';
+export { FontWeight } from './types/FontWeight';
+export { JustifyContent } from './types/JustifyContent';
+export { Overflow } from './types/Overflow';
+export { Position } from './types/Position';
