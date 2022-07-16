@@ -1,6 +1,6 @@
-import { PositionType } from '../types/PositionType';
-import { DisplayType } from '../types/DisplayType';
-import { OverflowType } from '../types/OverflowType';
+import { Position } from '../types/Position';
+import { Display } from '../types/Display';
+import { Overflow } from '../types/Overflow';
 import IComponent from './IComponent';
 
 export default class Component extends HTMLElement implements IComponent {
@@ -206,9 +206,9 @@ export default class Component extends HTMLElement implements IComponent {
         return this._maxHeight;
     }
 
-    private _display: DisplayType = 'inline';
+    private _display: Display = 'inline';
 
-    public set display(value: DisplayType) {
+    public set display(value: Display) {
         if (this._display === value) {
             return;
         }
@@ -223,12 +223,12 @@ export default class Component extends HTMLElement implements IComponent {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} for syntax
      */
-    public get display(): DisplayType {
+    public get display(): Display {
         return this._display;
     }
 
-    private _overflow: OverflowType = 'visible';
-    public set overflow(value: OverflowType) {
+    private _overflow: Overflow = 'visible';
+    public set overflow(value: Overflow) {
         if (this._overflow === value) {
             return;
         }
@@ -241,7 +241,7 @@ export default class Component extends HTMLElement implements IComponent {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
      */
-    public get overflow(): OverflowType {
+    public get overflow(): Overflow {
         return this._overflow;
     }
 
@@ -265,8 +265,8 @@ export default class Component extends HTMLElement implements IComponent {
         return this._borderRadius;
     }
 
-    private _position: PositionType = 'static';
-    set position(value: PositionType) {
+    private _position: Position = 'static';
+    set position(value: Position) {
         if (this._position === value) {
             return;
         }
@@ -279,7 +279,7 @@ export default class Component extends HTMLElement implements IComponent {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
      */
-    get position(): PositionType {
+    get position(): Position {
         return this._position;
     }
 

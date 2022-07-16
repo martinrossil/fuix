@@ -1,4 +1,4 @@
-import { FontWeightType } from '../types/FontWeightType';
+import { FontWeight } from '../types/FontWeight';
 import IComponent from './IComponent';
 
 export default interface IParagraph extends IComponent {
@@ -22,7 +22,7 @@ export default interface IParagraph extends IComponent {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight}
      */
-    fontWeight: FontWeightType;
+    fontWeight: FontWeight;
 
     /**
      * The font-family CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.

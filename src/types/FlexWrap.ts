@@ -1,5 +1,3 @@
-import FlexWrap from '../consts/FlexWrap';
-
 /**
  * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
  *
@@ -13,4 +11,4 @@ import FlexWrap from '../consts/FlexWrap';
  *
  * @beta
  */
-export type FlexWrapType = 'nowrap' | 'wrap' | 'wrap-reverse';
+export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';

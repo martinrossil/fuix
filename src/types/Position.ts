@@ -3,4 +3,4 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
  */
-export type PositionType = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
+export type Position = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';

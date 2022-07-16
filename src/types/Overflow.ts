@@ -3,4 +3,4 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
  */
-export type OverflowType = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto';
+export type Overflow = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto';

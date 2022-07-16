@@ -1,4 +1,4 @@
-import { FontWeightType } from '../types/FontWeightType';
+import { FontWeight } from '../types/FontWeight';
 import Component from './Component';
 import IParagraph from './IParagraph';
 
@@ -43,8 +43,8 @@ export default class Paragraph extends Component implements IParagraph {
         return this._fontSize;
     }
 
-    private _fontWeight: FontWeightType = 400;
-    public set fontWeight(value: FontWeightType) {
+    private _fontWeight: FontWeight = 400;
+    public set fontWeight(value: FontWeight) {
         this._fontWeight = value;
         this.style.fontWeight = this._fontWeight.toString();
     }
@@ -54,7 +54,7 @@ export default class Paragraph extends Component implements IParagraph {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight}
      */
-    public get fontWeight(): FontWeightType {
+    public get fontWeight(): FontWeight {
         return this._fontWeight;
     }
 

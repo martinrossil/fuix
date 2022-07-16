@@ -3,4 +3,4 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
  */
-export type JustifyContentType = 'center' | 'end' | 'flex-end' | 'flex-start' | 'left' | 'normal' | 'right' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch';
+export type JustifyContent = 'center' | 'end' | 'flex-end' | 'flex-start' | 'left' | 'normal' | 'right' | 'space-around' | 'space-between' | 'space-evenly' | 'start' | 'stretch';

@@ -3,4 +3,4 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} for syntax
  */
-export type DisplayType = 'block' | 'inline' | 'inline-block' | 'inline-flex' | 'flex' | 'inline-grid' | 'grid' | 'none';
+export type Display = 'block' | 'inline' | 'inline-block' | 'inline-flex' | 'flex' | 'inline-grid' | 'grid' | 'none';

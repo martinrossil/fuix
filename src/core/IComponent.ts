@@ -1,6 +1,6 @@
-import { PositionType } from '../types/PositionType';
-import { DisplayType } from '../types/DisplayType';
-import { OverflowType } from '../types/OverflowType';
+import { Position } from '../types/Position';
+import { Display } from '../types/Display';
+import { Overflow } from '../types/Overflow';
 
 export default interface IComponent {
     /**
@@ -68,7 +68,7 @@ export default interface IComponent {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
      */
-    position: PositionType;
+    position: Position;
 
     /**
      * The left CSS property participates in specifying the horizontal position of a positioned element. It has no effect on non-positioned elements.
@@ -104,14 +104,14 @@ export default interface IComponent {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} for syntax
      */
-    display: DisplayType;
+    display: Display;
 
     /**
      * The overflow CSS shorthand property sets the desired behavior for an element's overflow — i.e. when an element's content is too big to fit in its block formatting context — in both directions.
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
      */
-    overflow: OverflowType;
+    overflow: Overflow;
 
     /**
      * The border-radius CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.

@@ -1,9 +1,9 @@
 import IComponent from './IComponent';
 import Component from './Component';
 import IContainer from './IContainer';
-import { AlignItemsType } from '../types/AlignItemsType';
-import { JustifyContentType } from '../types/JustifyContentType';
-import { FlexWrapType } from '../types/FlexWrapType';
+import { AlignItems } from '../types/AlignItems';
+import { JustifyContent } from '../types/JustifyContent';
+import { FlexWrap } from '../types/FlexWrap';
 
 export default class Container extends Component implements IContainer {
     /**
@@ -129,12 +129,12 @@ export default class Container extends Component implements IContainer {
         if (isNaN(value) || value <= 0) {
             this._gap = 0;
             // we use bracket syntax, since the closure compiler renames style.gap in advanced mode? I think it's about language_in flag?
-            this.style['gap'] = '';
+            this.style.gap = '';
             return;
         }
         this._gap = value;
         // we use bracket syntax, since the closure compiler renames style.gap in advanced mode? I think it's about language_in flag?
-        this.style['gap'] = value + 'px';
+        this.style.gap = value + 'px';
     }
 
     /**
@@ -144,9 +144,9 @@ export default class Container extends Component implements IContainer {
         return this.childElementCount;
     }
 
-    private _alignItems: AlignItemsType = 'normal';
+    private _alignItems: AlignItems = 'normal';
 
-    public set alignItems(value: AlignItemsType) {
+    public set alignItems(value: AlignItems) {
         if (this._alignItems === value) {
             return;
         }
@@ -159,13 +159,13 @@ export default class Container extends Component implements IContainer {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/align-items} for syntax
      */
-    public get alignItems(): AlignItemsType {
+    public get alignItems(): AlignItems {
         return this._alignItems;
     }
 
-    private _justifyContent: JustifyContentType = 'normal';
+    private _justifyContent: JustifyContent = 'normal';
 
-    public set justifyContent(value: JustifyContentType) {
+    public set justifyContent(value: JustifyContent) {
         if (this._justifyContent === value) {
             return;
         }
@@ -178,22 +178,22 @@ export default class Container extends Component implements IContainer {
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
      */
-    public get justifyContent(): JustifyContentType {
+    public get justifyContent(): JustifyContent {
         return this._justifyContent;
     }
 
-    private _flexWrap: FlexWrapType = 'nowrap';
+    private _flexWrap: FlexWrap = 'nowrap';
 
     /**
      * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
      */
-    public get flexWrap(): FlexWrapType {
+    public get flexWrap(): FlexWrap {
         return this._flexWrap;
     }
 
-    public set flexWrap(value: FlexWrapType) {
+    public set flexWrap(value: FlexWrap) {
         this._flexWrap = value;
         this.style.flexWrap = value;
     }
@@ -202,7 +202,7 @@ export default class Container extends Component implements IContainer {
 
     public set gridTemplateColumns(value: string) {
         this._gridTemplateColumns = value;
-        this.style['grid-template-columns'] = value;
+        this.style.gridTemplateColumns = value;
     }
 
     /**

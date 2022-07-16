@@ -3,4 +3,4 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight} for syntax
 */
-export type FontWeightType = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;
+export type FontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950;

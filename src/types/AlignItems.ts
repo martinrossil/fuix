@@ -3,4 +3,4 @@
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/align-items} for syntax
  */
-export type AlignItemsType = 'center' | 'end' | 'flex-end' | 'flex-start' | 'start' | 'stretch' | 'normal';
+export type AlignItems = 'center' | 'end' | 'flex-end' | 'flex-start' | 'start' | 'stretch' | 'normal';
