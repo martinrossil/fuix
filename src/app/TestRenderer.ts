@@ -1,13 +1,11 @@
 import IDataRenderer from '../components/IDataRenderer';
-import { Display } from '../consts/Display';
 import Container from '../core/Container';
 import TestVo from './TestVo';
 
 export default class TestRenderer extends Container implements IDataRenderer<TestVo | null> {
     public constructor() {
         super();
-        this.style.display = 'inline-block';
-        this.display = Display.INLINE;
+        this.display = 'inline';
         // this.width = 120;
         this.minWidth = 100;
         this.minHeight = 100;
