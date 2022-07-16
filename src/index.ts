@@ -10,7 +10,7 @@ export { default as List } from './components/List';
 
 export { AlignItems } from './consts/AlignItems';
 export { Display } from './consts/Display';
-export { FlexWrap } from './consts/FlexWrap';
+export { default as FlexWrap } from './consts/FlexWrap';
 export { FontWeight } from './consts/FontWeight';
 export { JustifyContent } from './consts/JustifyContent';
 export { Overflow } from './consts/Overflow';
