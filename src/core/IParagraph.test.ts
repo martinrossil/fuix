@@ -1,5 +1,4 @@
 import { assert } from 'chai';
-import { FontWeight } from '../consts/FontWeight';
 import IParagraph from './IParagraph';
 import Paragraph from './Paragraph';
 
@@ -86,7 +85,7 @@ describe('IParagraph.fontWeight property', () => {
     describe('default value', () => {
         it('fontWeight should be 400', () => {
             const text: IParagraph = new Paragraph();
-            assert.strictEqual(text.fontWeight, FontWeight.NORMAL_400);
+            assert.strictEqual(text.fontWeight, 400);
         });
     });
     describe('default style', () => {
@@ -98,13 +97,13 @@ describe('IParagraph.fontWeight property', () => {
     describe('fontWeight property', () => {
         it('given fontWeight is 400, when fontWeight = 400, fontWeight should be 400', () => {
             const text: IParagraph = new Paragraph();
-            text.fontWeight = FontWeight.NORMAL_400;
-            assert.strictEqual(text.fontWeight, FontWeight.NORMAL_400);
+            text.fontWeight = 400;
+            assert.strictEqual(text.fontWeight, 400);
         });
         it('given fontWeight is 400, when fontWeight = 900, fontWeight should be 900', () => {
             const text: IParagraph = new Paragraph();
-            text.fontWeight = FontWeight.BLACK_900;
-            assert.strictEqual(text.fontWeight, FontWeight.BLACK_900);
+            text.fontWeight = 900;
+            assert.strictEqual(text.fontWeight, 900);
         });
     });
 });

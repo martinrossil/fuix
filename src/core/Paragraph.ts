@@ -1,5 +1,3 @@
-import { Display } from '../consts/Display';
-import { FontWeight } from '../consts/FontWeight';
 import { FontWeightType } from '../types/FontWeightType';
 import Component from './Component';
 import IParagraph from './IParagraph';
@@ -7,7 +5,7 @@ import IParagraph from './IParagraph';
 export default class Paragraph extends Component implements IParagraph {
     public constructor() {
         super();
-        this.display = Display.BLOCK;
+        this.display = 'block';
     }
 
     public set text(value: string) {
@@ -45,7 +43,7 @@ export default class Paragraph extends Component implements IParagraph {
         return this._fontSize;
     }
 
-    private _fontWeight: FontWeightType = FontWeight.NORMAL_400;
+    private _fontWeight: FontWeightType = 400;
     public set fontWeight(value: FontWeightType) {
         this._fontWeight = value;
         this.style.fontWeight = this._fontWeight.toString();
