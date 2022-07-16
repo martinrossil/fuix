@@ -5,17 +5,25 @@ import TopBar from './app/TopBar';
 import DataContainer from './components/DataContainer';
 import IDataContainer from './components/IDataContainer';
 import { Display } from './consts/Display';
+import FlexWrap from './consts/FlexWrap';
 import Application from './core/Application';
 import ArrayCollection from './data/ArrayCollection';
 import IArrayCollection from './data/IArrayCollection';
+import { getProducts } from './test/api';
 
 export default class FuixDev extends Application {
     public constructor() {
         super();
         this.bodyBackgroundColor = '#000d1a';
+        this.flexWrap = 'nowrap'
         this.addComponent(this.dataContainer);
         this.addComponent(new TopBar());
         this.addComponent(new BottomBar());
+        this.test();
+    }
+
+    private async test(): Promise<void> {
+        await getProducts();
     }
 
     private _dataContainer!: DataContainer<TestVo>;
