@@ -2,10 +2,7 @@ import IComponent from './IComponent';
 import Component from './Component';
 import IContainer from './IContainer';
 import { AlignItemsType } from '../types/AlignItemsType';
-import { AlignItems } from '../consts/AlignItems';
 import { JustifyContentType } from '../types/JustifyContentType';
-import { JustifyContent } from '../consts/JustifyContent';
-import FlexWrap from '../consts/FlexWrap';
 import { FlexWrapType } from '../types/FlexWrapType';
 
 export default class Container extends Component implements IContainer {
@@ -147,7 +144,7 @@ export default class Container extends Component implements IContainer {
         return this.childElementCount;
     }
 
-    private _alignItems: AlignItemsType = AlignItems.NORMAL;
+    private _alignItems: AlignItemsType = 'normal';
 
     public set alignItems(value: AlignItemsType) {
         if (this._alignItems === value) {
@@ -166,7 +163,7 @@ export default class Container extends Component implements IContainer {
         return this._alignItems;
     }
 
-    private _justifyContent: JustifyContentType = JustifyContent.NORMAL;
+    private _justifyContent: JustifyContentType = 'normal';
 
     public set justifyContent(value: JustifyContentType) {
         if (this._justifyContent === value) {

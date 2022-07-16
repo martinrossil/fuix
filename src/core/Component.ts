@@ -1,7 +1,4 @@
 import { PositionType } from '../types/PositionType';
-import { Position } from '../consts/Position';
-import { Display } from '../consts/Display';
-import { Overflow } from '../consts/Overflow';
 import { DisplayType } from '../types/DisplayType';
 import { OverflowType } from '../types/OverflowType';
 import IComponent from './IComponent';
@@ -209,7 +206,7 @@ export default class Component extends HTMLElement implements IComponent {
         return this._maxHeight;
     }
 
-    private _display: DisplayType = Display.INLINE;
+    private _display: DisplayType = 'inline';
 
     public set display(value: DisplayType) {
         if (this._display === value) {
@@ -230,7 +227,7 @@ export default class Component extends HTMLElement implements IComponent {
         return this._display;
     }
 
-    private _overflow: OverflowType = Overflow.VISIBLE;
+    private _overflow: OverflowType = 'visible';
     public set overflow(value: OverflowType) {
         if (this._overflow === value) {
             return;
@@ -268,7 +265,7 @@ export default class Component extends HTMLElement implements IComponent {
         return this._borderRadius;
     }
 
-    private _position: PositionType = Position.STATIC;
+    private _position: PositionType = 'static';
     set position(value: PositionType) {
         if (this._position === value) {
             return;

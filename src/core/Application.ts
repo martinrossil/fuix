@@ -1,4 +1,3 @@
-import { Display } from '../consts/Display';
 import Container from './Container';
 import IApplication from './IApplication';
 
@@ -6,7 +5,7 @@ export default class Application extends Container implements IApplication {
     public constructor() {
         super();
         this.injectGlobalStyles();
-        this.display = Display.BLOCK;
+        this.display = 'block';
         this.style.minHeight = '100vh';
     }
 

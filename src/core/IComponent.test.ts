@@ -1,7 +1,4 @@
 import { assert } from 'chai';
-import { Display } from '../consts/Display';
-import { Overflow } from '../consts/Overflow';
-import { Position } from '../consts/Position';
 import Component from './Component';
 import IComponent from './IComponent';
 
@@ -387,26 +384,26 @@ describe('IComponent.maxHeight property', () => {
 
 describe('IDisplayElement.display property', () => {
     describe('default value', () => {
-        it('display should be Display.INLINE', () => {
+        it('display should be inline', () => {
             const displayElement: IComponent = new Component();
-            assert.strictEqual(displayElement.display, Display.INLINE);
+            assert.strictEqual(displayElement.display, 'inline');
         });
     });
     describe('display property', () => {
-        it('given display is Display.INLINE, when display = Display.INLINE, display should be Display.INLINE', () => {
+        it('given display is "inline", when display = "inline", display should be "inline"', () => {
             const displayElement: IComponent = new Component();
-            displayElement.display = Display.INLINE;
-            assert.strictEqual(displayElement.display, Display.INLINE);
+            displayElement.display = 'inline';
+            assert.strictEqual(displayElement.display, 'inline');
         });
-        it('given display is Display.INLINE, when display = Display.BLOCK, display should be Display.BLOCK', () => {
+        it('given display is "inline", when display = "block", display should be "block"', () => {
             const displayElement: IComponent = new Component();
-            displayElement.display = Display.BLOCK;
-            assert.strictEqual(displayElement.display, Display.BLOCK);
+            displayElement.display = 'block';
+            assert.strictEqual(displayElement.display, 'block');
         });
-        it('given display is Display.INLINE, when display = Display.BLOCK, style.display should be Display.BLOCK', () => {
+        it('given display is "inline", when display = "block", style.display should be "block"', () => {
             const displayElement: Component = new Component();
-            displayElement.display = Display.BLOCK;
-            assert.strictEqual(displayElement.style.display, Display.BLOCK);
+            displayElement.display = 'block';
+            assert.strictEqual(displayElement.style.display, 'block');
         });
     });
 });
@@ -435,26 +432,26 @@ describe('IComponent.backgroundColor property', () => {
 
 describe('IComponent.overflow property', () => {
     describe('default value', () => {
-        it('overflow should be Overflow.VISIBLE', () => {
+        it('overflow should be "visible"', () => {
             const displayElement: IComponent = new Component();
-            assert.strictEqual(displayElement.overflow, Overflow.VISIBLE);
+            assert.strictEqual(displayElement.overflow, 'visible');
         });
     });
     describe('overflow property', () => {
-        it('given overflow is Overflow.VISIBLE, when overflow = Overflow.VISIBLE, overflow should be Overflow.VISIBLE', () => {
+        it('given overflow is "visible", when overflow = "visible", overflow should be "visible"', () => {
             const displayElement: IComponent = new Component();
-            displayElement.overflow = Overflow.VISIBLE;
-            assert.strictEqual(displayElement.overflow, Overflow.VISIBLE);
+            displayElement.overflow = 'visible';
+            assert.strictEqual(displayElement.overflow, 'visible');
         });
-        it('given overflow is Overflow.VISIBLE, when overflow = Overflow.HIDDEN, overflow should be Overflow.HIDDEN', () => {
+        it('given overflow is "visible", when overflow = "hidden", overflow should be "hidden"', () => {
             const displayElement: IComponent = new Component();
-            displayElement.overflow = Overflow.HIDDEN;
-            assert.strictEqual(displayElement.overflow, Overflow.HIDDEN);
+            displayElement.overflow = 'hidden';
+            assert.strictEqual(displayElement.overflow, 'hidden');
         });
-        it('given overflow is Overflow.VISIBLE, when overflow = Overflow.HIDDEN, style.overflow should be Overflow.HIDDEN', () => {
+        it('given overflow is "visible", when overflow = "hidden", style.overflow should be "hidden"', () => {
             const displayElement: Component = new Component();
-            displayElement.overflow = Overflow.HIDDEN;
-            assert.strictEqual(displayElement.style.overflow, Overflow.HIDDEN);
+            displayElement.overflow = 'hidden';
+            assert.strictEqual(displayElement.style.overflow, 'hidden');
         });
     });
 });
@@ -629,9 +626,9 @@ describe('IComponent.bottom property', () => {
 
 describe('IComponent.position property', () => {
     describe('default value', () => {
-        it('position should be Position.STATIC', () => {
+        it('position should be "static"', () => {
             const positionElement: IComponent = new Component();
-            assert.strictEqual(positionElement.position, Position.STATIC);
+            assert.strictEqual(positionElement.position, 'static');
         });
         it('style.position should be ""', () => {
             const positionElement: Component = new Component();
@@ -639,20 +636,20 @@ describe('IComponent.position property', () => {
         });
     });
     describe('position property', () => {
-        it('given position is Position.STATIC, when position = Position.STATIC, position should be Position.STATIC', () => {
+        it('given position is "static", when position = "static", position should be "static"', () => {
             const positionElement: IComponent = new Component();
-            positionElement.position = Position.STATIC;
-            assert.strictEqual(positionElement.position, Position.STATIC);
+            positionElement.position = 'static';
+            assert.strictEqual(positionElement.position, 'static');
         });
-        it('given position is Position.STATIC, when position = Position.ABSOLUTE, position should be Position.ABSOLUTE', () => {
+        it('given position is "static", when position = "absolute", position should be "absolute"', () => {
             const positionElement: IComponent = new Component();
-            positionElement.position = Position.ABSOLUTE;
-            assert.strictEqual(positionElement.position, Position.ABSOLUTE);
+            positionElement.position = 'absolute';
+            assert.strictEqual(positionElement.position, 'absolute');
         });
-        it('given position is Position.STATIC, when position = Position.ABSOLUTE, style.position should be Position.ABSOLUTE', () => {
+        it('given position is "static", when position = "absolute", style.position should be "absolute"', () => {
             const positionElement: Component = new Component();
-            positionElement.position = Position.ABSOLUTE;
-            assert.strictEqual(positionElement.style.position, Position.ABSOLUTE);
+            positionElement.position = 'absolute';
+            assert.strictEqual(positionElement.style.position, 'absolute');
         });
     });
 });
