@@ -11,8 +11,14 @@
       "semi": "off",
       "dot-notation": "off",  // this is turned off because of this.style['gap'] = value, look into this
       "space-before-function-paren": "off",
-      "no-unused-vars": "off" // this is turned off, since eslint doesn't understand
+      "no-unused-vars": "off", // this is turned off, since eslint doesn't understand
                               // const enums in typescript, it's safe, since tsc will catch errors
+      "no-warning-comments": [
+        "error", {
+          "terms": ["TODO"],
+          "location": "anywhere"
+        }
+      ]
     },
     "env": {
         "browser": true       // makes HTMLElement and customElements NOT no-undef
