@@ -45,3 +45,5 @@ export { FontWeightType } from './types/FontWeightType';
 export { JustifyContentType } from './types/JustifyContentType';
 export { OverflowType } from './types/OverflowType';
 export { PositionType } from './types/PositionType';
+
+export { default as Icons } from './consts/Icons';

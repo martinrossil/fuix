@@ -1,4 +1,4 @@
-// import FlexWrap from '../consts/FlexWrap';
+import FlexWrap from '../consts/FlexWrap';
 
 /**
  * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
@@ -10,5 +10,7 @@
  * wrap-reverse - Behaves the same as wrap but cross-start and cross-end are permuted.
  *
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
+ *
+ * @beta
  */
 export type FlexWrapType = 'nowrap' | 'wrap' | 'wrap-reverse';

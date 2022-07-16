@@ -5,10 +5,11 @@ import Container from '../core/Container';
 export default class BottomBar extends Container {
     public constructor() {
         super();
-        this.display = Display.BLOCK;
-        this.position = Position.STICKY;
+        this.display = Display.FLEX;
+        this.position = Position.FIXED;
         this.backgroundColor = 'blue';
         this.height = 64;
+        this.widthPercent = 100;
         this.bottom = 0;
     }
 }
