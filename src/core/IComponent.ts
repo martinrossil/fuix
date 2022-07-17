@@ -144,8 +144,10 @@ export default interface IComponent {
     /**
      * The computedStyle() method returns an object containing the values of all CSS properties of the Component, after applying active stylesheets and resolving any basic computation those values may contain. Individual CSS property values are accessed through APIs provided by the object, or by indexing with CSS property names.
      */
+    readonly computedStyle: CSSStyleDeclaration;
 
     /**
-     *
+     * The getBoundingClientRect() method returns a DOMRect object providing information about the size of an element and its position relative to the viewport.
      */
+    getBoundingClientRect(): DOMRect;
 }

@@ -4,10 +4,6 @@ import TestVo from './app/TestVo';
 import TopBar from './app/TopBar';
 import DataContainer from './components/DataContainer';
 import IDataContainer from './components/IDataContainer';
-import { Display } from './consts/Display';
-import FlexWrap from './consts/FlexWrap';
-import { FontWeight } from './consts/FontWeight';
-import Icons from './consts/Icons';
 import Application from './core/Application';
 import IParagraph from './core/IParagraph';
 import Paragraph from './core/Paragraph';
@@ -18,11 +14,13 @@ export default class FuixDev extends Application {
     public constructor() {
         super();
         this.bodyBackgroundColor = '#000d1a';
-        this.display = Display.BLOCK;
+        this.display = 'block';
         // this.flexWrap = FlexWrap.NOWRAP;
         this.addComponent(this.dataContainer);
         this.addComponent(new TopBar());
         this.addComponent(new BottomBar());
+        console.log(this.dataContainer.getBoundingClientRect());
+        console.log(this.dataContainer.computedStyle.width);
         // this.addComponent(this.paragraph);
         // this.addComponent(this.paragraph2);
     }
@@ -31,9 +29,9 @@ export default class FuixDev extends Application {
     private get paragraph(): IParagraph {
         if (!this._paragraph) {
             this._paragraph = new Paragraph();
-            this._paragraph.display = Display.INLINE_BLOCK;
-            this._paragraph.text = Icons.TEST;
-            this.paragraph.fontWeight = FontWeight.MEDIUM_500;
+            this._paragraph.display = 'inline-block';
+            this._paragraph.text = 'test text here';
+            this.paragraph.fontWeight = 500;
         }
         return this._paragraph;
     }
@@ -42,9 +40,9 @@ export default class FuixDev extends Application {
     private get paragraph2(): IParagraph {
         if (!this._paragraph2) {
             this._paragraph2 = new Paragraph();
-            this._paragraph.display = Display.INLINE_BLOCK;
-            this._paragraph2.text = Icons.TEST;
-            this.paragraph2.fontWeight = FontWeight.MEDIUM_500;
+            this._paragraph.display = 'inline-block';
+            this._paragraph2.text = 'test text here';
+            this.paragraph2.fontWeight = 500;
         }
         return this._paragraph;
     }
@@ -54,7 +52,7 @@ export default class FuixDev extends Application {
         if (!this._dataContainer) {
             this._dataContainer = new DataContainer();
             // this._dataContainer.flexWrap = FlexWrap.WRAP_REVERSE;
-            this._dataContainer.display = Display.GRID;
+            this._dataContainer.display = 'grid';
             this._dataContainer.style.minHeight = '100vh';
             this._dataContainer.gap = 16;
             this._dataContainer.style.paddingTop = '72px';
