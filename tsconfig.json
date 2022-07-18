@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "ES2021",
-        "module": "ES2020",
+        "module": "ESNext",
         "moduleResolution": "Node",
         "strict": true,
         "strictNullChecks": true,
@@ -9,11 +9,5 @@
         "declaration": true,
         "declarationDir": "./lib",
         "outDir": "./lib"
-    },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+    }
 }
