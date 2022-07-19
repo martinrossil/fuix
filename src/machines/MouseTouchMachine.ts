@@ -19,50 +19,54 @@ export default class MouseTouchMachine extends Machine<IMouseTouch> {
         host.addEventListener('click', this.send);
     }
 
-    private _hoverState!: IState;
+    #hoverState!: IState;
+
     protected get hoverState(): IState {
-        if (!this._hoverState) {
-            this._hoverState = new State('Hover');
-            this._hoverState.on = this.hover;
-            this._hoverState.addTransition('mouseleave', this.initial);
-            this._hoverState.addTransition('mousedown', this.pressedState);
-            this._hoverState.addTransition('click', this.clickedState);
-            this._hoverState.addTransition('DELAY_COMPLETE', this.initial);
+        if (!this.#hoverState) {
+            this.#hoverState = new State('Hover');
+            this.#hoverState.on = this.hover;
+            this.#hoverState.addTransition('mouseleave', this.initial);
+            this.#hoverState.addTransition('mousedown', this.pressedState);
+            this.#hoverState.addTransition('click', this.clickedState);
+            this.#hoverState.addTransition('DELAY_COMPLETE', this.initial);
         }
-        return this._hoverState;
+        return this.#hoverState;
     }
 
-    private _pressedState!: IState;
+    #pressedState!: IState;
+
     protected get pressedState(): IState {
-        if (!this._pressedState) {
-            this._pressedState = new State('Pressed');
-            this._pressedState.on = this.pressed;
-            this._pressedState.addTransition('mouseup', this.hoverState);
-            this._pressedState.addTransition('mouseleave', this.initial);
-            this._pressedState.addTransition('touchend', this.delayState);
+        if (!this.#pressedState) {
+            this.#pressedState = new State('Pressed');
+            this.#pressedState.on = this.pressed;
+            this.#pressedState.addTransition('mouseup', this.hoverState);
+            this.#pressedState.addTransition('mouseleave', this.initial);
+            this.#pressedState.addTransition('touchend', this.delayState);
         }
-        return this._pressedState;
+        return this.#pressedState;
     }
 
-    private _clickedState!: IState;
+    #clickedState!: IState;
+
     protected get clickedState(): IState {
-        if (!this._clickedState) {
-            this._clickedState = new State('Clicked');
-            this._clickedState.on = this.clicked;
-            this._clickedState.next = this.hoverState;
+        if (!this.#clickedState) {
+            this.#clickedState = new State('Clicked');
+            this.#clickedState.on = this.clicked;
+            this.#clickedState.next = this.hoverState;
         }
-        return this._clickedState;
+        return this.#clickedState;
     }
 
-    private _delayState!: IState;
+    #delayState!: IState;
+
     protected get delayState(): IState {
-        if (!this._delayState) {
-            this._delayState = new State('Delay');
-            this._delayState.on = this.delay;
-            this._delayState.addTransition('DELAY_COMPLETE', this.initial);
-            this._delayState.addTransition('click', this.clickedState);
+        if (!this.#delayState) {
+            this.#delayState = new State('Delay');
+            this.#delayState.on = this.delay;
+            this.#delayState.addTransition('DELAY_COMPLETE', this.initial);
+            this.#delayState.addTransition('click', this.clickedState);
         }
-        return this._delayState;
+        return this.#delayState;
     }
 
     private delay(): void {
