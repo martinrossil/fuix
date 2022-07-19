@@ -6,14 +6,14 @@ export default {
     files: ['src/**/*.test.ts'],
     plugins: [esbuildPlugin({ ts: true })],
     browsers: [
-        playwrightLauncher({ product: 'chromium' })
+        playwrightLauncher({ product: 'chromium' }),
     ],
     reporters: [
         summaryReporter(),
         defaultReporter({
             reportTestResults: true,
-            reportTestProgress: true
-        })
+            reportTestProgress: true,
+        }),
     ],
     coverageConfig: {
         report: true,
@@ -22,7 +22,7 @@ export default {
             statements: 70,
             branches: 70,
             functions: 50,
-            lines: 60
-        }
-    }
+            lines: 60,
+        },
+    },
 };
