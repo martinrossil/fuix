@@ -3,9 +3,7 @@ export { default as DataRenderer } from './components/DataRenderer';
 export { default as IDataContainer } from './components/IDataContainer';
 export { default as IDataRenderer } from './components/IDataRenderer';
 export { default as ILinkContainer } from './components/ILinkContainer';
-export { default as IList } from './components/IList';
 export { default as LinkContainer } from './components/LinkContainer';
-export { default as List } from './components/List';
 
 export { default as Application } from './core/Application';
 export { default as Component } from './core/Component';
