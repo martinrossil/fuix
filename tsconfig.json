@@ -10,6 +10,5 @@
         "declarationDir": "./lib",
         "outDir": "./lib",
         "allowSyntheticDefaultImports": true // generating docs requires commonjs modules
-    },
-    "exclude": ["tests/**/*"] // don't include test files for library build
+    }
 }
