@@ -15,14 +15,14 @@ export default class TestRenderer extends Container implements IDataRenderer<Tes
         this.backgroundColor = '#003366';
     }
 
-    private _data: TestVo | null = null;
+    #data: TestVo | null = null;
 
     public set data(value: TestVo | null) {
-        this._data = value;
+        this.#data = value;
     }
 
     public get data(): TestVo | null {
-        return this._data;
+        return this.#data;
     }
 }
 customElements.define('test-renderer', TestRenderer);
