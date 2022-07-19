@@ -1,9 +1,9 @@
-import BottomBar from './app/BottomBar';
 import TestRenderer from './app/TestRenderer';
 import TestVo from './app/TestVo';
-import TopBar from './app/TopBar';
 import DataContainer from './components/DataContainer';
 import IDataContainer from './components/IDataContainer';
+import ILinkContainer from './components/ILinkContainer';
+import LinkContainer from './components/LinkContainer';
 import Application from './core/Application';
 import IParagraph from './core/IParagraph';
 import Paragraph from './core/Paragraph';
@@ -13,14 +13,30 @@ import IArrayCollection from './data/IArrayCollection';
 export default class FuixDev extends Application {
     public constructor() {
         super();
-        this.bodyBackgroundColor = '#000d1a';
+        this.bodyBackgroundColor = '#F4F5F7';
         this.display = 'block';
+        this.addComponent(this.linkContainer);
         // this.flexWrap = FlexWrap.NOWRAP;
-        this.addComponent(this.dataContainer);
-        this.addComponent(new TopBar());
-        this.addComponent(new BottomBar());
+        // this.addComponent(this.dataContainer);
+        // this.addComponent(new TopBar());
+        // this.addComponent(new BottomBar());
         // this.addComponent(this.paragraph);
         // this.addComponent(this.paragraph2);
+    }
+
+    #linkContainer!: ILinkContainer;
+
+    protected get linkContainer(): ILinkContainer {
+        if (!this.#linkContainer) {
+            this.#linkContainer = new LinkContainer();
+            // this.#linkContainer.widthPercent = 100;
+            // this.#linkContainer.width = 200;
+            this.#linkContainer.minWidth = 300;
+            this.#linkContainer.height = 200;
+            this.#linkContainer.backgroundColor = 'white';
+            this.#linkContainer.href = '/film';
+        }
+        return this.#linkContainer;
     }
 
     #paragraph!: IParagraph;
