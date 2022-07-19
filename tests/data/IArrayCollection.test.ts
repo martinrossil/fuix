@@ -1,7 +1,7 @@
 import { assert } from 'chai';
-import TestVo from '../app/TestVo';
-import ArrayCollection from './ArrayCollection';
-import IArrayCollection from './IArrayCollection';
+import TestVo from '../../src/app/TestVo';
+import ArrayCollection from '../../src/data/ArrayCollection';
+import IArrayCollection from '../../src/data/IArrayCollection';
 
 describe('IArrayCollection<Item>.addItem(item: Item)', () => {
     it('given an empty ArrayCollection, when addItem(new TestVo), length should be 1', () => {

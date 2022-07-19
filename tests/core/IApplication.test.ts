@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import Application from './Application';
-import IApplication from './IApplication';
+import Application from '../../src/core/Application';
+import IApplication from '../../src/core/IApplication';
 
 describe('IApplicationElement.bodyBackgroundColor property', () => {
     describe('default value', () => {

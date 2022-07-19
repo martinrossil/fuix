@@ -1,8 +1,8 @@
 import { assert } from 'chai';
-import Component from './Component';
-import Container from './Container';
-import IComponent from './IComponent';
-import IContainer from './IContainer';
+import Component from '../../src/core/Component';
+import Container from '../../src/core/Container';
+import IComponent from '../../src/core/IComponent';
+import IContainer from '../../src/core/IContainer';
 
 const positiveRandom = Math.round(Math.random() * 10) + 1;
 const minusRandom = Math.round(-10 + Math.random() * 5);

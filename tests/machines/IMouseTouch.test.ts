@@ -1,8 +1,8 @@
 import { assert } from 'chai';
-import IMachine from '../fsm/IMachine';
-import IMouseTouch from './IMouseTouch';
-import MouseTouch from './MouseTouch';
-import MouseTouchMachine from './MouseTouchMachine';
+import IMachine from '../../src/fsm/IMachine';
+import IMouseTouch from '../../src/machines/IMouseTouch';
+import MouseTouch from '../../src/machines/MouseTouch';
+import MouseTouchMachine from '../../src/machines/MouseTouchMachine';
 
 describe('IMouseTouch', () => {
     describe('default values', () => {

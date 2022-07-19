@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import DataContainer from './DataContainer';
-import IDataContainer from './IDataContainer';
+import DataContainer from '../../src/components/DataContainer';
+import IDataContainer from '../../src/components/IDataContainer';
 
 describe('IDataContainer', () => {
     describe('default values', () => {

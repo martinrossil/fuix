@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import IMachine from './IMachine';
-import Machine from './Machine';
+import IMachine from '../../src/fsm/IMachine';
+import Machine from '../../src/fsm/Machine';
 
 describe('IMachine', () => {
     describe('default values', () => {

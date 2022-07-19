@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import Component from './Component';
-import IComponent from './IComponent';
+import Component from '../../src/core/Component';
+import IComponent from '../../src/core/IComponent';
 
 const positiveRandom = Math.ceil(Math.random() * 1000);
 const minusRandom = Math.round(-1000 + Math.random() * 500);

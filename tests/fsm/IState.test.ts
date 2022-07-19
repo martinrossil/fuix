@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import IState from './IState';
-import State from './State';
+import IState from '../../src/fsm/IState';
+import State from '../../src/fsm/State';
 
 describe('IState', () => {
     describe('default values', () => {

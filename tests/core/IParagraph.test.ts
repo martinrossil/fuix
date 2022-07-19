@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import IParagraph from './IParagraph';
-import Paragraph from './Paragraph';
+import IParagraph from '../../src/core/IParagraph';
+import Paragraph from '../../src/core/Paragraph';
 
 const positiveRandom = Math.round(Math.random() * 5) + 10;
 const minusRandom = Math.round(-10 + Math.random() * 5);

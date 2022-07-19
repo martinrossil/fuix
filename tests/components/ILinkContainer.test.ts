@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import ILinkContainer from './ILinkContainer';
-import LinkContainer from './LinkContainer';
+import ILinkContainer from '../../src/components/ILinkContainer';
+import LinkContainer from '../../src/components/LinkContainer';
 
 describe('ILinkContainer', () => {
     describe('default values', () => {

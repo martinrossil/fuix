@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import DataRenderer from './DataRenderer';
-import IDataRenderer from './IDataRenderer';
+import DataRenderer from '../../src/components/DataRenderer';
+import IDataRenderer from '../../src/components/IDataRenderer';
 
 const positiveRandom = Math.round(Math.random() * 1000);
 
