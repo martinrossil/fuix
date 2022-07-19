@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-typescript2';
-import summary from 'rollup-plugin-summary';
 import pkg from './package.json';
 
 export default [
@@ -12,6 +11,6 @@ export default [
         },
         plugins: [
             typescript(),
-            summary()],
+        ],
     },
 ];
