@@ -4,6 +4,11 @@ import { Overflow } from '../types/Overflow';
 import IComponent from './IComponent';
 
 export default class Component extends HTMLElement implements IComponent {
+    public constructor() {
+        super();
+        this.display = 'inline-block';
+    }
+
     #width = NaN;
 
     set width(value: number) {

@@ -382,11 +382,11 @@ describe('IComponent.maxHeight property', () => {
     });
 });
 
-describe('IDisplayElement.display property', () => {
+describe('IComponent.display property', () => {
     describe('default value', () => {
-        it('display should be inline', () => {
+        it('display should be inline-block', () => {
             const displayElement: IComponent = new Component();
-            assert.strictEqual(displayElement.display, 'inline');
+            assert.strictEqual(displayElement.display, 'inline-block');
         });
     });
     describe('display property', () => {
