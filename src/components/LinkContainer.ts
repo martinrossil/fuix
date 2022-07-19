@@ -159,7 +159,11 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
             return;
         }
         this.#display = value;
-        this.#anchor.style.display = value;
+        if (this.visible) {
+            this.#anchor.style.display = value;
+        } else {
+            this.#anchor.style.display = 'none';
+        }
     }
 
     /**
@@ -668,6 +672,27 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
 
     public get target(): Target {
         return this.#target;
+    }
+
+    #visible = true;
+
+    public set visible(value: boolean) {
+        if (this.#visible === value) {
+            return;
+        }
+        this.#visible = value;
+        if (value) {
+            this.#anchor.style.display = this.display;
+        } else {
+            this.#anchor.style.display = 'none';
+        }
+    }
+
+    /**
+     * Toggles the style.display property, so visible = false will set style.display to 'none', true will respect the current IComponent display property.
+     */
+    public get visible(): boolean {
+        return this.#visible;
     }
 }
 customElements.define('link-container', LinkContainer);

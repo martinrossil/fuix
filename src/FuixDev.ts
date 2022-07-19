@@ -15,6 +15,9 @@ export default class FuixDev extends Application {
         super();
         this.bodyBackgroundColor = '#F4F5F7';
         this.display = 'block';
+        window.addEventListener('click', () => {
+            this.linkContainer.visible = !this.linkContainer.visible;
+        });
         this.addComponent(this.linkContainer);
         // this.flexWrap = FlexWrap.NOWRAP;
         // this.addComponent(this.dataContainer);

@@ -150,4 +150,9 @@ export default interface IComponent {
      * The getBoundingClientRect() method returns a DOMRect object providing information about the size of an element and its position relative to the viewport.
      */
     getBoundingClientRect(): DOMRect;
+
+    /**
+     * Toggles the style.display property, so visible = false will set style.display to 'none', true will respect the current IComponent display property.
+     */
+    visible: boolean;
 }

@@ -218,7 +218,11 @@ export default class Component extends HTMLElement implements IComponent {
             return;
         }
         this.#display = value;
-        this.style.display = value;
+        if (this.visible) {
+            this.style.display = value;
+        } else {
+            this.style.display = 'none';
+        }
     }
 
     /**
@@ -429,6 +433,27 @@ export default class Component extends HTMLElement implements IComponent {
      */
     public get computedStyle(): CSSStyleDeclaration {
         return window.getComputedStyle(this);
+    }
+
+    #visible = true;
+
+    public set visible(value: boolean) {
+        if (this.#visible === value) {
+            return;
+        }
+        this.#visible = value;
+        if (value) {
+            this.style.display = this.display;
+        } else {
+            this.style.display = 'none';
+        }
+    }
+
+    /**
+     * Toggles the style.display property, so visible = false will set style.display to 'none', true will respect the current IComponent display property.
+     */
+    public get visible(): boolean {
+        return this.#visible;
     }
 }
 customElements.define('fx-component', Component);
