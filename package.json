@@ -58,7 +58,6 @@
     "@web/dev-server-esbuild": "^0.3.1",
     "@web/test-runner": "^0.13.31",
     "@web/test-runner-playwright": "^0.8.9",
-    "fuix": "^0.1.15",
     "rollup": "^2.77.0",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-copy": "^3.4.0",
