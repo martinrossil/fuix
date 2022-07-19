@@ -1,4 +1,5 @@
 import typescript from 'rollup-plugin-typescript2';
+import clear from 'rollup-plugin-clear';
 import pkg from './package.json';
 
 export default [
@@ -10,6 +11,7 @@ export default [
             sourcemap: true,
         },
         plugins: [
+            clear({ targets: ['lib'] }),
             typescript(),
         ],
     },
