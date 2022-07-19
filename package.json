@@ -1,6 +1,6 @@
 {
   "name": "fuix",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "Typescript web component framework for building high performant web applications.",
   "main": "lib/index.js",
   "module": "lib/index.js",
