@@ -1,4 +1,3 @@
-import Component from '../core/Component';
 import IComponent from '../core/IComponent';
 import { AlignItems } from '../types/AlignItems';
 import { Display } from '../types/Display';
@@ -9,7 +8,7 @@ import { Position } from '../types/Position';
 import { Target } from '../types/Target';
 import ILinkContainer from './ILinkContainer';
 
-export default class LinkContainer extends Component implements ILinkContainer {
+export default class LinkContainer extends HTMLElement implements ILinkContainer {
     public constructor() {
         super();
         this.style.display = 'contents';
