@@ -94,9 +94,7 @@ export default class LinkContainer extends Component implements ILinkContainer {
      */
      public addComponents(components: Array<IComponent>): this {
         const frag: DocumentFragment = document.createDocumentFragment();
-        for (const component of components) {
-            frag.appendChild(component as unknown as Node);
-        }
+        components.forEach((component) => frag.appendChild(component as unknown as Node));
         this.#anchor.appendChild(frag);
         return this;
      }
@@ -113,7 +111,7 @@ export default class LinkContainer extends Component implements ILinkContainer {
     }
 
     public set padding(value: number) {
-        if (isNaN(value) || value <= 0) {
+        if (Number.isNaN(value) || value <= 0) {
             this.#padding = 0;
             this.#anchor.style.padding = '';
             return;
@@ -132,7 +130,7 @@ export default class LinkContainer extends Component implements ILinkContainer {
     }
 
     public set gap(value: number) {
-        if (isNaN(value) || value <= 0) {
+        if (Number.isNaN(value) || value <= 0) {
             this.#gap = 0;
             this.#anchor.style.gap = '';
             return;
