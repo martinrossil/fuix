@@ -14,7 +14,7 @@ describe('IArrayCollection<Item>.addItem(item: Item)', () => {
         let handlerCalled = false;
         const handler: EventListener = () => {
             handlerCalled = true;
-        }
+        };
         const arrayCollection: IArrayCollection<TestVo> = new ArrayCollection();
         arrayCollection.addEventListener('itemAdded', handler);
         const testVo: TestVo = new TestVo('name', 42);
@@ -34,7 +34,7 @@ describe('IArrayCollection<Item>.addItems(items: Array<Item>)', () => {
         let handlerCalled = false;
         const handler: EventListener = () => {
             handlerCalled = true;
-        }
+        };
         const arrayCollection: IArrayCollection<TestVo> = new ArrayCollection();
         arrayCollection.addEventListener('itemsAdded', handler);
         const items: Array<TestVo> = [new TestVo('foo', 42), new TestVo('bar', 1337)];
