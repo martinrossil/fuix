@@ -4,8 +4,11 @@ import State from './State';
 
 export default class Machine<Host> implements IMachine {
     protected host: Host;
+
     public currentState: IState;
+
     protected readonly initial: IState = new State('initial');
+
     public constructor(host: Host) {
         this.host = host;
         this.currentState = this.initial;
