@@ -88,53 +88,49 @@ export default class Container extends Component implements IContainer {
      */
      public addComponents(components: Array<IComponent>): this {
         const frag: DocumentFragment = document.createDocumentFragment();
-        for (const component of components) {
-            frag.appendChild(component as unknown as Node);
-        }
+        components.forEach((component) => frag.appendChild(component as unknown as Node));
         this.appendChild(frag);
         return this;
      }
 
-    private _padding = 0;
+    #padding = 0;
+
+    public set padding(value: number) {
+        if (Number.isNaN(value) || value <= 0) {
+            this.#padding = 0;
+            this.style.padding = '';
+            return;
+        }
+        this.#padding = value;
+        this.style.padding = value + 'px';
+    }
 
     /**
      * The padding CSS shorthand property sets the padding area on all four sides of an element at once.
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/padding} for syntax
      */
-    public get padding(): number {
-        return this._padding;
+     public get padding(): number {
+        return this.#padding;
     }
 
-    public set padding(value: number) {
-        if (isNaN(value) || value <= 0) {
-            this._padding = 0;
-            this.style.padding = '';
+    #gap = 0;
+
+    public set gap(value: number) {
+        if (Number.isNaN(value) || value <= 0) {
+            this.#gap = 0;
+            this.style.gap = '';
             return;
         }
-        this._padding = value;
-        this.style.padding = value + 'px';
+        this.#gap = value;
+        this.style.gap = value + 'px';
     }
-
-    private _gap = 0;
 
     /**
      * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
      */
-    public get gap(): number {
-        return this._gap;
-    }
-
-    public set gap(value: number) {
-        if (isNaN(value) || value <= 0) {
-            this._gap = 0;
-            // we use bracket syntax, since the closure compiler renames style.gap in advanced mode? I think it's about language_in flag?
-            this.style.gap = '';
-            return;
-        }
-        this._gap = value;
-        // we use bracket syntax, since the closure compiler renames style.gap in advanced mode? I think it's about language_in flag?
-        this.style.gap = value + 'px';
+     public get gap(): number {
+        return this.#gap;
     }
 
     /**
@@ -144,13 +140,13 @@ export default class Container extends Component implements IContainer {
         return this.childElementCount;
     }
 
-    private _alignItems: AlignItems = 'normal';
+    #alignItems: AlignItems = 'normal';
 
     public set alignItems(value: AlignItems) {
-        if (this._alignItems === value) {
+        if (this.#alignItems === value) {
             return;
         }
-        this._alignItems = value;
+        this.#alignItems = value;
         this.style.alignItems = value;
     }
 
@@ -160,16 +156,16 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/align-items} for syntax
      */
     public get alignItems(): AlignItems {
-        return this._alignItems;
+        return this.#alignItems;
     }
 
-    private _justifyContent: JustifyContent = 'normal';
+    #justifyContent: JustifyContent = 'normal';
 
     public set justifyContent(value: JustifyContent) {
-        if (this._justifyContent === value) {
+        if (this.#justifyContent === value) {
             return;
         }
-        this._justifyContent = value;
+        this.#justifyContent = value;
         this.style.justifyContent = value;
     }
 
@@ -179,29 +175,29 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
      */
     public get justifyContent(): JustifyContent {
-        return this._justifyContent;
+        return this.#justifyContent;
     }
 
-    private _flexWrap: FlexWrap = 'nowrap';
+    #flexWrap: FlexWrap = 'nowrap';
+
+    public set flexWrap(value: FlexWrap) {
+        this.#flexWrap = value;
+        this.style.flexWrap = value;
+    }
 
     /**
      * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
      */
-    public get flexWrap(): FlexWrap {
-        return this._flexWrap;
+     public get flexWrap(): FlexWrap {
+        return this.#flexWrap;
     }
 
-    public set flexWrap(value: FlexWrap) {
-        this._flexWrap = value;
-        this.style.flexWrap = value;
-    }
-
-    private _gridTemplateColumns = 'none';
+    #gridTemplateColumns = 'none';
 
     public set gridTemplateColumns(value: string) {
-        this._gridTemplateColumns = value;
+        this.#gridTemplateColumns = value;
         this.style.gridTemplateColumns = value;
     }
 
@@ -211,7 +207,7 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns} for syntax
      */
     public get gridTemplateColumns(): string {
-        return this._gridTemplateColumns;
+        return this.#gridTemplateColumns;
     }
 }
 customElements.define('fx-container', Container);
