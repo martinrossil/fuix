@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "dev": "rollup -c rollup.development.js --watch",
-    "lint": "eslint src/**/*",
+    "lint": "eslint src/**/* && eslint tests/**/*",
     "build": "rollup -c",
     "docs": "typedoc --out docs src/index.ts",
     "build:website": "npm t && rollup -c rollup.production.js",
