@@ -19,63 +19,64 @@ export default class FuixDev extends Application {
         this.addComponent(this.dataContainer);
         this.addComponent(new TopBar());
         this.addComponent(new BottomBar());
-        console.log(this.dataContainer.getBoundingClientRect());
-        console.log(this.dataContainer.computedStyle.width);
         // this.addComponent(this.paragraph);
         // this.addComponent(this.paragraph2);
     }
 
-    private _paragraph!: IParagraph;
+    #paragraph!: IParagraph;
+
     private get paragraph(): IParagraph {
-        if (!this._paragraph) {
-            this._paragraph = new Paragraph();
-            this._paragraph.display = 'inline-block';
-            this._paragraph.text = 'test text here';
-            this.paragraph.fontWeight = 500;
+        if (!this.#paragraph) {
+            this.#paragraph = new Paragraph();
+            this.#paragraph.display = 'inline-block';
+            this.#paragraph.text = 'test text here';
+            this.#paragraph.fontWeight = 500;
         }
-        return this._paragraph;
+        return this.#paragraph;
     }
 
-    private _paragraph2!: IParagraph;
+    #paragraph2!: IParagraph;
+
     private get paragraph2(): IParagraph {
-        if (!this._paragraph2) {
-            this._paragraph2 = new Paragraph();
-            this._paragraph.display = 'inline-block';
-            this._paragraph2.text = 'test text here';
-            this.paragraph2.fontWeight = 500;
+        if (!this.#paragraph2) {
+            this.#paragraph2 = new Paragraph();
+            this.#paragraph2.display = 'inline-block';
+            this.#paragraph2.text = 'test text here';
+            this.#paragraph2.fontWeight = 500;
         }
-        return this._paragraph;
+        return this.#paragraph2;
     }
 
-    private _dataContainer!: DataContainer<TestVo>;
+    #dataContainer!: DataContainer<TestVo>;
+
     private get dataContainer(): IDataContainer<TestVo> {
-        if (!this._dataContainer) {
-            this._dataContainer = new DataContainer();
-            // this._dataContainer.flexWrap = FlexWrap.WRAP_REVERSE;
-            this._dataContainer.display = 'grid';
-            this._dataContainer.style.minHeight = '100vh';
-            this._dataContainer.gap = 16;
-            this._dataContainer.style.paddingTop = '72px';
-            this._dataContainer.style.paddingBottom = '8px';
-            this._dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';
-            this._dataContainer.DataRendererClass = TestRenderer;
-            this._dataContainer.dataProvider = this.testVOs;
+        if (!this.#dataContainer) {
+            this.#dataContainer = new DataContainer();
+            this.#dataContainer.display = 'grid';
+            this.#dataContainer.style.minHeight = '100vh';
+            this.#dataContainer.gap = 16;
+            this.#dataContainer.style.paddingTop = '72px';
+            this.#dataContainer.style.paddingBottom = '8px';
+            this.#dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';
+            this.#dataContainer.DataRendererClass = TestRenderer;
+            this.#dataContainer.dataProvider = this.testVOs;
         }
-        return this._dataContainer;
+        return this.#dataContainer;
     }
 
-    private _testVOs!: IArrayCollection<TestVo>;
+    #testVOs!: IArrayCollection<TestVo>;
+
     private get testVOs(): IArrayCollection<TestVo> {
-        if (!this._testVOs) {
+        if (!this.#testVOs) {
             const vos: Array<TestVo> = [];
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 20; i += 1) {
                 const name = Math.random().toString();
                 const age = Math.round(Math.random() * 50 + 10);
                 vos.push(new TestVo(name, age));
             }
-            this._testVOs = new ArrayCollection(vos);
+            this.#testVOs = new ArrayCollection(vos);
         }
-        return this._testVOs;
+        return this.#testVOs;
     }
 }
 customElements.define('fuix-dev', FuixDev);
