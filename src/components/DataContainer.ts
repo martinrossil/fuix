@@ -7,7 +7,9 @@ import IDataRenderer from './IDataRenderer';
 
 export default class DataContainer<Item> extends Container implements IDataContainer<Item> {
     private dataRendererCache: Array<IDataRenderer<Item>> = [];
+
     private listDataRendererLookup: Map<Item, IDataRenderer<Item> | undefined> = new Map();
+
     public constructor() {
         super();
         this.itemAdded = this.itemAdded.bind(this);
@@ -17,9 +19,9 @@ export default class DataContainer<Item> extends Container implements IDataConta
     }
 
     protected itemAdded(e: CustomEvent<Item>): void {
-        let dataRenderer: IDataRenderer<Item>
+        let dataRenderer: IDataRenderer<Item>;
         if (this.dataRendererCache.length) {
-            dataRenderer = this.dataRendererCache.splice(0, 1)[0];
+            [dataRenderer] = this.dataRendererCache.splice(0, 1);
         } else {
             dataRenderer = new this.DataRendererClass();
         }
@@ -36,17 +38,17 @@ export default class DataContainer<Item> extends Container implements IDataConta
 
     protected addDataRenderers(items: Array<Item>): void {
         const listDataRenderers: Array<IDataRenderer<Item>> = [];
-        for (const item of items) {
+        items.forEach((item) => {
             let listDataRenderer: IDataRenderer<Item>;
             if (this.dataRendererCache.length) {
-                listDataRenderer = this.dataRendererCache.splice(0, 1)[0];
+                [listDataRenderer] = this.dataRendererCache.splice(0, 1);
             } else {
                 listDataRenderer = new this.DataRendererClass();
             }
             listDataRenderer.data = item;
             this.listDataRendererLookup.set(item, listDataRenderer);
             listDataRenderers.push(listDataRenderer);
-        }
+        });
         this.addComponents(listDataRenderers);
     }
 
@@ -75,47 +77,47 @@ export default class DataContainer<Item> extends Container implements IDataConta
         }
     }
 
-    private _DataRendererClass!: new () => IDataRenderer<Item>;
+    #DataRendererClass!: new () => IDataRenderer<Item>;
 
     public set DataRendererClass(value: new () => IDataRenderer<Item>) {
-        if (this._DataRendererClass === value) {
+        if (this.#DataRendererClass === value) {
             return;
         }
-        this._DataRendererClass = value;
+        this.#DataRendererClass = value;
         this.reset();
     }
 
     public get DataRendererClass(): new () => IDataRenderer<Item> {
-        if (!this._DataRendererClass) {
-            this._DataRendererClass = DataRenderer;
+        if (!this.#DataRendererClass) {
+            this.#DataRendererClass = DataRenderer;
         }
-        return this._DataRendererClass;
+        return this.#DataRendererClass;
     }
 
-    private _dataProvider: IArrayCollection<Item> | null = null;
+    #dataProvider: IArrayCollection<Item> | null = null;
 
     public set dataProvider(value: IArrayCollection<Item> | null) {
-        if (this._dataProvider === value) {
+        if (this.#dataProvider === value) {
             return;
         }
-        if (this._dataProvider) {
-            this._dataProvider.removeEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
-            this._dataProvider.removeEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
-            this._dataProvider.removeEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
-            this._dataProvider.removeEventListener(ArrayCollection.RESET, this.reset);
+        if (this.#dataProvider) {
+            this.#dataProvider.removeEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
+            this.#dataProvider.removeEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
+            this.#dataProvider.removeEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
+            this.#dataProvider.removeEventListener(ArrayCollection.RESET, this.reset);
         }
-        this._dataProvider = value;
-        if (this._dataProvider) {
-            this._dataProvider.addEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
-            this._dataProvider.addEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
-            this._dataProvider.addEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
-            this._dataProvider.addEventListener(ArrayCollection.RESET, this.reset);
+        this.#dataProvider = value;
+        if (this.#dataProvider) {
+            this.#dataProvider.addEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
+            this.#dataProvider.addEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
+            this.#dataProvider.addEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
+            this.#dataProvider.addEventListener(ArrayCollection.RESET, this.reset);
         }
         this.reset();
     }
 
     public get dataProvider(): IArrayCollection<Item> | null {
-        return this._dataProvider;
+        return this.#dataProvider;
     }
 }
 customElements.define('fx-data-container', DataContainer);
