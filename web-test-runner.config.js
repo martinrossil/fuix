@@ -3,7 +3,7 @@ import { playwrightLauncher } from '@web/test-runner-playwright';
 import { defaultReporter, summaryReporter } from '@web/test-runner';
 
 export default {
-    files: ['src/**/*.test.ts'],
+    files: ['tests/**/*.test.ts'],
     plugins: [esbuildPlugin({ ts: true })],
     browsers: [
         playwrightLauncher({ product: 'chromium' }),
