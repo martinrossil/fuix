@@ -10,5 +10,8 @@
         "declarationDir": "./lib",
         "outDir": "./lib",
         "allowSyntheticDefaultImports": true // generating docs requires commonjs modules
-    }
+    },
+    "include": [
+        "src/**/*"
+    ]
 }
