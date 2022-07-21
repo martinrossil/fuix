@@ -12,9 +12,8 @@ export default class Container extends Component implements IContainer {
      * @param component - the component to add as child node.
      * @returns the calling component so we can chain.
      */
-    public addComponent(component: IComponent): this {
+    public addComponent(component: IComponent): void {
         this.appendChild(component as unknown as Node);
-        return this;
     }
 
     /**
@@ -24,15 +23,14 @@ export default class Container extends Component implements IContainer {
      * @param index - the index the component will be inserted at.
      * @returns the calling component so we can chain.
      */
-     addComponentAt(component: IComponent, index: number): this {
+     addComponentAt(component: IComponent, index: number): void {
         const componentNode: Node = component as unknown as Node;
         if (this.children[index]) {
             const beforeNode: Node = this.children[index];
             this.insertBefore(componentNode, beforeNode);
-            return this;
+            return;
         }
         this.appendChild(componentNode);
-        return this;
      }
 
     /**
@@ -41,9 +39,8 @@ export default class Container extends Component implements IContainer {
      * @param component - the component to remove as child node.
      * @returns the calling component so we can chain.
      */
-    public removeComponent(component: IComponent): this {
+    public removeComponent(component: IComponent): void {
         this.removeChild(component as unknown as Node);
-        return this;
     }
 
     /**
@@ -51,11 +48,10 @@ export default class Container extends Component implements IContainer {
      *
      * @returns the calling component so we can chain.
      */
-     public removeAllComponents(): this {
+     public removeAllComponents(): void {
         while (this.firstChild) {
             this.removeChild(this.firstChild);
         }
-         return this;
      }
 
     /**
@@ -86,11 +82,10 @@ export default class Container extends Component implements IContainer {
      * @param components - an array of IComponent instances
      * @returns the calling component so we can chain.
      */
-     public addComponents(components: Array<IComponent>): this {
+     public addComponents(components: Array<IComponent>): void {
         const frag: DocumentFragment = document.createDocumentFragment();
         components.forEach((component) => frag.appendChild(component as unknown as Node));
         this.appendChild(frag);
-        return this;
      }
 
     #padding = 0;

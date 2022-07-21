@@ -10,7 +10,7 @@ export default interface IContainer extends IComponent {
      * @param component - the component to add as child node.
      * @returns the calling component so we can chain.
      */
-    addComponent(component: IComponent): this;
+    addComponent(component: IComponent): void;
 
     /**
      * The addComponents method, adds multiple IComponent instances as children of the IContainer
@@ -18,7 +18,7 @@ export default interface IContainer extends IComponent {
      * @param components - an array of IComponent instances
      * @returns the calling component so we can chain.
      */
-    addComponents(components: Array<IComponent>): this;
+    addComponents(components: Array<IComponent>): void;
 
     /**
      * The addComponentAt() method of the IContainer interface adds a IComponent at the specified index.
@@ -27,7 +27,7 @@ export default interface IContainer extends IComponent {
      * @param index - the index the component will be inserted at.
      * @returns the calling component so we can chain.
      */
-    addComponentAt(component: IComponent, index: number): this;
+    addComponentAt(component: IComponent, index: number): void;
 
     /**
      * The removeComponent() method of the IContainer interface removes a Component from the DOM.
@@ -35,14 +35,14 @@ export default interface IContainer extends IComponent {
      * @param component - the component to remove as child node.
      * @returns the calling component so we can chain.
      */
-    removeComponent(component: IComponent): this;
+    removeComponent(component: IComponent): void;
 
     /**
      * The removeAllComponents(), removes all the IContainer children.
      *
      * @returns the calling component so we can chain.
      */
-    removeAllComponents(): this;
+    removeAllComponents(): void;
 
     /**
      * The containsComponent() method of the IContainer interface returns a boolean value indicating whether a IComponent is a descendant of a given IContainer, that is the IContainer itself, one of its direct children (IComponents), one of the children's direct children, and so on.
