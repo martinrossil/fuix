@@ -1,9 +1,12 @@
+import ColorSquare from './app/ColorSquare';
 import TestRenderer from './app/TestRenderer';
 import TestVo from './app/TestVo';
 import DataContainer from './components/DataContainer';
 import IDataContainer from './components/IDataContainer';
 import ILinkContainer from './components/ILinkContainer';
+import IStackContainer from './components/IStackContainer';
 import LinkContainer from './components/LinkContainer';
+import StackContainer from './components/StackContainer';
 import Application from './core/Application';
 import IParagraph from './core/IParagraph';
 import Paragraph from './core/Paragraph';
@@ -16,15 +19,31 @@ export default class FuixDev extends Application {
         this.bodyBackgroundColor = '#F4F5F7';
         this.display = 'block';
         window.addEventListener('click', () => {
-            this.linkContainer.visible = !this.linkContainer.visible;
+            // this.linkContainer.visible = !this.linkContainer.visible;
+            // index -= 1;
+            this.stackContainer.selectedIndex = NaN;
         });
-        this.addComponent(this.linkContainer);
+        this.addComponent(this.stackContainer);
+        // this.addComponent(this.linkContainer);
         // this.flexWrap = FlexWrap.NOWRAP;
         // this.addComponent(this.dataContainer);
         // this.addComponent(new TopBar());
         // this.addComponent(new BottomBar());
         // this.addComponent(this.paragraph);
         // this.addComponent(this.paragraph2);
+    }
+
+    #stackContainer!: IStackContainer;
+
+    protected get stackContainer(): IStackContainer {
+        if (!this.#stackContainer) {
+            this.#stackContainer = new StackContainer();
+            this.#stackContainer.selectedIndex = 0;
+            this.#stackContainer.widthPercent = 100;
+            this.#stackContainer.heightPercent = 100;
+            this.#stackContainer.addComponents([new ColorSquare('yellow'), new ColorSquare('blue'), new ColorSquare('orange')]);
+        }
+        return this.#stackContainer;
     }
 
     #linkContainer!: ILinkContainer;
