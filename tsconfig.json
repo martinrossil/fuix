@@ -12,7 +12,6 @@
         "allowSyntheticDefaultImports": true // generating docs requires commonjs modules
     },
     "include": [
-        "src/**/*", // we need this for type definitions
-        "tests/**/*"
+        "src/**/*" // we need this for type definitions
     ]
 }
