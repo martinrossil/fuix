@@ -466,6 +466,9 @@ export default class Component extends HTMLElement implements IComponent {
         this.style.inset = value;
     }
 
+    /**
+     * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left properties. It has the same multi-value syntax of the margin shorthand.
+     */
     public get inset(): string {
         return this.#inset;
     }
