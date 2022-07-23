@@ -10,4 +10,4 @@
 Typescript web component framework for building high performant web applications.
 
 ## tags
-git fetch --tags -f
+git fetch --tags -f 
