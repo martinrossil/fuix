@@ -694,5 +694,22 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
     public get visible(): boolean {
         return this.#visible;
     }
+
+    #inset = 'auto';
+
+    public set inset(value: string) {
+        if (this.#inset === value) {
+            return;
+        }
+        this.#inset = value;
+        this.style.inset = value;
+    }
+
+    /**
+     * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left properties. It has the same multi-value syntax of the margin shorthand.
+     */
+    public get inset(): string {
+        return this.#inset;
+    }
 }
 customElements.define('link-container', LinkContainer);
