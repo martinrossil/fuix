@@ -155,4 +155,9 @@ export default interface IComponent {
      * Toggles the style.display property, so visible = false will set style.display to 'none', true will respect the current IComponent display property.
      */
     visible: boolean;
+
+    /**
+     * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left properties. It has the same multi-value syntax of the margin shorthand.
+     */
+    inset: string;
 }

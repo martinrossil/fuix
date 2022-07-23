@@ -455,5 +455,19 @@ export default class Component extends HTMLElement implements IComponent {
     public get visible(): boolean {
         return this.#visible;
     }
+
+    #inset = 'auto';
+
+    public set inset(value: string) {
+        if (this.#inset === value) {
+            return;
+        }
+        this.#inset = value;
+        this.style.inset = value;
+    }
+
+    public get inset(): string {
+        return this.#inset;
+    }
 }
 customElements.define('fx-component', Component);
