@@ -12,6 +12,7 @@
   },
   "ignorePatterns": ["/lib"],
   "rules": {
+    "@typescript-eslint/dot-notation": "off",
     "@typescript-eslint/indent": "off",
     "class-methods-use-this": "off",
     "object-curly-newline": "off",
