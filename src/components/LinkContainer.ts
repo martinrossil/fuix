@@ -551,21 +551,21 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
 
     #gap = 0;
 
-    /**
-     * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
-     */
-    public get gap(): number {
-        return this.#gap;
-    }
-
     public set gap(value: number) {
         if (Number.isNaN(value) || value <= 0) {
             this.#gap = 0;
-            this.#anchor.style.gap = '';
+            this.#anchor.style['gap'] = '';
             return;
         }
         this.#gap = value;
-        this.#anchor.style.gap = value + 'px';
+        this.#anchor.style['gap'] = value + 'px';
+    }
+
+    /**
+     * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
+     */
+     public get gap(): number {
+        return this.#gap;
     }
 
     /**
@@ -629,11 +629,8 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
         this.#anchor.style.flexWrap = value;
     }
 
-    #gridTemplateColumns = 'none';
-
     public set gridTemplateColumns(value: string) {
-        this.#gridTemplateColumns = value;
-        this.#anchor.style.gridTemplateColumns = value;
+        this.#anchor.style['gridTemplateColumns'] = value;
     }
 
     /**
@@ -642,7 +639,7 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns} for syntax
      */
     public get gridTemplateColumns(): string {
-        return this.#gridTemplateColumns;
+        return this.#anchor.style['gridTemplateColumns'];
     }
 
     #anchor!: HTMLAnchorElement;
@@ -696,14 +693,14 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
     }
 
     public set inset(value: string) {
-        this.style.inset = value;
+        this.style['inset'] = value;
     }
 
     /**
      * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left properties. It has the same multi-value syntax of the margin shorthand.
      */
     public get inset(): string {
-        return this.style.inset;
+        return this.style['inset'];
     }
 }
 customElements.define('link-container', LinkContainer);

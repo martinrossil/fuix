@@ -114,11 +114,11 @@ export default class Container extends Component implements IContainer {
     public set gap(value: number) {
         if (Number.isNaN(value) || value <= 0) {
             this.#gap = 0;
-            this.style.gap = '';
+            this.style['gap'] = '';
             return;
         }
         this.#gap = value;
-        this.style.gap = value + 'px';
+        this.style['gap'] = value + 'px';
     }
 
     /**
@@ -189,11 +189,8 @@ export default class Container extends Component implements IContainer {
         return this.#flexWrap;
     }
 
-    #gridTemplateColumns = 'none';
-
     public set gridTemplateColumns(value: string) {
-        this.#gridTemplateColumns = value;
-        this.style.gridTemplateColumns = value;
+        this.style['gridTemplateColumns'] = value;
     }
 
     /**
@@ -202,7 +199,7 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns} for syntax
      */
     public get gridTemplateColumns(): string {
-        return this.#gridTemplateColumns;
+        return this.style['gridTemplateColumns'];
     }
 }
 customElements.define('fx-container', Container);

@@ -457,14 +457,14 @@ export default class Component extends HTMLElement implements IComponent {
     }
 
     public set inset(value: string) {
-        this.style.inset = value;
+        this.style['inset'] = value;
     }
 
     /**
      * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left properties. It has the same multi-value syntax of the margin shorthand.
      */
     public get inset(): string {
-        return this.style.inset;
+        return this.style['inset'];
     }
 }
 customElements.define('fx-component', Component);
