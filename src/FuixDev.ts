@@ -21,12 +21,12 @@ export default class FuixDev extends Application {
         window.addEventListener('click', () => {
             // this.linkContainer.visible = !this.linkContainer.visible;
             // index -= 1;
-            this.stackContainer.selectedIndex = NaN;
+            // this.stackContainer.selectedIndex = NaN;
         });
-        this.addComponent(this.stackContainer);
+        // this.addComponent(this.stackContainer);
         // this.addComponent(this.linkContainer);
         // this.flexWrap = FlexWrap.NOWRAP;
-        // this.addComponent(this.dataContainer);
+        this.addComponent(this.dataContainer);
         // this.addComponent(new TopBar());
         // this.addComponent(new BottomBar());
         // this.addComponent(this.paragraph);
@@ -39,8 +39,7 @@ export default class FuixDev extends Application {
         if (!this.#stackContainer) {
             this.#stackContainer = new StackContainer();
             this.#stackContainer.selectedIndex = 0;
-            this.#stackContainer.widthPercent = 100;
-            this.#stackContainer.heightPercent = 100;
+            this.#stackContainer.inset = '0';
             this.#stackContainer.addComponents([new ColorSquare('yellow'), new ColorSquare('blue'), new ColorSquare('orange')]);
         }
         return this.#stackContainer;
@@ -90,11 +89,14 @@ export default class FuixDev extends Application {
     private get dataContainer(): IDataContainer<TestVo> {
         if (!this.#dataContainer) {
             this.#dataContainer = new DataContainer();
+            this.#dataContainer.display = 'block';
             this.#dataContainer.display = 'grid';
             this.#dataContainer.style.minHeight = '100vh';
             this.#dataContainer.gap = 16;
-            this.#dataContainer.style.paddingTop = '72px';
-            this.#dataContainer.style.paddingBottom = '8px';
+            // this.#dataContainer.alignItems = 'start';
+            // this.#dataContainer.justifyContent = 'start';
+            // this.#dataContainer.style.paddingTop = '72px';
+            // this.#dataContainer.style.paddingBottom = '8px';
             this.#dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';
             this.#dataContainer.DataRendererClass = TestRenderer;
             this.#dataContainer.dataProvider = this.testVOs;
