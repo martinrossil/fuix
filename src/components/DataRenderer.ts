@@ -6,18 +6,18 @@ export default class DataRenderer<Item> extends Container implements IDataRender
         // override
     }
 
-    #data: Item | null = null;
+    private _data: Item | null = null;
 
     public set data(value: Item | null) {
-        if (this.#data === value) {
+        if (this._data === value) {
             return;
         }
-        this.#data = value;
+        this._data = value;
         this.dataChanged();
     }
 
     public get data(): Item | null {
-        return this.#data;
+        return this._data;
     }
 }
 customElements.define('fx-data-renderer', DataRenderer);

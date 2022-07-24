@@ -33,90 +33,90 @@ export default class FuixDev extends Application {
         // this.addComponent(this.paragraph2);
     }
 
-    #stackContainer!: IStackContainer;
+    private _stackContainer!: IStackContainer;
 
     protected get stackContainer(): IStackContainer {
-        if (!this.#stackContainer) {
-            this.#stackContainer = new StackContainer();
-            this.#stackContainer.selectedIndex = 0;
-            this.#stackContainer.inset = '0';
-            this.#stackContainer.addComponents([new ColorSquare('yellow'), new ColorSquare('blue'), new ColorSquare('orange')]);
+        if (!this._stackContainer) {
+            this._stackContainer = new StackContainer();
+            this._stackContainer.selectedIndex = 0;
+            this._stackContainer.inset = '0';
+            this._stackContainer.addComponents([new ColorSquare('yellow'), new ColorSquare('blue'), new ColorSquare('orange')]);
         }
-        return this.#stackContainer;
+        return this._stackContainer;
     }
 
-    #linkContainer!: ILinkContainer;
+    private _linkContainer!: ILinkContainer;
 
     protected get linkContainer(): ILinkContainer {
-        if (!this.#linkContainer) {
-            this.#linkContainer = new LinkContainer();
-            // this.#linkContainer.widthPercent = 100;
-            // this.#linkContainer.width = 200;
-            this.#linkContainer.minWidth = 300;
-            this.#linkContainer.height = 200;
-            this.#linkContainer.backgroundColor = 'white';
-            this.#linkContainer.href = '/film';
+        if (!this._linkContainer) {
+            this._linkContainer = new LinkContainer();
+            // this._linkContainer.widthPercent = 100;
+            // this._linkContainer.width = 200;
+            this._linkContainer.minWidth = 300;
+            this._linkContainer.height = 200;
+            this._linkContainer.backgroundColor = 'white';
+            this._linkContainer.href = '/film';
         }
-        return this.#linkContainer;
+        return this._linkContainer;
     }
 
-    #paragraph!: IParagraph;
+    private _paragraph!: IParagraph;
 
     private get paragraph(): IParagraph {
-        if (!this.#paragraph) {
-            this.#paragraph = new Paragraph();
-            this.#paragraph.display = 'inline-block';
-            this.#paragraph.text = 'test text here';
-            this.#paragraph.fontWeight = 500;
+        if (!this._paragraph) {
+            this._paragraph = new Paragraph();
+            this._paragraph.display = 'inline-block';
+            this._paragraph.text = 'test text here';
+            this._paragraph.fontWeight = 500;
         }
-        return this.#paragraph;
+        return this._paragraph;
     }
 
-    #paragraph2!: IParagraph;
+    private _paragraph2!: IParagraph;
 
     private get paragraph2(): IParagraph {
-        if (!this.#paragraph2) {
-            this.#paragraph2 = new Paragraph();
-            this.#paragraph2.display = 'inline-block';
-            this.#paragraph2.text = 'test text here';
-            this.#paragraph2.fontWeight = 500;
+        if (!this._paragraph2) {
+            this._paragraph2 = new Paragraph();
+            this._paragraph2.display = 'inline-block';
+            this._paragraph2.text = 'test text here';
+            this._paragraph2.fontWeight = 500;
         }
-        return this.#paragraph2;
+        return this._paragraph2;
     }
 
-    #dataContainer!: DataContainer<TestVo>;
+    private _dataContainer!: DataContainer<TestVo>;
 
     private get dataContainer(): IDataContainer<TestVo> {
-        if (!this.#dataContainer) {
-            this.#dataContainer = new DataContainer();
-            this.#dataContainer.display = 'block';
-            this.#dataContainer.display = 'grid';
-            this.#dataContainer.style.minHeight = '100vh';
-            this.#dataContainer.gap = 16;
-            // this.#dataContainer.alignItems = 'start';
-            // this.#dataContainer.justifyContent = 'start';
-            // this.#dataContainer.style.paddingTop = '72px';
-            // this.#dataContainer.style.paddingBottom = '8px';
-            this.#dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';
-            this.#dataContainer.DataRendererClass = TestRenderer;
-            this.#dataContainer.dataProvider = this.testVOs;
+        if (!this._dataContainer) {
+            this._dataContainer = new DataContainer();
+            this._dataContainer.display = 'block';
+            this._dataContainer.display = 'grid';
+            this._dataContainer.style.minHeight = '100vh';
+            this._dataContainer.gap = 16;
+            // this._dataContainer.alignItems = 'start';
+            // this._dataContainer.justifyContent = 'start';
+            // this._dataContainer.style.paddingTop = '72px';
+            // this._dataContainer.style.paddingBottom = '8px';
+            this._dataContainer.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';
+            this._dataContainer.DataRendererClass = TestRenderer;
+            this._dataContainer.dataProvider = this.testVOs;
         }
-        return this.#dataContainer;
+        return this._dataContainer;
     }
 
-    #testVOs!: IArrayCollection<TestVo>;
+    _testVOs!: IArrayCollection<TestVo>;
 
     private get testVOs(): IArrayCollection<TestVo> {
-        if (!this.#testVOs) {
+        if (!this._testVOs) {
             const vos: Array<TestVo> = [];
             for (let i = 0; i < 20; i += 1) {
                 const name = Math.random().toString();
                 const age = Math.round(Math.random() * 50 + 10);
                 vos.push(new TestVo(name, age));
             }
-            this.#testVOs = new ArrayCollection(vos);
+            this._testVOs = new ArrayCollection(vos);
         }
-        return this.#testVOs;
+        return this._testVOs;
     }
 }
 customElements.define('fuix-dev', FuixDev);

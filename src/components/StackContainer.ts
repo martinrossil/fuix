@@ -9,25 +9,25 @@ export default class StackContainer extends Container implements IStackContainer
 
     public addComponent(component: IComponent): void {
         super.addComponent(component);
-        this.#updateVisibility();
+        this.updateVisibility();
     }
 
     public addComponents(components: Array<IComponent>): void {
         super.addComponents(components);
-        this.#updateVisibility();
+        this.updateVisibility();
     }
 
     public addComponentAt(component: IComponent, index: number): void {
         super.addComponentAt(component, index);
-        this.#updateVisibility();
+        this.updateVisibility();
     }
 
     public removeComponent(component: IComponent): void {
         super.removeComponent(component);
-        this.#updateVisibility();
+        this.updateVisibility();
     }
 
-    #updateVisibility(): void {
+    private updateVisibility(): void {
         this.childNodes.forEach((node) => {
             const index = Array.from(this.childNodes).indexOf(node);
             const component: IComponent = node as unknown as IComponent;
@@ -35,21 +35,21 @@ export default class StackContainer extends Container implements IStackContainer
         });
     }
 
-    #selectedIndex = NaN;
+    private _selectedIndex = NaN;
 
     public set selectedIndex(value: number) {
-        if (Number.isNaN(this.#selectedIndex || Number.isNaN(value))) {
+        if (Number.isNaN(this._selectedIndex || Number.isNaN(value))) {
             return;
         }
-        if (this.#selectedIndex === value) {
+        if (this._selectedIndex === value) {
             return;
         }
-        this.#selectedIndex = value;
-        this.#updateVisibility();
+        this._selectedIndex = value;
+        this.updateVisibility();
     }
 
     public get selectedIndex(): number {
-        return this.#selectedIndex;
+        return this._selectedIndex;
     }
 }
 customElements.define('fx-stack-container', StackContainer);

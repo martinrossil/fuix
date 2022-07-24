@@ -10,15 +10,15 @@ export default class MouseTouch extends HTMLElement implements IMouseTouch {
 
     }
 
-    hover(): void {
+    public hover(): void {
 
     }
 
-    pressed(x: number, y: number): void {
+    public pressed(x: number, y: number): void {
 
     }
 
-    clicked(): void {
+    public clicked(): void {
 
     }
 }

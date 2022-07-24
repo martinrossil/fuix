@@ -40,10 +40,10 @@ export default class ArrayCollection<Item> extends EventTarget implements IArray
     public constructor(source: Array<Item> | null = null) {
         super();
         if (source) {
-            this.#source = source;
+            this._source = source;
             return;
         }
-        this.#source = [];
+        this._source = [];
     }
 
     /**
@@ -58,7 +58,7 @@ export default class ArrayCollection<Item> extends EventTarget implements IArray
      * @fires ArrayCollection.ITEMS_ADDED
      */
     public addItems(items: Array<Item>): void {
-        this.#source = this.source.concat(items);
+        this._source = this.source.concat(items);
         this.dispatchEvent(new CustomEvent(ArrayCollection.ITEMS_ADDED, { detail: items }));
     }
 
@@ -116,9 +116,9 @@ export default class ArrayCollection<Item> extends EventTarget implements IArray
         return this.source.length;
     }
 
-    #source: Array<Item>;
+    private _source: Array<Item>;
 
     public get source(): Array<Item> {
-        return this.#source;
+        return this._source;
     }
 }

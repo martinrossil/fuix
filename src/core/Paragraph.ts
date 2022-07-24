@@ -22,17 +22,17 @@ export default class Paragraph extends Component implements IParagraph {
         return this.innerText;
     }
 
-    #fontSize = 16;
+    private _fontSize = 16;
 
     public set fontSize(value: number) {
         if (Number.isNaN(value) || value < 0) {
-            if (this.#fontSize !== 16) {
-                this.#fontSize = 16;
+            if (this._fontSize !== 16) {
+                this._fontSize = 16;
             }
         } else {
-            this.#fontSize = value;
+            this._fontSize = value;
         }
-        this.style.fontSize = this.#fontSize + 'px';
+        this.style.fontSize = this._fontSize + 'px';
     }
 
     /**
@@ -41,14 +41,14 @@ export default class Paragraph extends Component implements IParagraph {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-size}
      */
      public get fontSize(): number {
-        return this.#fontSize;
+        return this._fontSize;
     }
 
-    #fontWeight: FontWeight = 400;
+    private _fontWeight: FontWeight = 400;
 
     public set fontWeight(value: FontWeight) {
-        this.#fontWeight = value;
-        this.style.fontWeight = this.#fontWeight.toString();
+        this._fontWeight = value;
+        this.style.fontWeight = this._fontWeight.toString();
     }
 
     /**
@@ -57,7 +57,7 @@ export default class Paragraph extends Component implements IParagraph {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight}
      */
     public get fontWeight(): FontWeight {
-        return this.#fontWeight;
+        return this._fontWeight;
     }
 
     public set fontFamily(value: string) {
@@ -73,17 +73,17 @@ export default class Paragraph extends Component implements IParagraph {
         return this.style.fontFamily;
     }
 
-    #letterSpacing = 0;
+    private _letterSpacing = 0;
 
     public set letterSpacing(value: number) {
         if (Number.isNaN(value)) {
-            if (this.#letterSpacing !== 0) {
-                this.#letterSpacing = 0;
+            if (this._letterSpacing !== 0) {
+                this._letterSpacing = 0;
                 this.style.letterSpacing = '';
             }
             return;
         }
-        this.#letterSpacing = value;
+        this._letterSpacing = value;
         this.style.letterSpacing = value + 'px';
     }
 
@@ -93,18 +93,18 @@ export default class Paragraph extends Component implements IParagraph {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing}
      */
     public get letterSpacing(): number {
-        return this.#letterSpacing;
+        return this._letterSpacing;
     }
 
-    #lineHeight = NaN;
+    private _lineHeight = NaN;
 
     public set lineHeight(value: number) {
         if (Number.isNaN(value) || value < 0) {
-            this.#lineHeight = NaN;
+            this._lineHeight = NaN;
             this.style.lineHeight = '';
             return;
         }
-        this.#lineHeight = value;
+        this._lineHeight = value;
         this.style.lineHeight = value.toString();
     }
 
@@ -114,7 +114,7 @@ export default class Paragraph extends Component implements IParagraph {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/line-height}
      */
     public get lineHeight(): number {
-        return this.#lineHeight;
+        return this._lineHeight;
     }
 }
 customElements.define('fx-paragraph', Paragraph);

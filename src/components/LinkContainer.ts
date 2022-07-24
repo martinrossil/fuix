@@ -22,7 +22,7 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @returns the calling component so we can chain.
      */
      public addComponent(component: IComponent): this {
-        this.#anchor.appendChild(component as unknown as Node);
+        this._anchor.appendChild(component as unknown as Node);
         return this;
     }
 
@@ -35,12 +35,12 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      */
      addComponentAt(component: IComponent, index: number): this {
         const componentNode: Node = component as unknown as Node;
-        if (this.#anchor.children[index]) {
-            const beforeNode: Node = this.#anchor.children[index];
-            this.#anchor.insertBefore(componentNode, beforeNode);
+        if (this._anchor.children[index]) {
+            const beforeNode: Node = this._anchor.children[index];
+            this._anchor.insertBefore(componentNode, beforeNode);
             return this;
         }
-        this.#anchor.appendChild(componentNode);
+        this._anchor.appendChild(componentNode);
         return this;
      }
 
@@ -51,7 +51,7 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @returns the calling component so we can chain.
      */
     public removeComponent(component: IComponent): this {
-        this.#anchor.removeChild(component as unknown as Node);
+        this._anchor.removeChild(component as unknown as Node);
         return this;
     }
 
@@ -61,8 +61,8 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @returns the calling component so we can chain.
      */
      public removeAllComponents(): this {
-        while (this.#anchor.firstChild) {
-            this.#anchor.removeChild(this.#anchor.firstChild);
+        while (this._anchor.firstChild) {
+            this._anchor.removeChild(this._anchor.firstChild);
         }
          return this;
      }
@@ -74,7 +74,7 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @returns A boolean value that is true if component is contained in the IContainer, false if not.
      */
     public containsComponent(component: IComponent): boolean {
-        return this.#anchor.contains(component as unknown as Node);
+        return this._anchor.contains(component as unknown as Node);
     }
 
     /**
@@ -85,7 +85,7 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      */
      public componentIndex(component: IComponent): number {
         const componentNode: HTMLElement = component as unknown as HTMLElement;
-        const index: number = Array.from(this.#anchor.children).indexOf(componentNode);
+        const index: number = Array.from(this._anchor.children).indexOf(componentNode);
         return index !== -1 ? index : NaN;
     }
 
@@ -95,27 +95,27 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @param components - an array of IComponent instances
      * @returns the calling component so we can chain.
      */
-     public addComponents(components: Array<IComponent>): this {
+    public addComponents(components: Array<IComponent>): this {
         const frag: DocumentFragment = document.createDocumentFragment();
         components.forEach((component) => frag.appendChild(component as unknown as Node));
-        this.#anchor.appendChild(frag);
+        this._anchor.appendChild(frag);
         return this;
-     }
+    }
 
-     #width = NaN;
+    private _width = NaN;
 
     set width(value: number) {
         if (value < 0) {
-            this.#width = 0;
-            this.#anchor.style.width = '0px';
+            this._width = 0;
+            this._anchor.style.width = '0px';
             return;
         }
-        this.#width = value;
+        this._width = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.width = value + 'px';
+            this._anchor.style.width = value + 'px';
             return;
         }
-        this.#anchor.style.width = '';
+        this._anchor.style.width = '';
     }
 
     /**
@@ -124,23 +124,23 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/width} for syntax
      */
     get width(): number {
-        return this.#width;
+        return this._width;
     }
 
-    #height = NaN;
+    private _height = NaN;
 
     set height(value: number) {
         if (value < 0) {
-            this.#height = 0;
-            this.#anchor.style.height = '0px';
+            this._height = 0;
+            this._anchor.style.height = '0px';
             return;
         }
-        this.#height = value;
+        this._height = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.height = value + 'px';
+            this._anchor.style.height = value + 'px';
             return;
         }
-        this.#anchor.style.height = '';
+        this._anchor.style.height = '';
     }
 
     /**
@@ -149,20 +149,20 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/height} for syntax
      */
     get height(): number {
-        return this.#height;
+        return this._height;
     }
 
-    #display: Display = 'inline-block';
+    private _display: Display = 'inline-block';
 
     public set display(value: Display) {
-        if (this.#display === value) {
+        if (this._display === value) {
             return;
         }
-        this.#display = value;
+        this._display = value;
         if (this.visible) {
-            this.#anchor.style.display = value;
+            this._anchor.style.display = value;
         } else {
-            this.#anchor.style.display = 'none';
+            this._anchor.style.display = 'none';
         }
     }
 
@@ -174,11 +174,11 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} for syntax
      */
     public get display(): Display {
-        return this.#display;
+        return this._display;
     }
 
     set backgroundColor(value: string) {
-        this.#anchor.style.backgroundColor = value;
+        this._anchor.style.backgroundColor = value;
     }
 
     /**
@@ -187,22 +187,22 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/background-color} for syntax
      */
     get backgroundColor(): string {
-        return this.#anchor.style.backgroundColor;
+        return this._anchor.style.backgroundColor;
     }
 
-    #widthPercent = NaN;
+    private _widthPercent = NaN;
 
     set widthPercent(value: number) {
         if (value < 0) {
-            this.#widthPercent = 0;
+            this._widthPercent = 0;
             return;
         }
-        this.#widthPercent = value;
+        this._widthPercent = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.width = value + '%';
+            this._anchor.style.width = value + '%';
             return;
         }
-        this.#anchor.style.width = '';
+        this._anchor.style.width = '';
     }
 
     /**
@@ -211,22 +211,22 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/width} for syntax
      */
     get widthPercent(): number {
-        return this.#widthPercent;
+        return this._widthPercent;
     }
 
-    #heightPercent = NaN;
+    private _heightPercent = NaN;
 
     set heightPercent(value: number) {
         if (value < 0) {
-            this.#heightPercent = 0;
+            this._heightPercent = 0;
             return;
         }
-        this.#heightPercent = value;
+        this._heightPercent = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.height = value + '%';
+            this._anchor.style.height = value + '%';
             return;
         }
-        this.#anchor.style.height = '';
+        this._anchor.style.height = '';
     }
 
     /**
@@ -235,23 +235,23 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/height} for syntax
      */
     get heightPercent(): number {
-        return this.#heightPercent;
+        return this._heightPercent;
     }
 
-    #minWidth = NaN;
+    private _minWidth = NaN;
 
     public set minWidth(value: number) {
         if (value < 0) {
-            this.#minWidth = 0;
-            this.#anchor.style.minWidth = '0px';
+            this._minWidth = 0;
+            this._anchor.style.minWidth = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#minWidth = value;
-            this.#anchor.style.minWidth = value + 'px';
+            this._minWidth = value;
+            this._anchor.style.minWidth = value + 'px';
             return;
         }
-        this.#anchor.style.minWidth = '';
+        this._anchor.style.minWidth = '';
     }
 
     /**
@@ -261,23 +261,23 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/min-width} for syntax
      */
     public get minWidth(): number {
-        return this.#minWidth;
+        return this._minWidth;
     }
 
-    #maxWidth = NaN;
+    private _maxWidth = NaN;
 
     public set maxWidth(value: number) {
         if (value < 0) {
-            this.#maxWidth = 0;
-            this.#anchor.style.maxWidth = '0px';
+            this._maxWidth = 0;
+            this._anchor.style.maxWidth = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#maxWidth = value;
-            this.#anchor.style.maxWidth = value + 'px';
+            this._maxWidth = value;
+            this._anchor.style.maxWidth = value + 'px';
             return;
         }
-        this.#anchor.style.maxWidth = '';
+        this._anchor.style.maxWidth = '';
     }
 
     /**
@@ -287,23 +287,23 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/max-width} for syntax
      */
     public get maxWidth(): number {
-        return this.#maxWidth;
+        return this._maxWidth;
     }
 
-    #minHeight = NaN;
+    private _minHeight = NaN;
 
     public set minHeight(value: number) {
         if (value < 0) {
-            this.#minHeight = 0;
-            this.#anchor.style.minHeight = '0px';
+            this._minHeight = 0;
+            this._anchor.style.minHeight = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#minHeight = value;
-            this.#anchor.style.minHeight = value + 'px';
+            this._minHeight = value;
+            this._anchor.style.minHeight = value + 'px';
             return;
         }
-        this.#anchor.style.minHeight = '';
+        this._anchor.style.minHeight = '';
     }
 
     /**
@@ -313,23 +313,23 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/min-height} for syntax
      */
     public get minHeight(): number {
-        return this.#minHeight;
+        return this._minHeight;
     }
 
-    #maxHeight = NaN;
+    private _maxHeight = NaN;
 
     public set maxHeight(value: number) {
         if (value < 0) {
-            this.#maxHeight = 0;
-            this.#anchor.style.maxHeight = '0px';
+            this._maxHeight = 0;
+            this._anchor.style.maxHeight = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#maxHeight = value;
-            this.#anchor.style.maxHeight = value + 'px';
+            this._maxHeight = value;
+            this._anchor.style.maxHeight = value + 'px';
             return;
         }
-        this.#anchor.style.maxHeight = '';
+        this._anchor.style.maxHeight = '';
     }
 
     /**
@@ -339,17 +339,17 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/max-height} for syntax
      */
     public get maxHeight(): number {
-        return this.#maxHeight;
+        return this._maxHeight;
     }
 
-    #overflow: Overflow = 'visible';
+    private _overflow: Overflow = 'visible';
 
     public set overflow(value: Overflow) {
-        if (this.#overflow === value) {
+        if (this._overflow === value) {
             return;
         }
-        this.#overflow = value;
-        this.#anchor.style.overflow = value;
+        this._overflow = value;
+        this._anchor.style.overflow = value;
     }
 
     /**
@@ -358,19 +358,19 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
      */
     public get overflow(): Overflow {
-        return this.#overflow;
+        return this._overflow;
     }
 
-    #borderRadius = 0;
+    private _borderRadius = 0;
 
     public set borderRadius(value: number) {
         if (Number.isNaN(value) || value <= 0) {
-            this.#borderRadius = 0;
-            this.#anchor.style.borderRadius = '';
+            this._borderRadius = 0;
+            this._anchor.style.borderRadius = '';
             return;
         }
-        this.#borderRadius = value;
-        this.#anchor.style.borderRadius = value + 'px';
+        this._borderRadius = value;
+        this._anchor.style.borderRadius = value + 'px';
     }
 
     /**
@@ -379,17 +379,17 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius} for syntax
      */
     public get borderRadius(): number {
-        return this.#borderRadius;
+        return this._borderRadius;
     }
 
-    #position: Position = 'static';
+    private _position: Position = 'static';
 
     set position(value: Position) {
-        if (this.#position === value) {
+        if (this._position === value) {
             return;
         }
-        this.#position = value;
-        this.#anchor.style.position = value;
+        this._position = value;
+        this._anchor.style.position = value;
     }
 
     /**
@@ -398,18 +398,18 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
      */
     get position(): Position {
-        return this.#position;
+        return this._position;
     }
 
-    #left = NaN;
+    private _left = NaN;
 
     set left(value: number) {
-        this.#left = value;
+        this._left = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.left = value + 'px';
+            this._anchor.style.left = value + 'px';
             return;
         }
-        this.#anchor.style.left = '';
+        this._anchor.style.left = '';
     }
 
     /**
@@ -418,18 +418,18 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/left} for syntax
      */
     get left(): number {
-        return this.#left;
+        return this._left;
     }
 
-    #top = NaN;
+    private _top = NaN;
 
     set top(value: number) {
-        this.#top = value;
+        this._top = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.top = value + 'px';
+            this._anchor.style.top = value + 'px';
             return;
         }
-        this.#anchor.style.top = '';
+        this._anchor.style.top = '';
     }
 
     /**
@@ -438,18 +438,18 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/top} for syntax
      */
     get top(): number {
-        return this.#top;
+        return this._top;
     }
 
-    #right = NaN;
+    private _right = NaN;
 
     set right(value: number) {
-        this.#right = value;
+        this._right = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.right = value + 'px';
+            this._anchor.style.right = value + 'px';
             return;
         }
-        this.#anchor.style.right = '';
+        this._anchor.style.right = '';
     }
 
     /**
@@ -458,18 +458,18 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/right} for syntax
      */
     get right(): number {
-        return this.#right;
+        return this._right;
     }
 
-    #bottom = NaN;
+    private _bottom = NaN;
 
     set bottom(value: number) {
-        this.#bottom = value;
+        this._bottom = value;
         if (!Number.isNaN(value)) {
-            this.#anchor.style.bottom = value + 'px';
+            this._anchor.style.bottom = value + 'px';
             return;
         }
-        this.#anchor.style.bottom = '';
+        this._anchor.style.bottom = '';
     }
 
     /**
@@ -478,38 +478,38 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/bottom} for syntax
      */
     get bottom(): number {
-        return this.#bottom;
+        return this._bottom;
     }
 
-    #flexGrow = 0;
+    private _flexGrow = 0;
+
+    set flexGrow(value: number) {
+        if (Number.isNaN(value) || value <= 0) {
+            this._anchor.style.flexGrow = '';
+            return;
+        }
+        this._anchor.style.flexGrow = value.toString();
+    }
 
     /**
      * The flex-grow CSS property sets the flex grow factor of a flex item's main size.
      *
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow} for syntax
      */
-    get flexGrow(): number {
-        return this.#flexGrow;
+     get flexGrow(): number {
+        return this._flexGrow;
     }
 
-    set flexGrow(value: number) {
-        if (Number.isNaN(value) || value <= 0) {
-            this.#anchor.style.flexGrow = '';
-            return;
-        }
-        this.#anchor.style.flexGrow = value.toString();
-    }
-
-    #aspectRatio = NaN;
+    private _aspectRatio = NaN;
 
     public set aspectRatio(value: number) {
         if (Number.isNaN(value)) {
-            this.#aspectRatio = value;
-            this.#anchor.style.aspectRatio = '';
+            this._aspectRatio = value;
+            this._anchor.style.aspectRatio = '';
             return;
         }
-        this.#aspectRatio = value;
-        this.#anchor.style.aspectRatio = value.toString();
+        this._aspectRatio = value;
+        this._anchor.style.aspectRatio = value.toString();
     }
 
     /**
@@ -518,17 +518,17 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio} for syntax
      */
     public get aspectRatio(): number {
-        return this.#aspectRatio;
+        return this._aspectRatio;
     }
 
     /**
      * The computedStyle() method returns an object containing the values of all CSS properties of the Component, after applying active stylesheets and resolving any basic computation those values may contain. Individual CSS property values are accessed through APIs provided by the object, or by indexing with CSS property names.
      */
      public get computedStyle(): CSSStyleDeclaration {
-        return window.getComputedStyle(this.#anchor);
+        return window.getComputedStyle(this._anchor);
     }
 
-    #padding = 0;
+    private _padding = 0;
 
     /**
      * The padding CSS shorthand property sets the padding area on all four sides of an element at once.
@@ -536,53 +536,53 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/padding} for syntax
      */
     public get padding(): number {
-        return this.#padding;
+        return this._padding;
     }
 
     public set padding(value: number) {
         if (Number.isNaN(value) || value <= 0) {
-            this.#padding = 0;
-            this.#anchor.style.padding = '';
+            this._padding = 0;
+            this._anchor.style.padding = '';
             return;
         }
-        this.#padding = value;
-        this.#anchor.style.padding = value + 'px';
+        this._padding = value;
+        this._anchor.style.padding = value + 'px';
     }
 
-    #gap = 0;
+    private _gap = 0;
 
     public set gap(value: number) {
         if (Number.isNaN(value) || value <= 0) {
-            this.#gap = 0;
-            this.#anchor.style['gap'] = '';
+            this._gap = 0;
+            this._anchor.style['gap'] = '';
             return;
         }
-        this.#gap = value;
-        this.#anchor.style['gap'] = value + 'px';
+        this._gap = value;
+        this._anchor.style['gap'] = value + 'px';
     }
 
     /**
      * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
      */
      public get gap(): number {
-        return this.#gap;
+        return this._gap;
     }
 
     /**
      * The IContainer.childCount read-only property returns the number of child components of this Container.
      */
      get childCount(): number {
-        return this.#anchor.childElementCount;
+        return this._anchor.childElementCount;
     }
 
-    #alignItems: AlignItems = 'normal';
+    private _alignItems: AlignItems = 'normal';
 
     public set alignItems(value: AlignItems) {
-        if (this.#alignItems === value) {
+        if (this._alignItems === value) {
             return;
         }
-        this.#alignItems = value;
-        this.#anchor.style.alignItems = value;
+        this._alignItems = value;
+        this._anchor.style.alignItems = value;
     }
 
     /**
@@ -591,17 +591,17 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/align-items} for syntax
      */
     public get alignItems(): AlignItems {
-        return this.#alignItems;
+        return this._alignItems;
     }
 
-    #justifyContent: JustifyContent = 'normal';
+    private _justifyContent: JustifyContent = 'normal';
 
     public set justifyContent(value: JustifyContent) {
-        if (this.#justifyContent === value) {
+        if (this._justifyContent === value) {
             return;
         }
-        this.#justifyContent = value;
-        this.#anchor.style.justifyContent = value;
+        this._justifyContent = value;
+        this._anchor.style.justifyContent = value;
     }
 
     /**
@@ -610,10 +610,10 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
      */
     public get justifyContent(): JustifyContent {
-        return this.#justifyContent;
+        return this._justifyContent;
     }
 
-    #flexWrap: FlexWrap = 'nowrap';
+    private _flexWrap: FlexWrap = 'nowrap';
 
     /**
      * The flex-wrap CSS property sets whether flex items are forced onto one line or can wrap onto multiple lines. If wrapping is allowed, it sets the direction that lines are stacked.
@@ -621,16 +621,16 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
      */
     public get flexWrap(): FlexWrap {
-        return this.#flexWrap;
+        return this._flexWrap;
     }
 
     public set flexWrap(value: FlexWrap) {
-        this.#flexWrap = value;
-        this.#anchor.style.flexWrap = value;
+        this._flexWrap = value;
+        this._anchor.style.flexWrap = value;
     }
 
     public set gridTemplateColumns(value: string) {
-        this.#anchor.style['gridTemplateColumns'] = value;
+        this._anchor.style['gridTemplateColumns'] = value;
     }
 
     /**
@@ -639,49 +639,49 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns} for syntax
      */
     public get gridTemplateColumns(): string {
-        return this.#anchor.style['gridTemplateColumns'];
+        return this._anchor.style['gridTemplateColumns'];
     }
 
-    #anchor!: HTMLAnchorElement;
+    private _anchor!: HTMLAnchorElement;
 
     public get anchor(): HTMLAnchorElement {
-        if (!this.#anchor) {
-            this.#anchor = document.createElement('a');
-            this.#anchor.style.display = 'inline-block';
+        if (!this._anchor) {
+            this._anchor = document.createElement('a');
+            this._anchor.style.display = 'inline-block';
         }
-        return this.#anchor;
+        return this._anchor;
     }
 
     public set href(value: string) {
-        this.#anchor.href = value;
+        this._anchor.href = value;
     }
 
     public get href(): string {
-        return this.#anchor.href;
+        return this._anchor.href;
     }
 
-    #target: Target = '_self';
+    private _target: Target = '_self';
 
     public set target(value: Target) {
-        this.#target = value;
-        this.#anchor.target = value;
+        this._target = value;
+        this._anchor.target = value;
     }
 
     public get target(): Target {
-        return this.#target;
+        return this._target;
     }
 
-    #visible = true;
+    private _visible = true;
 
     public set visible(value: boolean) {
-        if (this.#visible === value) {
+        if (this._visible === value) {
             return;
         }
-        this.#visible = value;
+        this._visible = value;
         if (value) {
-            this.#anchor.style.display = this.display;
+            this._anchor.style.display = this.display;
         } else {
-            this.#anchor.style.display = 'none';
+            this._anchor.style.display = 'none';
         }
     }
 
@@ -689,7 +689,7 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
      * Toggles the style.display property, so visible = false will set style.display to 'none', true will respect the current IComponent display property.
      */
     public get visible(): boolean {
-        return this.#visible;
+        return this._visible;
     }
 
     public set inset(value: string) {

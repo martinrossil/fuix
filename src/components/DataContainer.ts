@@ -77,47 +77,47 @@ export default class DataContainer<Item> extends Container implements IDataConta
         }
     }
 
-    #DataRendererClass!: new () => IDataRenderer<Item>;
+    private _DataRendererClass!: new () => IDataRenderer<Item>;
 
     public set DataRendererClass(value: new () => IDataRenderer<Item>) {
-        if (this.#DataRendererClass === value) {
+        if (this._DataRendererClass === value) {
             return;
         }
-        this.#DataRendererClass = value;
+        this._DataRendererClass = value;
         this.reset();
     }
 
     public get DataRendererClass(): new () => IDataRenderer<Item> {
-        if (!this.#DataRendererClass) {
-            this.#DataRendererClass = DataRenderer;
+        if (!this._DataRendererClass) {
+            this._DataRendererClass = DataRenderer;
         }
-        return this.#DataRendererClass;
+        return this._DataRendererClass;
     }
 
-    #dataProvider: IArrayCollection<Item> | null = null;
+    private _dataProvider: IArrayCollection<Item> | null = null;
 
     public set dataProvider(value: IArrayCollection<Item> | null) {
-        if (this.#dataProvider === value) {
+        if (this._dataProvider === value) {
             return;
         }
-        if (this.#dataProvider) {
-            this.#dataProvider.removeEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
-            this.#dataProvider.removeEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
-            this.#dataProvider.removeEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
-            this.#dataProvider.removeEventListener(ArrayCollection.RESET, this.reset);
+        if (this._dataProvider) {
+            this._dataProvider.removeEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
+            this._dataProvider.removeEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
+            this._dataProvider.removeEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
+            this._dataProvider.removeEventListener(ArrayCollection.RESET, this.reset);
         }
-        this.#dataProvider = value;
-        if (this.#dataProvider) {
-            this.#dataProvider.addEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
-            this.#dataProvider.addEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
-            this.#dataProvider.addEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
-            this.#dataProvider.addEventListener(ArrayCollection.RESET, this.reset);
+        this._dataProvider = value;
+        if (this._dataProvider) {
+            this._dataProvider.addEventListener(ArrayCollection.ITEM_ADDED, this.itemAdded as EventListener);
+            this._dataProvider.addEventListener(ArrayCollection.ITEMS_ADDED, this.itemsAdded as EventListener);
+            this._dataProvider.addEventListener(ArrayCollection.ITEM_REMOVED, this.itemRemoved as EventListener);
+            this._dataProvider.addEventListener(ArrayCollection.RESET, this.reset);
         }
         this.reset();
     }
 
     public get dataProvider(): IArrayCollection<Item> | null {
-        return this.#dataProvider;
+        return this._dataProvider;
     }
 }
 customElements.define('fx-data-container', DataContainer);

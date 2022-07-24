@@ -9,15 +9,15 @@ export default class Component extends HTMLElement implements IComponent {
         this.display = 'inline-block';
     }
 
-    #width = NaN;
+    private _width = NaN;
 
     set width(value: number) {
         if (value < 0) {
-            this.#width = 0;
+            this._width = 0;
             this.style.width = '0px';
             return;
         }
-        this.#width = value;
+        this._width = value;
         if (!Number.isNaN(value)) {
             this.style.width = value + 'px';
             return;
@@ -31,18 +31,18 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/width} for syntax
      */
     get width(): number {
-        return this.#width;
+        return this._width;
     }
 
-    #height = NaN;
+    private _height = NaN;
 
     set height(value: number) {
         if (value < 0) {
-            this.#height = 0;
+            this._height = 0;
             this.style.height = '0px';
             return;
         }
-        this.#height = value;
+        this._height = value;
         if (!Number.isNaN(value)) {
             this.style.height = value + 'px';
             return;
@@ -56,17 +56,17 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/height} for syntax
      */
     get height(): number {
-        return this.#height;
+        return this._height;
     }
 
-    #widthPercent = NaN;
+    private _widthPercent = NaN;
 
     set widthPercent(value: number) {
         if (value < 0) {
-            this.#widthPercent = 0;
+            this._widthPercent = 0;
             return;
         }
-        this.#widthPercent = value;
+        this._widthPercent = value;
         if (!Number.isNaN(value)) {
             this.style.width = value + '%';
             return;
@@ -80,17 +80,17 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/width} for syntax
      */
     get widthPercent(): number {
-        return this.#widthPercent;
+        return this._widthPercent;
     }
 
-    #heightPercent = NaN;
+    private _heightPercent = NaN;
 
     set heightPercent(value: number) {
         if (value < 0) {
-            this.#heightPercent = 0;
+            this._heightPercent = 0;
             return;
         }
-        this.#heightPercent = value;
+        this._heightPercent = value;
         if (!Number.isNaN(value)) {
             this.style.height = value + '%';
             return;
@@ -104,19 +104,19 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/height} for syntax
      */
     get heightPercent(): number {
-        return this.#heightPercent;
+        return this._heightPercent;
     }
 
-    #minWidth = NaN;
+    private _minWidth = NaN;
 
     public set minWidth(value: number) {
         if (value < 0) {
-            this.#minWidth = 0;
+            this._minWidth = 0;
             this.style.minWidth = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#minWidth = value;
+            this._minWidth = value;
             this.style.minWidth = value + 'px';
             return;
         }
@@ -130,19 +130,19 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/min-width} for syntax
      */
     public get minWidth(): number {
-        return this.#minWidth;
+        return this._minWidth;
     }
 
-    #maxWidth = NaN;
+    private _maxWidth = NaN;
 
     public set maxWidth(value: number) {
         if (value < 0) {
-            this.#maxWidth = 0;
+            this._maxWidth = 0;
             this.style.maxWidth = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#maxWidth = value;
+            this._maxWidth = value;
             this.style.maxWidth = value + 'px';
             return;
         }
@@ -156,19 +156,19 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/max-width} for syntax
      */
     public get maxWidth(): number {
-        return this.#maxWidth;
+        return this._maxWidth;
     }
 
-    #minHeight = NaN;
+    private _minHeight = NaN;
 
     public set minHeight(value: number) {
         if (value < 0) {
-            this.#minHeight = 0;
+            this._minHeight = 0;
             this.style.minHeight = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#minHeight = value;
+            this._minHeight = value;
             this.style.minHeight = value + 'px';
             return;
         }
@@ -182,19 +182,19 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/min-height} for syntax
      */
     public get minHeight(): number {
-        return this.#minHeight;
+        return this._minHeight;
     }
 
-    #maxHeight = NaN;
+    private _maxHeight = NaN;
 
     public set maxHeight(value: number) {
         if (value < 0) {
-            this.#maxHeight = 0;
+            this._maxHeight = 0;
             this.style.maxHeight = '0px';
             return;
         }
         if (!Number.isNaN(value)) {
-            this.#maxHeight = value;
+            this._maxHeight = value;
             this.style.maxHeight = value + 'px';
             return;
         }
@@ -208,16 +208,16 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/max-height} for syntax
      */
     public get maxHeight(): number {
-        return this.#maxHeight;
+        return this._maxHeight;
     }
 
-    #display: Display = 'inline';
+    private _display: Display = 'inline';
 
     public set display(value: Display) {
-        if (this.#display === value) {
+        if (this._display === value) {
             return;
         }
-        this.#display = value;
+        this._display = value;
         if (this.visible) {
             this.style.display = value;
         } else {
@@ -233,16 +233,16 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} for syntax
      */
     public get display(): Display {
-        return this.#display;
+        return this._display;
     }
 
-    #overflow: Overflow = 'visible';
+    private _overflow: Overflow = 'visible';
 
     public set overflow(value: Overflow) {
-        if (this.#overflow === value) {
+        if (this._overflow === value) {
             return;
         }
-        this.#overflow = value;
+        this._overflow = value;
         this.style.overflow = value;
     }
 
@@ -252,18 +252,18 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/overflow} for syntax
      */
     public get overflow(): Overflow {
-        return this.#overflow;
+        return this._overflow;
     }
 
-    #borderRadius = 0;
+    private _borderRadius = 0;
 
     public set borderRadius(value: number) {
         if (Number.isNaN(value) || value <= 0) {
-            this.#borderRadius = 0;
+            this._borderRadius = 0;
             this.style.borderRadius = '';
             return;
         }
-        this.#borderRadius = value;
+        this._borderRadius = value;
         this.style.borderRadius = value + 'px';
     }
 
@@ -273,16 +273,16 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius} for syntax
      */
     public get borderRadius(): number {
-        return this.#borderRadius;
+        return this._borderRadius;
     }
 
-    #position: Position = 'static';
+    private _position: Position = 'static';
 
     set position(value: Position) {
-        if (this.#position === value) {
+        if (this._position === value) {
             return;
         }
-        this.#position = value;
+        this._position = value;
         this.style.position = value;
     }
 
@@ -292,13 +292,13 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/position} for syntax
      */
     get position(): Position {
-        return this.#position;
+        return this._position;
     }
 
-    #left = NaN;
+    private _left = NaN;
 
     set left(value: number) {
-        this.#left = value;
+        this._left = value;
         if (!Number.isNaN(value)) {
             this.style.left = value + 'px';
             return;
@@ -312,13 +312,13 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/left} for syntax
      */
     get left(): number {
-        return this.#left;
+        return this._left;
     }
 
-    #top = NaN;
+    private _top = NaN;
 
     set top(value: number) {
-        this.#top = value;
+        this._top = value;
         if (!Number.isNaN(value)) {
             this.style.top = value + 'px';
             return;
@@ -332,13 +332,13 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/top} for syntax
      */
     get top(): number {
-        return this.#top;
+        return this._top;
     }
 
-    #right = NaN;
+    private _right = NaN;
 
     set right(value: number) {
-        this.#right = value;
+        this._right = value;
         if (!Number.isNaN(value)) {
             this.style.right = value + 'px';
             return;
@@ -352,13 +352,13 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/right} for syntax
      */
     get right(): number {
-        return this.#right;
+        return this._right;
     }
 
-    #bottom = NaN;
+    private _bottom = NaN;
 
     set bottom(value: number) {
-        this.#bottom = value;
+        this._bottom = value;
         if (!Number.isNaN(value)) {
             this.style.bottom = value + 'px';
             return;
@@ -372,7 +372,7 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/bottom} for syntax
      */
     get bottom(): number {
-        return this.#bottom;
+        return this._bottom;
     }
 
     set backgroundColor(value: string) {
@@ -388,7 +388,7 @@ export default class Component extends HTMLElement implements IComponent {
         return this.style.backgroundColor;
     }
 
-    #flexGrow = 0;
+    private _flexGrow = NaN;
 
     /**
      * The flex-grow CSS property sets the flex grow factor of a flex item's main size.
@@ -396,26 +396,28 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow} for syntax
      */
     get flexGrow(): number {
-        return this.#flexGrow;
+        return this._flexGrow;
     }
 
     set flexGrow(value: number) {
         if (Number.isNaN(value) || value <= 0) {
+            this._flexGrow = NaN;
             this.style.flexGrow = '';
             return;
         }
+        this._flexGrow = value;
         this.style.flexGrow = value.toString();
     }
 
-    #aspectRatio = NaN;
+    private _aspectRatio = NaN;
 
     public set aspectRatio(value: number) {
         if (Number.isNaN(value)) {
-            this.#aspectRatio = value;
+            this._aspectRatio = value;
             this.style.aspectRatio = '';
             return;
         }
-        this.#aspectRatio = value;
+        this._aspectRatio = value;
         this.style.aspectRatio = value.toString();
     }
 
@@ -425,7 +427,7 @@ export default class Component extends HTMLElement implements IComponent {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio} for syntax
      */
     public get aspectRatio(): number {
-        return this.#aspectRatio;
+        return this._aspectRatio;
     }
 
     /**
@@ -435,13 +437,13 @@ export default class Component extends HTMLElement implements IComponent {
         return window.getComputedStyle(this);
     }
 
-    #visible = true;
+    private _visible = true;
 
     public set visible(value: boolean) {
-        if (this.#visible === value) {
+        if (this._visible === value) {
             return;
         }
-        this.#visible = value;
+        this._visible = value;
         if (value) {
             this.style.display = this.display;
         } else {
@@ -453,7 +455,7 @@ export default class Component extends HTMLElement implements IComponent {
      * Toggles the style.display property, so visible = false will set style.display to 'none', true will respect the current IComponent display property.
      */
     public get visible(): boolean {
-        return this.#visible;
+        return this._visible;
     }
 
     public set inset(value: string) {

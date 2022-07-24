@@ -82,21 +82,21 @@ export default class Container extends Component implements IContainer {
      * @param components - an array of IComponent instances
      * @returns the calling component so we can chain.
      */
-     public addComponents(components: Array<IComponent>): void {
+    public addComponents(components: Array<IComponent>): void {
         const frag: DocumentFragment = document.createDocumentFragment();
         components.forEach((component) => frag.appendChild(component as unknown as Node));
         this.appendChild(frag);
-     }
+    }
 
-    #padding = 0;
+    private _padding = 0;
 
     public set padding(value: number) {
         if (Number.isNaN(value) || value <= 0) {
-            this.#padding = 0;
+            this._padding = 0;
             this.style.padding = '';
             return;
         }
-        this.#padding = value;
+        this._padding = value;
         this.style.padding = value + 'px';
     }
 
@@ -106,18 +106,18 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/padding} for syntax
      */
      public get padding(): number {
-        return this.#padding;
+        return this._padding;
     }
 
-    #gap = 0;
+    private _gap = 0;
 
     public set gap(value: number) {
         if (Number.isNaN(value) || value <= 0) {
-            this.#gap = 0;
+            this._gap = 0;
             this.style['gap'] = '';
             return;
         }
-        this.#gap = value;
+        this._gap = value;
         this.style['gap'] = value + 'px';
     }
 
@@ -125,7 +125,7 @@ export default class Container extends Component implements IContainer {
      * The gap CSS property sets the gaps (gutters) between rows and columns. It is a shorthand for row-gap and column-gap.
      */
      public get gap(): number {
-        return this.#gap;
+        return this._gap;
     }
 
     /**
@@ -135,13 +135,13 @@ export default class Container extends Component implements IContainer {
         return this.childElementCount;
     }
 
-    #alignItems: AlignItems = 'normal';
+    private _alignItems: AlignItems = 'normal';
 
     public set alignItems(value: AlignItems) {
-        if (this.#alignItems === value) {
+        if (this._alignItems === value) {
             return;
         }
-        this.#alignItems = value;
+        this._alignItems = value;
         this.style.alignItems = value;
     }
 
@@ -151,16 +151,16 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/align-items} for syntax
      */
     public get alignItems(): AlignItems {
-        return this.#alignItems;
+        return this._alignItems;
     }
 
-    #justifyContent: JustifyContent = 'normal';
+    private _justifyContent: JustifyContent = 'normal';
 
     public set justifyContent(value: JustifyContent) {
-        if (this.#justifyContent === value) {
+        if (this._justifyContent === value) {
             return;
         }
-        this.#justifyContent = value;
+        this._justifyContent = value;
         this.style.justifyContent = value;
     }
 
@@ -170,13 +170,13 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content} for syntax
      */
     public get justifyContent(): JustifyContent {
-        return this.#justifyContent;
+        return this._justifyContent;
     }
 
-    #flexWrap: FlexWrap = 'nowrap';
+    private _flexWrap: FlexWrap = 'nowrap';
 
     public set flexWrap(value: FlexWrap) {
-        this.#flexWrap = value;
+        this._flexWrap = value;
         this.style.flexWrap = value;
     }
 
@@ -186,7 +186,7 @@ export default class Container extends Component implements IContainer {
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap} for syntax
      */
      public get flexWrap(): FlexWrap {
-        return this.#flexWrap;
+        return this._flexWrap;
     }
 
     public set gridTemplateColumns(value: string) {
