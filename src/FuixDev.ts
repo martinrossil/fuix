@@ -18,6 +18,9 @@ export default class FuixDev extends Application {
         super();
         this.bodyBackgroundColor = '#F4F5F7';
         this.display = 'block';
+        this.gap = 23;
+        this.inset = '23px';
+        this.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 2fr))';
         window.addEventListener('click', () => {
             // this.linkContainer.visible = !this.linkContainer.visible;
             // index -= 1;
@@ -93,6 +96,7 @@ export default class FuixDev extends Application {
             this._dataContainer.display = 'grid';
             this._dataContainer.style.minHeight = '100vh';
             this._dataContainer.gap = 16;
+            this._dataContainer.inset = '23px';
             // this._dataContainer.alignItems = 'start';
             // this._dataContainer.justifyContent = 'start';
             // this._dataContainer.style.paddingTop = '72px';
