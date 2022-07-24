@@ -20,6 +20,7 @@ export default class FuixDev extends Application {
         this.display = 'block';
         this.gap = 23;
         this.inset = '23px';
+        this.boxShadow = '0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06)';
         this.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 2fr))';
         window.addEventListener('click', () => {
             // this.linkContainer.visible = !this.linkContainer.visible;
