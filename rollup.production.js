@@ -9,7 +9,7 @@ import { version } from './package.json';
 
 function getCompiler(year) {
     return compiler({
-        language_in: 'ECMASCRIPT_NEXT',
+        language_in: 'ECMASCRIPT_2020',
         compilation_level: 'ADVANCED',
         language_out: 'ECMASCRIPT_' + year,
     });
