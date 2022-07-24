@@ -464,9 +464,24 @@ export default class Component extends HTMLElement implements IComponent {
 
     /**
      * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left properties. It has the same multi-value syntax of the margin shorthand.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/inset} for syntax
      */
     public get inset(): string {
         return this.style['inset'];
+    }
+
+    public set boxShadow(value: string) {
+        this.style.boxShadow = value;
+    }
+
+    /**
+     * The box-shadow CSS property adds shadow effects around an element's frame. You can set multiple effects separated by commas. A box shadow is described by X and Y offsets relative to the element, blur and spread radius, and color.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow} for syntax
+     */
+    public get boxShadow(): string {
+        return this.style.boxShadow;
     }
 }
 customElements.define('fx-component', Component);

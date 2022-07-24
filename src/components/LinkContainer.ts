@@ -693,14 +693,27 @@ export default class LinkContainer extends HTMLElement implements ILinkContainer
     }
 
     public set inset(value: string) {
-        this.style['inset'] = value;
+        this._anchor.style['inset'] = value;
     }
 
     /**
      * The inset CSS property is a shorthand that corresponds to the top, right, bottom, and/or left properties. It has the same multi-value syntax of the margin shorthand.
      */
     public get inset(): string {
-        return this.style['inset'];
+        return this._anchor.style['inset'];
+    }
+
+    public set boxShadow(value: string) {
+        this._anchor.style.boxShadow = value;
+    }
+
+    /**
+     * The box-shadow CSS property adds shadow effects around an element's frame. You can set multiple effects separated by commas. A box shadow is described by X and Y offsets relative to the element, blur and spread radius, and color.
+     *
+     * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow} for syntax
+     */
+    public get boxShadow(): string {
+        return this._anchor.style.boxShadow;
     }
 }
 customElements.define('link-container', LinkContainer);
