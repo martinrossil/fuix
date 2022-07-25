@@ -12,16 +12,16 @@ import IParagraph from './core/IParagraph';
 import Paragraph from './core/Paragraph';
 import ArrayCollection from './data/ArrayCollection';
 import IArrayCollection from './data/IArrayCollection';
+import IPath from './svg/IPath';
+import Path from './svg/Path';
 
 export default class FuixDev extends Application {
     public constructor() {
         super();
         this.bodyBackgroundColor = '#F4F5F7';
-        this.display = 'block';
-        this.gap = 23;
-        this.inset = '23px';
-        this.boxShadow = '0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06)';
-        this.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 2fr))';
+        this.display = 'flex';
+        this.alignItems = 'center';
+        this.justifyContent = 'center';
         window.addEventListener('click', () => {
             // this.linkContainer.visible = !this.linkContainer.visible;
             // index -= 1;
@@ -30,11 +30,45 @@ export default class FuixDev extends Application {
         // this.addComponent(this.stackContainer);
         // this.addComponent(this.linkContainer);
         // this.flexWrap = FlexWrap.NOWRAP;
-        this.addComponent(this.dataContainer);
+        // this.addComponent(this.dataContainer);
         // this.addComponent(new TopBar());
         // this.addComponent(new BottomBar());
         // this.addComponent(this.paragraph);
         // this.addComponent(this.paragraph2);
+        this.gap = 64;
+        this.addComponents([this.path, this.path2]);
+    }
+
+    private _path!: IPath;
+
+    private get path(): IPath {
+        if (!this._path) {
+            this._path = new Path();
+            // this._path.backgroundColor = '#000';
+            this._path.width = 100;
+            this._path.height = 100;
+            this._path.viewBox = '0 0 24 24';
+            this._path.stroke = '#000';
+            this._path.strokeWidth = 2;
+            // this._path.d = Icons.FILM_02;
+        }
+        return this._path;
+    }
+
+    private _path2!: IPath;
+
+    private get path2(): IPath {
+        if (!this._path2) {
+            this._path2 = new Path();
+            // this._path2.backgroundColor = '#000';
+            this._path2.width = 100;
+            this._path2.height = 100;
+            this._path2.viewBox = '0 0 24 24';
+            this._path2.stroke = '#000';
+            this._path2.strokeWidth = 2;
+            // this._path2.d = Icons.FILM_02;
+        }
+        return this._path2;
     }
 
     private _stackContainer!: IStackContainer;
