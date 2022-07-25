@@ -10,7 +10,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "ignorePatterns": ["/lib"],
+  "ignorePatterns": ["/lib", "*.js"],
   "rules": {
     "@typescript-eslint/dot-notation": "off",
     "@typescript-eslint/indent": "off",
