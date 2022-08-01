@@ -14,6 +14,8 @@ import ArrayCollection from './data/ArrayCollection';
 import IArrayCollection from './data/IArrayCollection';
 import IPath from './svg/IPath';
 import Path from './svg/Path';
+import ITextBase from './text/ITextBase';
+import TextBase from './text/TextBase';
 
 export default class FuixDev extends Application {
     public constructor() {
@@ -36,7 +38,27 @@ export default class FuixDev extends Application {
         // this.addComponent(this.paragraph);
         // this.addComponent(this.paragraph2);
         this.gap = 64;
-        this.addComponents([this.path, this.path2]);
+        // this.addComponents([this.path, this.path2]);
+        this.addComponent(this.textBase);
+        console.log('[' + this.textBase.lineHeight + ']');
+    }
+
+    private _textBase!: ITextBase;
+
+    private get textBase(): ITextBase {
+        if (!this._textBase) {
+            this._textBase = new TextBase();
+            this._textBase.text = 'H Lorem ipsug and ÆØÅ æøå H';
+            this._textBase.fontFamily = 'system-ui';
+            this._textBase.fontSize = 64;
+            this._textBase.overflow = 'hidden';
+            this._textBase.textOverflow = 'ellipsis';
+            this._textBase.whiteSpace = 'nowrap';
+            // this._textBase.lineHeight = '1.4';
+            this._textBase.color = 'purple';
+            this._textBase.fontWeight = 700;
+        }
+        return this._textBase;
     }
 
     private _path!: IPath;
