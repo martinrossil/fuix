@@ -40,3 +40,5 @@ export { JustifyContent } from './types/JustifyContent';
 export { Overflow } from './types/Overflow';
 export { Position } from './types/Position';
 export { Target } from './types/Target';
+export { TextOverflow } from './types/TextOverflow';
+export { WhiteSpace } from './types/WhiteSpace';
