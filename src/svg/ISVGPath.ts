@@ -1,6 +1,6 @@
 import ISVG from './ISVG';
 
-export default interface IPath extends ISVG {
+export default interface ISVGPath extends ISVG {
     d: string;
     fill: string;
     stroke: string;

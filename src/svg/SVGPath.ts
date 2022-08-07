@@ -1,7 +1,7 @@
-import IPath from './IPath';
+import ISVGPath from './ISVGPath';
 import SVG from './SVG';
 
-export default class Path extends SVG implements IPath {
+export default class SVGPath extends SVG implements ISVGPath {
     public constructor() {
         super();
         this.svg.appendChild(this.path);
@@ -60,4 +60,4 @@ export default class Path extends SVG implements IPath {
         return this._path;
     }
 }
-customElements.define('fx-path', Path);
+customElements.define('fx-svg-path', SVGPath);

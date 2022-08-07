@@ -27,9 +27,9 @@ export { default as State } from './fsm/State';
 export { default as IMouseTouch } from './machines/IMouseTouch';
 export { default as MouseTouchMachine } from './machines/MouseTouchMachine';
 
-export { default as IPath } from './svg/IPath';
+export { default as ISVGPath } from './svg/ISVGPath';
 export { default as ISVG } from './svg/ISVG';
-export { default as Path } from './svg/Path';
+export { default as SVGPath } from './svg/SVGPath';
 export { default as SCG } from './svg/SVG';
 
 export { AlignItems } from './types/AlignItems';
