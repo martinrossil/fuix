@@ -27,10 +27,12 @@ export { default as State } from './fsm/State';
 export { default as IMouseTouch } from './machines/IMouseTouch';
 export { default as MouseTouchMachine } from './machines/MouseTouchMachine';
 
-export { default as ISVGPath } from './svg/ISVGPath';
 export { default as ISVG } from './svg/ISVG';
+export { default as ISVGPath } from './svg/ISVGPath';
+export { default as ISVGRectangle } from './svg/ISVGRectangle';
+export { default as SVG } from './svg/SVG';
 export { default as SVGPath } from './svg/SVGPath';
-export { default as SCG } from './svg/SVG';
+export { default as SVGRectangle } from './svg/SVGRectangle';
 
 export { AlignItems } from './types/AlignItems';
 export { Display } from './types/Display';
@@ -39,6 +41,8 @@ export { FontWeight } from './types/FontWeight';
 export { JustifyContent } from './types/JustifyContent';
 export { Overflow } from './types/Overflow';
 export { Position } from './types/Position';
+export { StrokeLineCap } from './types/StrokeLinecap';
+export { StrokeLineJoin } from './types/StrokeLineJoin';
 export { Target } from './types/Target';
 export { TextOverflow } from './types/TextOverflow';
 export { WhiteSpace } from './types/WhiteSpace';
