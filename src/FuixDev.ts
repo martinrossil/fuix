@@ -1,3 +1,4 @@
+import IBaseButton from './components/IBaseButton';
 import Application from './core/Application';
 import ISVGPath from './svg/ISVGPath';
 import ISVGRectangle from './svg/ISVGRectangle';
@@ -14,6 +15,8 @@ export default class FuixDev extends Application {
 
         this.addComponent(this.svgPath);
     }
+
+    private _baseButton!: IBaseButton;
 
     private _svgPath!: ISVGPath;
 
