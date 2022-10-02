@@ -1,4 +1,4 @@
-import { StrokeLineCap } from '../types/StrokeLinecap';
+import { StrokeLineCap } from '../types/StrokeLineCap';
 import { StrokeLineJoin } from '../types/StrokeLineJoin';
 import ISVG from './ISVG';
 
