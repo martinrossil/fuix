@@ -47,7 +47,7 @@ export { FontWeight } from './types/FontWeight';
 export { JustifyContent } from './types/JustifyContent';
 export { Overflow } from './types/Overflow';
 export { Position } from './types/Position';
-export { StrokeLineCap } from './types/StrokeLinecap';
+export { StrokeLineCap } from './types/StrokeLineCap';
 export { StrokeLineJoin } from './types/StrokeLineJoin';
 export { Target } from './types/Target';
 export { TextOverflow } from './types/TextOverflow';
