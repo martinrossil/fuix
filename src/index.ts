@@ -1,5 +1,7 @@
+export { default as BaseButton } from './components/BaseButton';
 export { default as DataContainer } from './components/DataContainer';
 export { default as DataRenderer } from './components/DataRenderer';
+export { default as IBaseButton } from './components/IBaseButton';
 export { default as IDataContainer } from './components/IDataContainer';
 export { default as IDataRenderer } from './components/IDataRenderer';
 export { default as ILinkContainer } from './components/ILinkContainer';
@@ -25,6 +27,7 @@ export { default as Machine } from './fsm/Machine';
 export { default as State } from './fsm/State';
 
 export { default as IMouseTouch } from './machines/IMouseTouch';
+export { default as MouseTouch } from './machines/MouseTouch';
 export { default as MouseTouchMachine } from './machines/MouseTouchMachine';
 
 export { default as ISVG } from './svg/ISVG';
@@ -33,6 +36,9 @@ export { default as ISVGRectangle } from './svg/ISVGRectangle';
 export { default as SVG } from './svg/SVG';
 export { default as SVGPath } from './svg/SVGPath';
 export { default as SVGRectangle } from './svg/SVGRectangle';
+
+export { default as ITextBase } from './text/ITextBase';
+export { default as TextBase } from './text/TextBase';
 
 export { AlignItems } from './types/AlignItems';
 export { Display } from './types/Display';
