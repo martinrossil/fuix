@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.1](https://github.com/martinrossil/fuix/compare/fuix-v0.4.0...fuix-v0.4.1) (2025-04-12)
+
+
+### Bug Fixes
+
+* bump version in release config ([4f6b6da](https://github.com/martinrossil/fuix/commit/4f6b6da2f5121d9e3ad811d666272ee8579565d6))
+* change release types to "released" ([1b935a7](https://github.com/martinrossil/fuix/commit/1b935a7b3c874e2d644655bca4c9853976fa1175))
+
 ## [0.4.0](https://github.com/martinrossil/fuix/compare/fuix-v0.3.0...fuix-v0.4.0) (2025-04-12)
 
 
