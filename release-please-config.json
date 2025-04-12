@@ -3,6 +3,9 @@
 	"packages": {
 		".": {}
 	},
+	"plugins": [
+		"node-workspace"
+	],
 	"changelog-sections": [
 		{
 			"type": "build",
