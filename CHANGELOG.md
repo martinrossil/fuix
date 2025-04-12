@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.4.0](https://github.com/martinrossil/fuix/compare/fuix-v0.3.0...fuix-v0.4.0) (2025-04-12)
+
+
+### Miscellaneous Chores
+
+* release main ([2ffaf12](https://github.com/martinrossil/fuix/commit/2ffaf12f8e99f0eb49149b383cc6ffd9f206ab85))
+* release main ([7966286](https://github.com/martinrossil/fuix/commit/7966286e967fc7f454d6c0c16a3517368e0adfe8))
+
+
+### Features
+
+* change release type ([d6306f8](https://github.com/martinrossil/fuix/commit/d6306f8f00d591f87ecbb2a235255bdf6f375acf))
+
+
+### Bug Fixes
+
+* add node-workspace ([32651a3](https://github.com/martinrossil/fuix/commit/32651a3fbc1b624e96950fe78621c7940ce00776))
+
 ## [0.3.1](https://github.com/martinrossil/fuix/compare/fuix-v0.3.0...fuix-v0.3.1) (2025-04-12)
 
 
