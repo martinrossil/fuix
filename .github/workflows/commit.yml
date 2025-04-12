@@ -1,6 +1,12 @@
 name: Commit workflow
 on:
   push
+
+permissions:
+  issues: write
+  contents: write
+  pull-requests: write
+
 jobs:
   lint:
     name: Lint
@@ -76,9 +82,6 @@ jobs:
   release-please:
     name: Release Please
     needs: test
-    permissions:
-      contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
     outputs:
       paths_released: ${{ steps.release.outputs.paths_released }}
