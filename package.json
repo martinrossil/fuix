@@ -1,7 +1,7 @@
 {
 	"name": "fuix",
 	"type": "module",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "Build Web Apps, using Figma compatible Web Components in 100% pure Typescript",
 	"author": "Martin Rossil (martinrossil@gmail.com)",
 	"license": "MIT",
