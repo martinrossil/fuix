@@ -1,4 +1,5 @@
 ![npm](https://img.shields.io/npm/v/fuix)
+![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/fuix)
 ![NPM Downloads](https://img.shields.io/npm/dm/fuix)
 ![NPM](https://img.shields.io/npm/l/fuix)
 [![Coverage Status](https://coveralls.io/repos/github/martinrossil/fuix/badge.svg?branch=main)](https://coveralls.io/github/martinrossil/fuix?branch=main)
