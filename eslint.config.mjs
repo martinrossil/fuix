@@ -18,6 +18,7 @@ export default antfu({
 		'perfectionist/sort-switch-case': 'error',
 		'perfectionist/sort-union-types': 'error',
 		'perfectionist/sort-variable-declarations': 'error',
+		'ts/restrict-template-expressions': 'off',
 	},
 	stylistic: {
 		indent: 'tab',
