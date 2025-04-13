@@ -2,17 +2,17 @@ import { describe, expect, it } from 'vitest';
 import Hex from './hex';
 
 describe('hex', () => {
-	describe('assert_is_valid_hex', () => {
-		it('when new Hex("#123456"), to_style_string() should return "#123456"', () => {
+	describe('asserts toStyleString() returns correct value', () => {
+		it('when new Hex("#123456"), toStyleString() should return "#123456"', () => {
 			const hex = new Hex('#123456');
 			expect(hex.toStyleString()).toBe('#123456FF');
 		});
-		it('when new Hex("#123456", 0.5), to_style_string() should return "#12345680"', () => {
+		it('when new Hex("#123456", 0.5), toStyleString() should return "#12345680"', () => {
 			const hex = new Hex('#123456', 0.5);
 			expect(hex.toStyleString()).toBe('#12345680');
 		});
 	});
-	describe('assert_hex_throws', () => {
+	describe('asserts Hex throws correctly', () => {
 		it('when new Hex("#12345"), it should throw a TypeError', () => {
 			expect(() => {
 				// eslint-disable-next-line no-new
