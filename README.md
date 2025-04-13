@@ -2,7 +2,7 @@
 ![NPM](https://img.shields.io/npm/l/fuix)
 [![Coverage Status](https://coveralls.io/repos/github/martinrossil/fuix/badge.svg?branch=main)](https://coveralls.io/github/martinrossil/fuix?branch=main)
 ![GitHub Actions](https://github.com/martinrossil/fuix/actions/workflows/commit.yml/badge.svg)
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/martinrossil/figui)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/martinrossil/fuix)
 
 # fuix
 
