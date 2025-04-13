@@ -1,12 +1,6 @@
 name: Commit workflow
 on:
   push
-
-permissions:
-  issues: write
-  contents: write
-  pull-requests: write
-
 jobs:
   lint:
     name: Lint
@@ -20,20 +14,12 @@ jobs:
         with:
           node-version: 22
 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: |
-            node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
-
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm install
 
       - name: Lint
         run: npm run lint
+
   test:
     name: Test
     needs: lint
@@ -47,42 +33,28 @@ jobs:
         with:
           node-version: 22
 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: |
-            node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
-
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm install
 
-      - name: Cache Playwright binaries
-        uses: actions/cache@v3
-        id: cache-playwright
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: playwright-${{ hashFiles('package-lock.json') }}
+      - name: Build fuix
+        run: npm run build
 
-      - name: Install Playwright Browsers
-        if: steps.cache-playwright.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
+      - name: Install Playwright
+        run: npx playwright install
 
       - name: Test
         run: npm run test:ci
 
-      - name: Push Coveralls
+      - name: Coveralls
         uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   release-please:
     name: Release Please
     needs: test
-    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-24.04
     outputs:
       paths_released: ${{ steps.release.outputs.paths_released }}
     steps:
@@ -97,3 +69,33 @@ jobs:
         with:
           release-type: node
           command: manifest
+          monorepo-tags: true
+
+  publish-fuix:
+    if: contains(needs.release-please.outputs.paths_released, 'packages/fuix')
+    name: Publish fuix to NPM
+    needs: release-please
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+          cache: npm
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build fuix
+        run: npm run build
+
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN  }}
+          package: packages/fuix
+          access: public

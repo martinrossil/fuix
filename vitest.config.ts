@@ -6,8 +6,8 @@ export default defineConfig({
 		browser: {
 			enabled: true,
 			headless: true,
-			instances: [{ browser: 'chromium' }],
-			provider: 'playwright',
+			name: 'chromium', // browser name is required
+			provider: 'playwright', // or 'webdriverio'
 			screenshotFailures: false,
 			viewport: {
 				height: 1000,
@@ -15,8 +15,11 @@ export default defineConfig({
 			},
 		},
 		coverage: {
-			exclude: ['src/index.ts'],
-			include: ['src/**/*.ts'],
+			exclude: [
+				'packages/**/src/**/*test.ts',
+				'packages/**/src/index.ts',
+			],
+			include: ['packages/**/src/**/*.ts'],
 			reporter: ['lcovonly'],
 		},
 	},

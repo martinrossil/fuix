@@ -11,7 +11,7 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		minify: false,
-		outDir: 'dist',
+		outDir: './dist',
 		sourcemap: 'inline',
 		target: 'esnext',
 	},

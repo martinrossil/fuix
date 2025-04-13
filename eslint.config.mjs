@@ -1,7 +1,6 @@
 import antfu from '@antfu/eslint-config';
 
 export default antfu({
-	ignores: ['src/index.ts'],
 	rules: {
 		'perfectionist/sort-array-includes': 'error',
 		'perfectionist/sort-classes': 'error',

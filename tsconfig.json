@@ -1,22 +1,19 @@
 {
 	"compilerOptions": {
+		"composite": true,
 		"target": "ESNext",
-		"rootDir": "src",
 		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"strict": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noUncheckedIndexedAccess": true,
 		"declaration": true,
-		"declarationDir": "dist",
+		"declarationDir": "lib",
 		"declarationMap": false,
-		"emitDeclarationOnly": true,
-		"outDir": "dist",
 		"forceConsistentCasingInFileNames": true,
 		"isolatedModules": true,
 		"skipLibCheck": true
-	},
-	"include": ["src"]
+	}
 }
