@@ -8,6 +8,7 @@ export default defineConfig({
 			entry: [
 				'./src/index.ts',
 			],
+			fileName: (_, entryName) => `${entryName}.js`,
 			formats: ['es'],
 		},
 		minify: false,
