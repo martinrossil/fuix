@@ -6,7 +6,7 @@ export default class Hex {
 	 * The <hex-color> CSS data type is a notation for describing the hexadecimal color syntax of an sRGB color using its primary color components (red, green, blue) written as hexadecimal numbers, as well as its transparency.
 	 *
 	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color} for syntax
-	 * @param hex an instance of the Hex class
+	 * @param hex a string in the format '#RRGGBB'
 	 * @param opacity opacity represented as a number from 0 to 1
 	 */
 	public constructor(hex: `#${string}`, opacity = 1) {
