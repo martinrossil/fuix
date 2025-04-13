@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.1](https://github.com/martinrossil/fuix/compare/fuix-v1.1.0...fuix-v1.1.1) (2025-04-13)
+
+
+### Documentation
+
+* update README badges ([c43d7cb](https://github.com/martinrossil/fuix/commit/c43d7cb8262ad1059a903a6c23701fa3561e6821))
+
+
+### Bug Fixes
+
+* change file extension to .js ([6fc0569](https://github.com/martinrossil/fuix/commit/6fc05699b3ac233b35b666fd866fc8fbcf1aaa37))
+
 ## [1.1.0](https://github.com/martinrossil/fuix/compare/fuix-v1.0.3...fuix-v1.1.0) (2025-04-13)
 
 
