@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/martinrossil/fuix/compare/fuix-v1.0.1...fuix-v1.0.2) (2025-04-13)
+
+
+### Bug Fixes
+
+* test release please ([037e759](https://github.com/martinrossil/fuix/commit/037e75999138be755815f74c7c41f9e8cf109133))
+
 ## [1.0.1](https://github.com/martinrossil/fuix/compare/fuix-v1.0.0...fuix-v1.0.1) (2025-04-13)
 
 
