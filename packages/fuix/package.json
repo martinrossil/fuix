@@ -5,6 +5,10 @@
 	"description": "Build Web Apps, using Figma compatible Web Components in 100% pure Typescript",
 	"author": "Martin Rossil (martinrossil@gmail.com)",
 	"license": "MIT",
+	"homepage": "https://github.com/martinrossil/fuix#readme",
+	"bugs": {
+		"url": "https://github.com/martinrossil/fuix/issues"
+	},
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
