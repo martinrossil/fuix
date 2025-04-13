@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.1.0](https://github.com/martinrossil/fuix/compare/fuix-v1.0.3...fuix-v1.1.0) (2025-04-13)
+
+
+### Documentation
+
+* update hex.test.ts documentation ([418debe](https://github.com/martinrossil/fuix/commit/418debe6e57d24eec34cd2adbbcf120818a63b90))
+* update hex.ts documentation ([ff1f1b8](https://github.com/martinrossil/fuix/commit/ff1f1b806a726cc263c2d5ad93e84f54946334a5))
+
+
+### Features
+
+* create Hex class and test ([fcba855](https://github.com/martinrossil/fuix/commit/fcba855a666505262bff47d99134cae93644679c))
+* create StopColor and test ([dba2eca](https://github.com/martinrossil/fuix/commit/dba2eca9c187597f323ef6676a499f131d8824f6))
+
+
+### Bug Fixes
+
+* update package main & module file paths to .mjs ([1dc99f6](https://github.com/martinrossil/fuix/commit/1dc99f6a42a9026882befd97225d17127b628df6))
+
 ## [1.0.3](https://github.com/martinrossil/fuix/compare/fuix-v1.0.2...fuix-v1.0.3) (2025-04-13)
 
 
