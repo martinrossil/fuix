@@ -1,4 +1,5 @@
 ![npm](https://img.shields.io/npm/v/fuix)
+![npm bundle size](https://img.shields.io/bundlephobia/min/fuix)
 ![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/fuix)
 ![NPM Downloads](https://img.shields.io/npm/dm/fuix)
 ![NPM](https://img.shields.io/npm/l/fuix)
