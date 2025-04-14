@@ -20,7 +20,7 @@ jobs:
         with:
           path: |
             node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
+          key: node_modules
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
@@ -48,7 +48,7 @@ jobs:
         with:
           path: |
             node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
+          key: node_modules
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
@@ -63,7 +63,7 @@ jobs:
         with:
           path: |
             ~/.cache/ms-playwright
-          key: playwright-${{ hashFiles('package-lock.json') }}
+          key: playwright_browsers
 
       - name: Install Playwright Browsers
         if: steps.cache-playwright.outputs.cache-hit != 'true'
@@ -121,7 +121,7 @@ jobs:
         with:
           path: |
             node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
+          key: node_modules
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
