@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.3.0](https://github.com/martinrossil/fuix/compare/mono-v0.2.2...mono-v0.3.0) (2025-04-14)
+
+
+### Continuous Integration
+
+* add issues write permission to release please ([8215e1b](https://github.com/martinrossil/fuix/commit/8215e1b1b8ed846f58ca30974fac8439e07f1cf1))
+
+
+### Features
+
+* Create LinearGradient class closes [#44](https://github.com/martinrossil/fuix/issues/44) ([009bd7a](https://github.com/martinrossil/fuix/commit/009bd7ac8e2087b8de0665061ad8b6fbcc584a32))
+
+
+### Tests
+
+* Create LinearGradient test closes [#45](https://github.com/martinrossil/fuix/issues/45) ([c9079b8](https://github.com/martinrossil/fuix/commit/c9079b858548a9b3c2b85bf0bbe4ca9a4476f129))
+
 ## [0.2.2](https://github.com/martinrossil/fuix/compare/mono-v0.2.1...mono-v0.2.2) (2025-04-14)
 
 
