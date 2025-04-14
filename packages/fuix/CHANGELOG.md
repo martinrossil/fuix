@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/martinrossil/fuix/compare/fuix-v1.1.1...fuix-v1.1.2) (2025-04-14)
+
+
+### Documentation
+
+* update README badges ([d681123](https://github.com/martinrossil/fuix/commit/d681123abc8a862c26e8a02f37c214d86a457d40))
+* update README badges ([e319886](https://github.com/martinrossil/fuix/commit/e319886957313f487ab48971f5d1edb00371e2dc))
+
 ## [1.1.1](https://github.com/martinrossil/fuix/compare/fuix-v1.1.0...fuix-v1.1.1) (2025-04-13)
 
 
