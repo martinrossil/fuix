@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/martinrossil/fuix/compare/mono-v0.4.0...mono-v0.4.1) (2025-04-14)
+
+
+### Documentation
+
+* add minified size badge ([2d9354e](https://github.com/martinrossil/fuix/commit/2d9354ec62881e8f7f579e564aafdfe976b60be3))
+
 ## [0.4.0](https://github.com/martinrossil/fuix/compare/mono-v0.3.0...mono-v0.4.0) (2025-04-14)
 
 

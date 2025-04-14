@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/martinrossil/fuix/compare/fuix-v1.3.0...fuix-v1.3.1) (2025-04-14)
+
+
+### Documentation
+
+* add minified size badge ([2d9354e](https://github.com/martinrossil/fuix/commit/2d9354ec62881e8f7f579e564aafdfe976b60be3))
+
 ## [1.3.0](https://github.com/martinrossil/fuix/compare/fuix-v1.2.0...fuix-v1.3.0) (2025-04-14)
 
 
