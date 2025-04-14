@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.2](https://github.com/martinrossil/fuix/compare/mono-v0.2.1...mono-v0.2.2) (2025-04-14)
+
+
+### Continuous Integration
+
+* update cache to use static keys ([8b7d324](https://github.com/martinrossil/fuix/commit/8b7d324b2affffe17dc7e5f69629396589b07f13))
+
+
+### Documentation
+
+* update README badges ([d681123](https://github.com/martinrossil/fuix/commit/d681123abc8a862c26e8a02f37c214d86a457d40))
+* update README badges ([e319886](https://github.com/martinrossil/fuix/commit/e319886957313f487ab48971f5d1edb00371e2dc))
+
 ## [0.2.1](https://github.com/martinrossil/fuix/compare/mono-v0.2.0...mono-v0.2.1) (2025-04-13)
 
 
