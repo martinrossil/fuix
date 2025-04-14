@@ -9,6 +9,7 @@ export default class Stroke {
 	/**
 	 * The outline CSS shorthand property sets most of the outline properties in a single declaration.
 	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/outline} for syntax
 	 * @param color an instance of the Hex class
 	 * @param weight the thickness of the stroke in pixels
 	 * @param position the position of the stroke relative to the bounding box
