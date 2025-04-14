@@ -1,5 +1,38 @@
 # Changelog
 
+## [0.4.0](https://github.com/martinrossil/fuix/compare/mono-v0.3.0...mono-v0.4.0) (2025-04-14)
+
+
+### Documentation
+
+* update Stroke comments ([561625c](https://github.com/martinrossil/fuix/commit/561625ccdcd9639ca55b3dfe596230cebe05a6ca))
+
+
+### Features
+
+* create Application class ([ef7be59](https://github.com/martinrossil/fuix/commit/ef7be59ddf2ee934951ca648c6b9a6da72ca8797))
+* create Container class ([973b338](https://github.com/martinrossil/fuix/commit/973b338ec4f7301640d5ae7d2f1f18497660bd7d))
+* Create DropShadow class closes [#50](https://github.com/martinrossil/fuix/issues/50) ([f7d288e](https://github.com/martinrossil/fuix/commit/f7d288ef4fbd4657221ce35382ec6def6337b315))
+* Create Observable class ([d207a2d](https://github.com/martinrossil/fuix/commit/d207a2d8ee93f883252564e08935aa3adee2003a))
+* Create Stroke class closes [#47](https://github.com/martinrossil/fuix/issues/47) ([4b1c904](https://github.com/martinrossil/fuix/commit/4b1c9047d73c4775bd5eab8d957cf2e7cd74baee))
+* create Text class closes [#52](https://github.com/martinrossil/fuix/issues/52) ([90a866b](https://github.com/martinrossil/fuix/commit/90a866bdb02b4691ac5ddda94aa068698e237319))
+
+
+### Code Refactoring
+
+* convert snake_case to camelCase ([ce2adfb](https://github.com/martinrossil/fuix/commit/ce2adfb4c4f5ab73cf7fc333a23a5d53a63a2134))
+
+
+### Tests
+
+* add missing tests ([bafe5fc](https://github.com/martinrossil/fuix/commit/bafe5fc7bf9392b3aa379fbf1afdbb3faee66a2b))
+* create Application test ([cf234b3](https://github.com/martinrossil/fuix/commit/cf234b3ee234ff949fd3ba3130a56b645c2ed517))
+* create Container test ([47bf797](https://github.com/martinrossil/fuix/commit/47bf79759721f42071e250a1afd321150ef16061))
+* Create DropShadow test closes [#51](https://github.com/martinrossil/fuix/issues/51) ([59cdbad](https://github.com/martinrossil/fuix/commit/59cdbad101fe27414228ed684d0803749569fdf5))
+* Create Observable test closes [#56](https://github.com/martinrossil/fuix/issues/56) closes [#57](https://github.com/martinrossil/fuix/issues/57) ([b75f095](https://github.com/martinrossil/fuix/commit/b75f095c37d35cda7a774c50a344010514be5e6b))
+* Create Stroke test closes [#48](https://github.com/martinrossil/fuix/issues/48) ([7843b78](https://github.com/martinrossil/fuix/commit/7843b7828adc6bd464a75c05bc1f377f23e8711b))
+* create Text test closes [#53](https://github.com/martinrossil/fuix/issues/53) ([d39302c](https://github.com/martinrossil/fuix/commit/d39302c42637153fb4bcafdb3444da8c7188bf09))
+
 ## [0.3.0](https://github.com/martinrossil/fuix/compare/mono-v0.2.2...mono-v0.3.0) (2025-04-14)
 
 
