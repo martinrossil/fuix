@@ -26,6 +26,16 @@ describe('observable', () => {
 		obs.value = false;
 		expect(has_been_invoked).toBe(false);
 	});
+	it('when value is NaN and value = NaN, listener should not invoked"', () => {
+		const obs = observable(Number.NaN);
+		let has_been_invoked = false;
+		const listener = () => {
+			has_been_invoked = true;
+		};
+		obs.add(listener);
+		obs.value = Number.NaN;
+		expect(has_been_invoked).toBe(false);
+	});
 	it('when observable.value is changed, value should have been changed"', () => {
 		const obs = observable(true);
 		obs.value = false;
