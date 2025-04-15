@@ -11,5 +11,4 @@
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/martinrossil/fuix)
 
 # fuix
-
-#### Build Web Apps, using Figma compatible Web Components in 100% pure Typescript
+Closes the gap, between Design and Implementation, with Figma compatible Web Components.
