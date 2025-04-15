@@ -376,7 +376,7 @@ describe('text', () => {
 				}).toThrow(TypeError);
 			});
 		});
-		describe('truncateText', () => {
+		describe('truncate', () => {
 			it('default #text_content.style.overflow should be "visible"', (): void => {
 				const text = new Text();
 				const text_content = text.firstChild;
@@ -398,25 +398,25 @@ describe('text', () => {
 					expect(text_content.style.webkitBoxOrient).toBe('');
 				}
 			});
-			it('default truncateText should be false', (): void => {
+			it('default truncate should be false', (): void => {
 				const text = new Text();
-				expect(text.truncateText).toBe(false);
+				expect(text.truncate).toBe(false);
 			});
-			it('when truncateText = true, truncateText should be true', (): void => {
+			it('when truncate = true, truncate should be true', (): void => {
 				const text = new Text();
-				text.truncateText = true;
-				expect(text.truncateText).toBe(true);
+				text.truncate = true;
+				expect(text.truncate).toBe(true);
 			});
-			it('when truncateText = true and then false, truncateText should be false', (): void => {
+			it('when truncate = true and then false, truncate should be false', (): void => {
 				const text = new Text();
-				text.truncateText = true;
-				text.truncateText = false;
-				expect(text.truncateText).toBe(false);
+				text.truncate = true;
+				text.truncate = false;
+				expect(text.truncate).toBe(false);
 			});
-			describe('given truncateText = true', (): void => {
+			describe('given truncate = true', (): void => {
 				it('#text_content.style.overflow should be "hidden"', (): void => {
 					const text = new Text();
-					text.truncateText = true;
+					text.truncate = true;
 					document.body.appendChild(text);
 					const text_content = text.firstChild;
 					if (text_content instanceof HTMLElement) {
@@ -426,7 +426,7 @@ describe('text', () => {
 				});
 				it('#text_content.style.display should be "-webkit-box"', (): void => {
 					const text = new Text();
-					text.truncateText = true;
+					text.truncate = true;
 					document.body.appendChild(text);
 					const text_content = text.firstChild;
 					if (text_content instanceof HTMLElement) {
@@ -436,7 +436,7 @@ describe('text', () => {
 				});
 				it('#text_content.style.webkitBoxOrient should be "vertical"', (): void => {
 					const text = new Text();
-					text.truncateText = true;
+					text.truncate = true;
 					document.body.appendChild(text);
 					const text_content = text.firstChild;
 					if (text_content instanceof HTMLElement) {
@@ -446,7 +446,7 @@ describe('text', () => {
 				});
 				it('#text_content.style.webkitLineClamp should be "1"', (): void => {
 					const text = new Text();
-					text.truncateText = true;
+					text.truncate = true;
 					document.body.appendChild(text);
 					const text_content = text.firstChild;
 					if (text_content instanceof HTMLElement) {
@@ -455,11 +455,11 @@ describe('text', () => {
 					text.remove();
 				});
 			});
-			describe('given truncateText = true and truncateText = false', (): void => {
+			describe('given truncate = true and truncate = false', (): void => {
 				it('#text_content.style.overflow should be "visible"', (): void => {
 					const text = new Text();
-					text.truncateText = true;
-					text.truncateText = false;
+					text.truncate = true;
+					text.truncate = false;
 					document.body.appendChild(text);
 					const text_content = text.firstChild;
 					if (text_content instanceof HTMLElement) {
@@ -469,8 +469,8 @@ describe('text', () => {
 				});
 				it('#text_content.style.display should be "inline-block"', (): void => {
 					const text = new Text();
-					text.truncateText = true;
-					text.truncateText = false;
+					text.truncate = true;
+					text.truncate = false;
 					document.body.appendChild(text);
 					const text_content = text.firstChild;
 					if (text_content instanceof HTMLElement) {
@@ -480,8 +480,8 @@ describe('text', () => {
 				});
 				it('#text_content.style.webkitBoxOrient should be ""', (): void => {
 					const text = new Text();
-					text.truncateText = true;
-					text.truncateText = false;
+					text.truncate = true;
+					text.truncate = false;
 					document.body.appendChild(text);
 					const text_content = text.firstChild;
 					if (text_content instanceof HTMLElement) {
@@ -490,11 +490,11 @@ describe('text', () => {
 					text.remove();
 				});
 			});
-			it('when truncateText = "Hello", it should throw a TypeError', () => {
+			it('when truncate = "Hello", it should throw a TypeError', () => {
 				expect(() => {
 					const text = new Text();
 					// @ts-expect-error we are testing invalid value
-					text.truncateText = 'Hello';
+					text.truncate = 'Hello';
 				}).toThrow(TypeError);
 			});
 		});

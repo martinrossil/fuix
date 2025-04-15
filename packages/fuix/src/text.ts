@@ -10,10 +10,18 @@ export default class Text extends Component {
 		this.invalidateProperties();
 	}
 
+	/**
+	 * The raw characters in the text Component.
+	 */
 	public get characters(): string {
 		return this.#characters;
 	}
 
+	/**
+	 * The color CSS property sets the foreground color value of an element's text and text decorations, and sets the currentcolor value. currentcolor may be used as an indirect value on other properties and is the default for other color properties, such as border-color.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/color} for syntax
+	 */
 	public set fill(value: Hex | LinearGradient | null) {
 		assertIsValidFill(value);
 		this.#fill = value;
@@ -25,6 +33,11 @@ export default class Text extends Component {
 		return this.#fill;
 	}
 
+	/**
+	 * The font-family CSS property specifies a prioritized list of one or more font family names and/or generic family names for the selected element.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-family} for syntax
+	 */
 	public set fontFamily(value: string) {
 		assertIsString(value);
 		this.#fontFamily = value;
@@ -36,6 +49,11 @@ export default class Text extends Component {
 		return this.#fontFamily;
 	}
 
+	/**
+	 * The font size in pixels
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-size} for syntax
+	 */
 	public set fontSize(value: number) {
 		assertIsNonNegative(value);
 		this.#fontSize = value;
@@ -47,6 +65,11 @@ export default class Text extends Component {
 		return this.#fontSize;
 	}
 
+	/**
+	 * The font-weight CSS property sets the weight (or boldness) of the font. Valid values are from 1 to 1000.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight} for syntax
+	 */
 	public set fontWeight(value: number) {
 		assertIsFromOneToThousand(value);
 		this.#fontWeight = value;
@@ -58,6 +81,11 @@ export default class Text extends Component {
 		return this.#fontWeight;
 	}
 
+	/**
+	 * The letter-spacing CSS property sets the horizontal spacing behavior between text characters. This value is added to the natural spacing between characters while rendering the text. Positive values of letter-spacing causes characters to spread farther apart, while negative values of letter-spacing bring characters closer together. Valid values are positive and negative numbers in pixels.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing} for syntax
+	 */
 	public set letterSpacing(value: number) {
 		assertIsNumber(value);
 		this.#letterSpacing = value;
@@ -69,6 +97,11 @@ export default class Text extends Component {
 		return this.#letterSpacing;
 	}
 
+	/**
+	 * The line-height CSS property sets the height of a line box in horizontal writing modes. In vertical writing modes, it sets the width of a line box. It's commonly used to set the distance between lines of text. On block-level elements in horizontal writing modes, it specifies the preferred height of line boxes within the element, and on non-replaced inline elements, it specifies the height that is used to calculate line box height.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/line-height} for syntax
+	 */
 	public set lineHeight(value: 'auto' | number) {
 		assertIsValidLineHeight(value);
 		this.#lineHeight = value;
@@ -80,6 +113,11 @@ export default class Text extends Component {
 		return this.#lineHeight;
 	}
 
+	/**
+	 * The line-clamp CSS property allows limiting of the contents of a block to the specified number of lines.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/line-clamp} for syntax
+	 */
 	public set maxLines(value: number) {
 		assertIsPositiveInteger(value);
 		this.#maxLines = value;
@@ -91,6 +129,11 @@ export default class Text extends Component {
 		return this.#maxLines;
 	}
 
+	/**
+	 * The user-select CSS property controls whether the user can select text. This doesn't have any effect on content loaded as part of a browser's user interface (its chrome), except in textboxes.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/user-select} for syntax
+	 */
 	public set selectable(value: boolean) {
 		assertIsBoolean(value);
 		this.#selectable = value;
@@ -102,6 +145,11 @@ export default class Text extends Component {
 		return this.#selectable;
 	}
 
+	/**
+	 * The text-align CSS property sets the horizontal alignment of the inline-level content inside a block element. This means it works like vertical-align but in the horizontal direction.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/text-align} for syntax
+	 */
 	public set textAlignHorizontal(value: 'center' | 'justified' | 'left' | 'right') {
 		assertIsValidTextAlignHorizontal(value);
 		this.#textAlignHorizontal = value;
@@ -113,6 +161,9 @@ export default class Text extends Component {
 		return this.#textAlignHorizontal;
 	}
 
+	/**
+	 * The textAlignVertical property, sets the vertical alignment of the text.
+	 */
 	public set textAlignVertical(value: 'bottom' | 'middle' | 'top') {
 		assertIsValidTextAlignVertical(value);
 		this.#textAlignVertical = value;
@@ -124,17 +175,27 @@ export default class Text extends Component {
 		return this.#textAlignVertical;
 	}
 
-	public set truncateText(value: boolean) {
+	/**
+	 * The truncate property, sets if the text should be cut off and show three dots (...), if there is not enough space to show al the text.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow} for syntax
+	 */
+	public set truncate(value: boolean) {
 		assertIsBoolean(value);
-		this.#truncateText = value;
-		this.#truncateTextChanged = true;
+		this.#truncate = value;
+		this.#truncateChanged = true;
 		this.invalidateProperties();
 	}
 
-	public get truncateText(): boolean {
-		return this.#truncateText;
+	public get truncate(): boolean {
+		return this.#truncate;
 	}
 
+	/**
+	 * The text-box CSS property is a shorthand that corresponds to the text-box-trim and text-box-edge properties, which together specify the amount of space to trim from the block-start edge and block-end edge of a text element's block container.
+	 *
+	 * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/text-box} for syntax
+	 */
 	public set verticalTrim(value: 'cap' | 'standard') {
 		assert_is_valid_verticalTrim(value);
 		this.#verticalTrim = value;
@@ -192,9 +253,9 @@ export default class Text extends Component {
 
 	#textContent: Component;
 
-	#truncateText: boolean;
+	#truncate: boolean;
 
-	#truncateTextChanged: boolean;
+	#truncateChanged: boolean;
 
 	#verticalTrim: 'cap' | 'standard';
 
@@ -242,10 +303,15 @@ export default class Text extends Component {
 		this.#textContent.style.webkitBackgroundClip = '';
 		this.#textContent.style.webkitLineClamp = '1';
 		this.#textContent.style.webkitTextFillColor = '';
-		this.#truncateText = false;
-		this.#truncateTextChanged = false;
+		this.#truncate = false;
+		this.#truncateChanged = false;
 		this.#verticalTrim = 'standard';
 		this.#verticalTrimChanged = false;
+		/**
+		 * The #textContent child Component is used instead of the textContent property,
+		 * because we need to support vertical alignment, which is not possible using a
+		 * single HTML Element
+		 */
 		this.appendChild(this.#textContent);
 	}
 
@@ -281,8 +347,8 @@ export default class Text extends Component {
 		if (this.#textAlignVerticalChanged) {
 			this.#commitTextAlignVertical();
 		}
-		if (this.#truncateTextChanged || this.#maxLinesChanged) {
-			this.#commitTruncateText();
+		if (this.#truncateChanged || this.#maxLinesChanged) {
+			this.#committruncate();
 			this.#commitMaxLines();
 		}
 		if (this.#verticalTrimChanged) {
@@ -385,9 +451,9 @@ export default class Text extends Component {
 		}
 	}
 
-	#commitTruncateText(): void {
-		this.#truncateTextChanged = false;
-		if (this.#truncateText) {
+	#committruncate(): void {
+		this.#truncateChanged = false;
+		if (this.#truncate) {
 			this.#textContent.style.overflow = 'hidden';
 			this.#textContent.style.display = '-webkit-box';
 			this.#textContent.style.webkitBoxOrient = 'vertical';
