@@ -2,6 +2,9 @@ import Container from './container';
 import Hex from './hex';
 import LinearGradient from './linear-gradient';
 
+/**
+ * The root HTML node, that you extend and add to your index.html file inside the <body/> tag.
+ */
 export default class Application extends Container {
 	override set fill(value: Hex | LinearGradient | null) {
 		assertIsValidFill(value);
