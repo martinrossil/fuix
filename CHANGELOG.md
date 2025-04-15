@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.5.0](https://github.com/martinrossil/fuix/compare/mono-v0.4.1...mono-v0.5.0) (2025-04-15)
+
+
+### Documentation
+
+* add Application comment ([11a1fcc](https://github.com/martinrossil/fuix/commit/11a1fccfdd4e3986af3277579bf4b66d65ec7412))
+* update README's ([6b30885](https://github.com/martinrossil/fuix/commit/6b30885bb183dba904b736196ab2be12e399a3e4))
+
+
+### Features
+
+* remove observable helper function and use new Observable instead ([e9b5dd9](https://github.com/martinrossil/fuix/commit/e9b5dd973e03e07be9912b602b19238a9772033b))
+* rename truncateText to truncate and add more comments ([3d0bea2](https://github.com/martinrossil/fuix/commit/3d0bea2f88c5360bdfe5a0f7151a94db74a7738e))
+
 ## [0.4.1](https://github.com/martinrossil/fuix/compare/mono-v0.4.0...mono-v0.4.1) (2025-04-14)
 
 
