@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import Container from './container';
 import Hex from './hex';
 import LinearGradient from './linear-gradient';
-import { observable } from './observable';
+import Observable from './observable';
 import StopColor from './stop-color';
 import Stroke from './stroke';
 
@@ -1086,7 +1086,7 @@ describe('container', () => {
 			});
 			it('when visible is set to an Observable, and value is set to false, style.display should be "none"', () => {
 				const container = new Container();
-				const obs = observable(true);
+				const obs = new Observable(true);
 				container.visible = obs;
 				document.body.appendChild(container);
 				obs.value = false;

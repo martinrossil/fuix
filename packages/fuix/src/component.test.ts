@@ -4,7 +4,7 @@ import Component from './component';
 import Container from './container';
 import DropShadow from './drop-shadow';
 import Hex from './hex';
-import { observable } from './observable';
+import Observable from './observable';
 
 describe('component', () => {
 	describe('default style properties', () => {
@@ -322,7 +322,7 @@ describe('component', () => {
 			});
 			it('when visible is set to an Observable, and value is set to false, style.display should be "none"', () => {
 				const component = new Component();
-				const obs = observable(true);
+				const obs = new Observable(true);
 				component.visible = obs;
 				document.body.appendChild(component);
 				obs.value = false;

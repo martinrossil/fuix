@@ -1,7 +1,7 @@
 import Component from './component';
 import Hex from './hex';
 import LinearGradient from './linear-gradient';
-import { Observable } from './observable';
+import Observable from './observable';
 import Stroke from './stroke';
 
 export default class Container extends Component {

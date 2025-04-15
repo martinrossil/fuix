@@ -1,5 +1,5 @@
 import DropShadow from './drop-shadow';
-import { Observable } from './observable';
+import Observable from './observable';
 
 export default class Component extends HTMLElement {
 	public set cursor(value: '' | 'pointer') {

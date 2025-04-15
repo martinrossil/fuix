@@ -1,9 +1,9 @@
 type Listener<T> = (value: T) => void;
 
 /**
- * TEsting
+ * A reactive generic primitive with an observable value property.
  */
-export class Observable<T> {
+export default class Observable<T> {
 	public get value(): T {
 		return this.#value;
 	}
@@ -57,14 +57,4 @@ export class Observable<T> {
 	public remove(listener: Listener<T>): boolean {
 		return this.listeners.delete(listener);
 	}
-}
-
-/**
- * Returns a new instance of Observable with value of type T
- *
- * @param value initial value of type T
- * @returns Observable<T>
- */
-export function observable<T>(value: T): Observable<T> {
-	return new Observable<T>(value);
 }
