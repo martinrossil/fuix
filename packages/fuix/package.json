@@ -1,6 +1,6 @@
 {
 	"name": "fuix",
-	"version": "1.3.1",
+	"version": "1.4.0",
 	"private": false,
 	"description": "Build Web Apps, using Figma compatible Web Components in 100% pure Typescript",
 	"author": "Martin Rossil (martinrossil@gmail.com)",
